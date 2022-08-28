@@ -9,11 +9,11 @@
 locale                   : "en-US"
 title                    : "Home"
 title_separator          : "-"
-name                     : &name "Nguyễn Hoàng Phụng"
+name                     : &name ""
 description              : &description "personal description"
-url                      : https://nhphung216.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://ssolstice216.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "nhphung216/nhphung216.github.io"
+repository               : "ssolstice216.github.io/"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
@@ -75,41 +75,41 @@ social:
 analytics:
   provider               :  "google-universal" # false (default), "google", "google-universal", "custom"
   google:
-    tracking_id          :  "219131037"
+    tracking_id          :  ""
 
 
 # Site Author
 author:
-  name             : "Nguyễn Hoàng Phụng"
-  avatar           : "profile1.jpeg"
-  bio              : "I'm an Mobile Developer. Like research new technology. And here are my think thoughts on life, the universe and also have code."
-  location         : "Ho Chi Minh City"
+  name             : ""
+  avatar           : ""
+  bio              : ""
+  location         : ""
   employer         :
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   googlescholar    : #"http://yourfullgooglescholarurl.com"
-  email            : "nhphung216@gmail.com"
+  email            : "ssolstice216@gmail.com"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
   codepen          :
   dribbble         :
   flickr           :
-  facebook         : "nhphung216"
+  facebook         :
   foursquare       :
-  github           : "nhphung216"
+  github           :
   google_plus      :
   keybase          :
-  instagram        : "nhphung216"
+  instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         : "nhphung216"
+  linkedin         :
   orcid            : #"http://orcid.org/yourorcidurl"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : "nhphung216"
+  twitter          :
   vine             :
   weibo            :
   xing             :
