@@ -1,28 +1,33 @@
 {
-  "name": "phantom",
-  "version": "1.0.0",
-  "description": "phantom free bootstrap portfolio template",
-  "author": "Themefisher",
-  "license": "MIT",
-  "scripts": {
-    "dev": "gulp",
-    "build": "gulp build"
+  "name": "minimal-mistakes",
+  "version": "3.4.2",
+  "description": "Minimal Mistakes Jekyll theme npm build scripts",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mmistakes/minimal-mistakes.git"
   },
-  "dependencies": {
-    "browser-sync": "^2.27.10",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^8.0.0",
-    "gulp-file-include": "^2.3.0",
-    "gulp-header-comment": "^0.10.0",
-    "gulp-jshint": "^2.1.0",
-    "gulp-notify": "^4.0.0",
-    "gulp-plumber": "^1.2.1",
-    "gulp-rimraf": "^1.0.0",
-    "gulp-sass": "^5.1.0",
-    "gulp-sourcemaps": "^3.0.0",
-    "gulp-util": "^3.0.8",
-    "jshint": "^2.13.4",
-    "jshint-stylish": "^2.2.1",
-    "sass": "^1.53.0"
+  "keywords": [
+    "jekyll",
+    "theme",
+    "minimal"
+  ],
+  "author": "Michael Rose",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mmistakes/minimal-mistakes/issues"
+  },
+  "homepage": "https://mmistakes.github.io/minimal-mistakes/",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "npm-run-all": "^1.7.0",
+    "onchange": "^2.2.0",
+    "uglify-js": "^2.6.1"
+  },
+  "scripts": {
+    "uglify": "uglifyjs assets/js/vendor/jquery/jquery-1.12.4.min.js assets/js/plugins/jquery.fitvids.js assets/js/plugins/jquery.greedy-navigation.js assets/js/plugins/jquery.magnific-popup.js assets/js/plugins/jquery.smooth-scroll.min.js assets/js/plugins/stickyfill.min.js assets/js/_main.js -c -m -o assets/js/main.min.js",
+    "watch:js": "onchange \"assets/js/**/*.js\" -e \"assets/js/main.min.js\" -- npm run build:js",
+    "build:js": "npm run uglify"
   }
 }
