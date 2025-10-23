@@ -1,33 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>FILROLL - Vintage Film Camera</title>
-    <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Official page of SSolstice — mobile developer of creative and photography apps on Google Play." />
+  <title>SSolstice Developer</title>
+  <link rel="icon" href="https://play-lh.googleusercontent.com/OGGZC7I6j8pqny2eQFJ2cgf5UMpQ1M3P6RAr3EJpDQDMIUOa8jQt1OSJzqU2eWv6N3E=w240-h480-rw" />
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --text: #f5f5f5;
+      --accent: #00c2ff;
+      --muted: #999;
+      font-family: "Inter", "Poppins", sans-serif;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      padding: 0 1rem;
+    }
+    header {
+      padding: 80px 0 40px;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    header p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
+    .cta {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 30px;
+      background: var(--accent);
+      color: #000;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    .cta:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+    section {
+      max-width: 700px;
+      margin: 60px auto;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+    footer {
+      margin-top: auto;
+      padding: 40px 0 20px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .apps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .app {
+      background: #1a1a1a;
+      border-radius: 16px;
+      padding: 16px;
+      transition: transform 0.2s;
+    }
+    .app:hover { transform: translateY(-3px); }
+    .app img {
+      width: 100%;
+      border-radius: 12px;
+    }
+    .app p {
+      margin: 10px 0 0;
+      font-weight: 500;
+      color: var(--text);
+    }
+  </style>
 </head>
 <body>
-<header>
-    <h1>FILROLL</h1>
-    <p class="subtitle">Vintage Film Camera for Creative Souls</p>
-    <a class="button" href="https://play.google.com/store/apps/details?id=com.ssolstice.camera" target="_blank">
-        📷 Download on Google Play
-    </a>
-</header>
+  <header>
+    <h1>SSolstice</h1>
+    <p>Mobile Developer — Creative Tools & Photography Apps</p>
+    <a class="cta" href="https://play.google.com/store/apps/dev?id=4762229976399806756" target="_blank">View on Google Play</a>
+  </header>
 
-<section class="about">
-    <h2>About FILROLL</h2>
-    <p>FILROLL brings the charm of vintage photography to your phone. Enjoy film-like filters, retro tones, and a simple, elegant camera UI designed for creators.</p>
-</section>
+  <section>
+    <p>
+      SSolstice creates high-quality mobile experiences focused on creativity, photography, and productivity.
+      Our apps combine clean design, modern performance, and powerful features for everyday creators.
+    </p>
 
-<section class="developer">
-    <h2>About the Developer</h2>
-    <p>This app is developed by <strong>SSolstice Studio</strong>, a passionate indie developer focused on creative tools and beautiful design experiences.</p>
-    <p>Website: <a href="https://ssolstice.dev">ssolstice.dev</a></p>
-</section>
+    <div class="apps">
+      <div class="app">
+        <img src="https://play-lh.googleusercontent.com/kcbdiDztp5XlzoAmmaCCs1Xibb1D_oadT6HJedHaHLkMhGKPajiqSTg6n-B1MYx4JZnBqPQE7lYxfB_ZxvgpZlo=w480-h960-rw" alt="LA Photo Editor" />
+        <p>LA Photo Editor</p>
+      </div>
+      <div class="app">
+        <img src="https://play-lh.googleusercontent.com/wBU-X9Asq8bzZsjN7NpSZiN139kQUqACM7YhKT6z5_b8sbyLSv7TODq3HGKlDh3kRnrp=w480-h960-rw" alt="FILROLL" />
+        <p>FILROLL — Vintage Film Camera</p>
+      </div>
+      <div class="app">
+        <img src="https://play-lh.googleusercontent.com/hVyiTcsECO7-2lrpybGSy7eNgXIZJ9PX4ISJJlOecW8jZu7ae6xaWJD6f6_OsF-G58U=w480-h960-rw" alt="Manual Camera, Pro DSLR | RAW+" />
+        <p>Manual Camera, Pro DSLR | RAW+</p>
+      </div>
+    </div>
+  </section>
 
-<footer>
-    <p>© 2025 SSolstice Studio</p>
-</footer>
+  <footer>
+    © 2025 SSolstice — All rights reserved.<br/>
+    <a href="https://www.ssolstice.dev">ssolstice.dev</a>
+  </footer>
 </body>
 </html>
