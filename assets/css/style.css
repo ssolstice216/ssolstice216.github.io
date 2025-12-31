@@ -46,10 +46,28 @@ header {
 }
 
 .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+
   text-decoration: none;
-  font-weight: 600;
   color: #111;
 }
+
+.logo img {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
+.logo span {
+  font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  font-size: 1.6rem;        /* lớn hơn */
+  font-weight: 700;
+  letter-spacing: 0.04em;   /* cổ điển hơn */
+  line-height: 1;
+}
+
 
 .nav ul {
   list-style: none;
@@ -74,6 +92,7 @@ header {
   font-size: 1.8rem;
   font-weight: 700;
   letter-spacing: -0.01em;
+  font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
 }
 
 /* BUTTON */
@@ -156,7 +175,7 @@ header {
 }
 
 section p {
-    max-width: 720px;
+    max-width: 1100px;
     line-height: 1.7;
     opacity: 0.85;
     margin-top: 16px;
