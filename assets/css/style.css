@@ -12,8 +12,7 @@ body {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
   background: #ffffff;
   color: #111;
   line-height: 1.6;
@@ -35,6 +34,7 @@ main {
 /* HEADER */
 header {
   border-bottom: 1px solid #eee;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
 .nav {
@@ -42,6 +42,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
 .logo {
@@ -68,9 +69,11 @@ header {
 
 /* HERO / TITLES */
 .section-title {
-  font-size: 1.6rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 /* BUTTON */
@@ -158,6 +161,7 @@ footer {
   padding: 2rem 0;
   font-size: 0.9rem;
   color: #666;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
 footer nav {
