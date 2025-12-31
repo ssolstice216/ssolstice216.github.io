@@ -1,139 +1,439 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Official page of SSolstice — mobile developer of creative and photography apps on Google Play." />
-  <meta name="p:domain_verify" content="2a087b990de25e8914b9793e6aee758c"/>
-  <title>SSolstice</title>
-    <link rel="icon" type="image/png" href="https://play-lh.googleusercontent.com/nHVGIzDspsI6BN48ubplqOvkhHkjiJJT_uRym8CIDuMK5l_U5PEpcZ3PCHRDvhQf1Tw=s188-rw">
-  <style>
-    :root {
-      --bg: #0d0d0d;
-      --text: #f5f5f5;
-      --accent: #00c2ff;
-      --muted: #999;
-      font-family: "Inter", "Poppins", sans-serif;
-    }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      min-height: 100vh;
-      padding: 0 1rem;
-    }
-    header {
-      padding: 80px 0 40px;
-    }
-    header h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-    header p {
-      color: var(--muted);
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
-    }
-    .cta {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 14px 30px;
-      background: var(--accent);
-      color: #000;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.25s ease;
-    }
-    .cta:hover {
-      transform: translateY(-2px);
-      opacity: 0.9;
-    }
-    section {
-      max-width: 700px;
-      margin: 60px auto;
-      line-height: 1.7;
-      color: var(--muted);
-    }
-    footer {
-      margin-top: auto;
-      padding: 40px 0 20px;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    .apps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 24px;
-      margin-top: 40px;
-    }
-    .app {
-      background: #1a1a1a;
-      border-radius: 16px;
-      padding: 16px;
-      transition: transform 0.2s;
-    }
-    .app:hover { transform: translateY(-3px); }
-    .app img {
-      width: 100%;
-      border-radius: 12px;
-    }
-    .app p {
-      margin: 10px 0 0;
-      font-weight: 500;
-      color: var(--text);
-    }
-  </style>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="SSolstice — Creative photography & camera apps."/>
+    <meta name="p:domain_verify" content="2a087b990de25e8914b9793e6aee758c"/>
+
+    <title>SSolstice</title>
+
+    <link rel="icon" type="image/png"
+          href="https://play-lh.googleusercontent.com/nHVGIzDspsI6BN48ubplqOvkhHkjiJJT_uRym8CIDuMK5l_U5PEpcZ3PCHRDvhQf1Tw=s188-rw">
+
+    <style>
+        /* ===== COLOR SYSTEM (WARM CLASSIC) ===== */
+        :root {
+          --bg: #f3f1ee;
+          --paper: #faf9f7;
+          --ink: #1c1b1a;
+          --muted: #6f6c68;
+          --line: #dedbd6;
+          --accent: #8b5e3c; /* film brown */
+        }
+
+        /* ===== BASE ===== */
+        * { box-sizing: border-box; }
+
+        body {
+          margin: 0;
+          background: var(--bg);
+          color: var(--ink);
+          font-family: "Inter", system-ui, -apple-system, sans-serif;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          min-height: 100vh;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+          max-width: 920px;
+          width: 100%;
+          padding: 72px 20px 32px;
+          text-align: center;
+        }
+
+        header h1 {
+          font-family: "Playfair Display", Georgia, serif;
+          font-size: 2.8rem;
+          letter-spacing: 1px;
+          margin: 0;
+        }
+
+        header p {
+          margin-top: 10px;
+          font-size: 1.05rem;
+          color: var(--muted);
+        }
+
+        /* ===== CTA ===== */
+        .cta {
+          display: inline-block;
+          margin-top: 28px;
+          padding: 14px 30px;
+          border: 1px solid var(--ink);
+          color: var(--ink);
+          text-decoration: none;
+          font-weight: 500;
+          letter-spacing: 1px;
+          transition: all .2s ease;
+        }
+
+        .cta:hover {
+          background: var(--ink);
+          color: var(--paper);
+        }
+
+        /* ===== NAV ===== */
+        nav {
+          margin-top: 36px;
+          display: flex;
+          justify-content: center;
+          gap: 32px;
+          border-bottom: 1px solid var(--line);
+        }
+
+        nav button {
+          background: none;
+          border: none;
+          padding: 14px 0;
+          font-size: 14px;
+          letter-spacing: 1.2px;
+          color: var(--muted);
+          cursor: pointer;
+          position: relative;
+        }
+
+        nav button.active {
+          color: var(--ink);
+        }
+
+        nav button.active::after {
+          content: "";
+          position: absolute;
+          bottom: -1px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: var(--ink);
+        }
+
+        /* ===== MAIN ===== */
+        main {
+          width: 100%;
+          max-width: 920px;
+          padding: 40px 20px;
+        }
+
+        .tab { display: none; }
+        .tab.active { display: block; }
+
+        /* ===== APPS ===== */
+        .apps {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 28px;
+        }
+
+        .app {
+          background: var(--paper);
+          border: 1px solid var(--line);
+          padding: 16px;
+          transition: transform .2s ease;
+        }
+
+        .app:hover { transform: translateY(-4px); }
+
+        .app img {
+          width: 100%;
+          display: block;
+          border-radius: 6px;
+        }
+
+        .app p {
+          margin-top: 14px;
+          font-size: 0.95rem;
+          letter-spacing: .5px;
+        }
+
+        /* ===== TEXT PAGES ===== */
+        .page {
+          max-width: 720px;
+          margin: auto;
+          font-size: 0.95rem;
+          line-height: 1.8;
+          color: var(--muted);
+        }
+
+        .page h2 {
+          font-family: "Playfair Display", Georgia, serif;
+          color: var(--ink);
+          font-size: 1.6rem;
+          margin-bottom: 12px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+          margin-top: auto;
+          padding: 32px 20px;
+          font-size: 0.85rem;
+          color: var(--muted);
+        }
+
+        footer a {
+          color: var(--ink);
+          text-decoration: none;
+          border-bottom: 1px solid var(--line);
+        }
+    </style>
 </head>
+
 <body>
-  <header>
+
+<header>
     <h1>SSolstice</h1>
-    <p>Creative Tools & Photography Apps</p>
-    <a class="cta" href="https://play.google.com/store/apps/dev?id=4762229976399806756" target="_blank">View on Google Play</a>
-  </header>
+    <p>Photography · Film Camera · Creative Tools</p>
 
-  <section>
-    <p>
-      SSolstice creates high-quality mobile experiences focused on creativity, photography, and productivity.
-      Our apps combine clean design, modern performance, and powerful features for everyday creators.
-    </p>
-
-    <div class="apps">
-  <div class="app">
-    <a href="https://play.google.com/store/apps/details?id=com.ssolstice.photoeditor" target="_blank" rel="noopener noreferrer">
-      <img src="https://play-lh.googleusercontent.com/kcbdiDztp5XlzoAmmaCCs1Xibb1D_oadT6HJedHaHLkMhGKPajiqSTg6n-B1MYx4JZnBqPQE7lYxfB_ZxvgpZlo=w480-h960-rw" alt="LA Photo Editor" />
-      <p>LA Photo Editor</p>
+    <a class="cta"
+       href="https://play.google.com/store/apps/dev?id=4762229976399806756"
+       target="_blank">
+        View on Google Play
     </a>
-  </div>
 
-  <div class="app">
-    <a href="https://play.google.com/store/apps/details?id=com.ssolstice.camera" target="_blank" rel="noopener noreferrer">
-      <img src="https://play-lh.googleusercontent.com/wBU-X9Asq8bzZsjN7NpSZiN139kQUqACM7YhKT6z5_b8sbyLSv7TODq3HGKlDh3kRnrp=w480-h960-rw" alt="FILROLL — Vintage Film Camera" />
-      <p>FILROLL — Vintage Film Camera</p>
-    </a>
-  </div>
+    <nav>
+        <button class="active" onclick="openTab('apps')">APPS</button>
+        <button onclick="openTab('about')">ABOUT</button>
+        <button onclick="openTab('help')">HELP</button>
+        <button onclick="openTab('terms')">TERMS</button>
+        <button onclick="openTab('privacy')">PRIVACY</button>
+    </nav>
+</header>
 
-  <div class="app">
-    <a href="https://play.google.com/store/apps/details?id=com.ssolstice.camera.manual" target="_blank" rel="noopener noreferrer">
-      <img src="https://play-lh.googleusercontent.com/hVyiTcsECO7-2lrpybGSy7eNgXIZJ9PX4ISJJlOecW8jZu7ae6xaWJD6f6_OsF-G58U=w480-h960-rw" alt="Manual Camera, Pro DSLR | RAW+" />
-      <p>Manual Camera, Pro DSLR | RAW+</p>
-    </a>
-  </div>
-</div>
-  </section>
+<main>
 
-  <footer>
-    © 2025 SSolstice — All rights reserved.<br/>
-    <a href="https://www.ssolstice.dev">ssolstice.dev</a>
-  </footer>
+    <section id="apps" class="tab active">
+        <div class="apps">
+
+            <div class="app">
+                <a href="https://play.google.com/store/apps/details?id=com.ssolstice.photoeditor"
+                   target="_blank">
+                    <img src="https://play-lh.googleusercontent.com/kcbdiDztp5XlzoAmmaCCs1Xibb1D_oadT6HJedHaHLkMhGKPajiqSTg6n-B1MYx4JZnBqPQE7lYxfB_ZxvgpZlo=w480-h960-rw">
+                    <p>LA Photo Editor</p>
+                </a>
+            </div>
+
+            <div class="app">
+                <a href="https://play.google.com/store/apps/details?id=com.ssolstice.camera"
+                   target="_blank">
+                    <img src="https://play-lh.googleusercontent.com/wBU-X9Asq8bzZsjN7NpSZiN139kQUqACM7YhKT6z5_b8sbyLSv7TODq3HGKlDh3kRnrp=w480-h960-rw">
+                    <p>FILROLL — Vintage Film Camera</p>
+                </a>
+            </div>
+
+            <div class="app">
+                <a href="https://play.google.com/store/apps/details?id=com.ssolstice.camera.manual"
+                   target="_blank">
+                    <img src="https://play-lh.googleusercontent.com/hVyiTcsECO7-2lrpybGSy7eNgXIZJ9PX4ISJJlOecW8jZu7ae6xaWJD6f6_OsF-G58U=w480-h960-rw">
+                    <p>Manual Camera · RAW+</p>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about" class="tab">
+        <div class="page">
+            <h2>About SSolstice</h2>
+
+            <p>
+                SSolstice is an independent mobile development studio focused on creating
+                high-quality creative and photography applications for Android.
+            </p>
+
+            <p>
+                Our products are designed with a strong emphasis on visual clarity,
+                performance, and a deep respect for classic photography tools. From
+                vintage film simulations to professional manual camera controls, we aim
+                to deliver apps that feel both modern and timeless.
+            </p>
+
+            <p>
+                SSolstice applications are built for photographers, creators, and users
+                who value simplicity, reliability, and thoughtful design. We continuously
+                improve our apps based on user feedback and evolving mobile technologies.
+            </p>
+
+            <p>
+                Thank you for supporting independent development.
+            </p>
+
+            <p class="muted">
+                © 2025 SSolstice. All rights reserved.
+            </p>
+        </div>
+    </section>
+
+    <section id="help" class="tab">
+        <div class="page">
+            <h2>Help & Support</h2>
+
+            <p>
+                Welcome to SSolstice support. Below are answers to common questions and
+                guidance for using our applications.
+            </p>
+
+            <h3>Getting Started</h3>
+            <p>
+                Most SSolstice apps are designed to work out of the box. Simply grant the
+                required permissions (such as camera or storage) when prompted, and you
+                can begin using the core features immediately.
+            </p>
+
+            <h3>Camera & Permissions</h3>
+            <p>
+                If a feature is not working as expected, please check that all required
+                permissions are enabled in your device settings. Some camera features may
+                not be supported on all devices due to hardware limitations.
+            </p>
+
+            <h3>Film Rolls & Storage</h3>
+            <p>
+                Photos and videos are saved locally on your device unless otherwise
+                stated. Uninstalling the app may remove locally stored content, so please
+                back up important files before deleting the app.
+            </p>
+
+            <h3>Performance Issues</h3>
+            <p>
+                If you experience crashes or performance problems, ensure that your app
+                is updated to the latest version. Restarting the app or device may also
+                help resolve temporary issues.
+            </p>
+
+            <h3>Feedback & Contact</h3>
+            <p>
+                We value user feedback and actively use it to improve our apps. If you
+                encounter a bug or have suggestions, please contact us at:
+            </p>
+
+            <p>
+                <strong>ssolstice216@gmail.com</strong>
+            </p>
+
+            <p class="muted">
+                Please include your device model and Android version when reporting
+                issues, if possible.
+            </p>
+        </div>
+    </section>
+
+    <section id="terms" class="tab">
+        <div class="page">
+            <h2>Terms of Service</h2>
+
+            <p>
+                By downloading, accessing, or using any SSolstice application, you agree
+                to be bound by these Terms of Service. If you do not agree to these terms,
+                please do not use our applications.
+            </p>
+
+            <p>
+                SSolstice applications are provided on an “as is” and “as available” basis.
+                While we strive to deliver a stable and high-quality experience, we do not
+                guarantee that the apps will be error-free or uninterrupted.
+            </p>
+
+            <p>
+                You are responsible for ensuring that your use of the applications
+                complies with all applicable laws and regulations in your jurisdiction.
+            </p>
+
+            <p>
+                All content, trademarks, app designs, and intellectual property related
+                to SSolstice applications remain the property of SSolstice unless otherwise
+                stated. You may not copy, modify, distribute, or reverse engineer any part
+                of the applications without prior written permission.
+            </p>
+
+            <p>
+                SSolstice reserves the right to update or modify these Terms of Service at
+                any time. Continued use of the applications after changes are made
+                constitutes acceptance of the updated terms.
+            </p>
+        </div>
+    </section>
+
+    <section id="privacy" class="tab">
+        <div class="page">
+            <h2>Privacy Policy</h2>
+
+            <p>
+                SSolstice respects your privacy. This Privacy Policy explains how
+                information is collected, used, and protected when you use our
+                applications.
+            </p>
+
+            <p>
+                <strong>Information Collection</strong><br>
+                SSolstice applications do not require users to create accounts and do not
+                intentionally collect personally identifiable information such as name,
+                address, or email.
+            </p>
+
+            <p>
+                Some applications may request access to device features such as camera,
+                storage, microphone, or photos. These permissions are used solely to
+                provide core app functionality (for example: taking photos, saving images,
+                or recording videos) and are not used for tracking purposes.
+            </p>
+
+            <p>
+                <strong>Usage Data</strong><br>
+                Anonymous usage data (such as app performance, crash reports, or basic
+                interaction metrics) may be collected through standard analytics tools to
+                improve app stability and user experience. This data does not identify
+                individual users.
+            </p>
+
+            <p>
+                <strong>Third-Party Services</strong><br>
+                Some SSolstice applications may integrate third-party services such as
+                Google Play Services, Firebase Analytics, or advertising providers. These
+                services may collect data in accordance with their own privacy policies.
+            </p>
+
+            <p>
+                <strong>Data Security</strong><br>
+                We take reasonable measures to protect user data. However, no method of
+                electronic transmission or storage is 100% secure, and we cannot guarantee
+                absolute security.
+            </p>
+
+            <p>
+                <strong>Children’s Privacy</strong><br>
+                SSolstice applications are not intended for children under the age of 13.
+                We do not knowingly collect personal information from children.
+            </p>
+
+            <p>
+                <strong>Changes to This Policy</strong><br>
+                This Privacy Policy may be updated from time to time. Any changes will be
+                posted on this page.
+            </p>
+
+            <p>
+                If you have any questions about this Privacy Policy, please contact us at:<br>
+                <strong>ssolstice216@gmail.com</strong>
+            </p>
+        </div>
+    </section>
+
+
+</main>
+
+<footer>
+    © 2025 SSolstice · <a href="https://www.ssolstice.dev">ssolstice.dev</a>
+</footer>
+
+<script>
+    function openTab(id) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      event.target.classList.add('active');
+    }
+</script>
+
 </body>
 </html>
