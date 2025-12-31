@@ -1,0 +1,177 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  background: #ffffff;
+  color: #111;
+  line-height: 1.6;
+
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* HEADER */
+header {
+  border-bottom: 1px solid #eee;
+}
+
+.nav {
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  text-decoration: none;
+  font-weight: 600;
+  color: #111;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.25rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.nav a:hover {
+  color: #000;
+}
+
+/* HERO / TITLES */
+.section-title {
+  font-size: 1.6rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* BUTTON */
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.4rem;
+  background: #111;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  min-height: 44px;
+}
+
+.button.secondary {
+  background: transparent;
+  border: 1px solid #ddd;
+  color: #111;
+}
+
+/* GRID – APPS */
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* CARD */
+.card {
+  border: 1px solid #eee;
+  border-radius: 14px;
+  padding: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card img {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  background: #ddd;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #555;
+  flex: 1;
+}
+
+.card .button {
+  margin-top: 1rem;
+  align-self: flex-start;
+}
+
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  }
+}
+
+/* FOOTER */
+footer {
+  border-top: 1px solid #eee;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+footer nav {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+footer a {
+  text-decoration: none;
+  color: #555;
+}
+
+footer a:hover {
+  color: #000;
+}

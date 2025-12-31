@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <title>SSolstice — Creative Photography & Utility Apps</title>
+    <title>Apps — SSolstice</title>
     <meta name="description"
-          content="SSolstice is an independent app studio creating photography and productivity apps with a focus on simplicity, control, and privacy."/>
+          content="Explore apps published by SSolstice on Google Play, including photography, productivity, utility, and creative tools."/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
+
 <body>
 
 <header>
@@ -21,70 +22,15 @@
     </div>
 </header>
 
-
 <main class="container">
 
-    <!-- HERO -->
-    <section style="margin-top: 48px;">
-        <h1 class="section-title">Creative apps, crafted with intention</h1>
-
-        <p style="max-width: 760px; line-height: 1.7; opacity: 0.85;">
-            SSolstice is an independent mobile app studio focused on building
-            photography and utility applications that value simplicity,
-            performance, and thoughtful design.
-        </p>
-
-        <p style="max-width: 760px; line-height: 1.7; opacity: 0.85; margin-top: 16px;">
-            Our apps are inspired by classic tools such as film cameras,
-            mechanical dials, and paper notebooks. We design software that
-            feels calm, deliberate, and respectful of the user’s attention.
-        </p>
-
-        <a href="apps.html" class="button" style="margin-top: 24px;">
-            View All Apps
-        </a>
-    </section>
-
-    <!-- HIGHLIGHTS -->
-    <section style="margin-top: 64px;">
-        <div class="grid-3">
-            <div class="card">
-                <h3>Privacy-first</h3>
-                <p>
-                    We prioritize user privacy and avoid unnecessary data
-                    collection. Our apps are designed to work locally
-                    whenever possible.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Designed for creators</h3>
-                <p>
-                    From photographers to writers, our tools focus on
-                    control, clarity, and creative flow rather than
-                    automation overload.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Minimal & reliable</h3>
-                <p>
-                    We believe fewer features — done well — create better
-                    products. Stability and performance are always our
-                    priorities.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- APPS PREVIEW -->
-    <section style="margin-top: 72px;">
-        <h2 class="section-title">Featured Apps</h2>
+    <section style="margin-top: 48px; margin-bottom: 48px;">
+        <h1 class="section-title">Apps</h1>
 
         <p style="max-width: 760px; line-height: 1.7; opacity: 0.85; margin-bottom: 32px;">
-            Explore the apps developed by SSolstice, built for photography,
-            productivity, creativity, and utility. Each app is designed
-            with focus and simplicity in mind, helping you get things done.
+            SSolstice publishes a range of Android applications focused on photography,
+            productivity, utilities, and creative experiences. Each app is designed
+            with simplicity, performance, and user control in mind.
         </p>
 
         <div class="grid-3">
@@ -141,11 +87,47 @@
                     View on Google Play
                 </a>
             </div>
-        </div>
 
-        <a href="apps.html" class="button secondary" style="margin-top: 32px;margin-bottom: 32px;">
-            Explore All Apps
-        </a>
+            <div class="card">
+                <img alt="Nava Browser icon" src="browser.webp"/>
+                <h3>Nava Browser – Fast & Light</h3>
+                <p>
+                    A lightweight and fast Android browser focused on speed, low memory
+                    usage, and a simple browsing experience.
+                </p>
+                <a href="https://play.google.com/store/apps/details?id=com.ssolstice.browser"
+                   class="button secondary" target="_blank" rel="noopener">
+                    View on Google Play
+                </a>
+            </div>
+
+            <div class="card">
+                <img alt="Fake GPS Location icon" src="gps.webp"/>
+                <h3>Fake GPS Location</h3>
+                <p>
+                    A developer-friendly utility for simulating GPS locations,
+                    commonly used for testing location-based features on Android.
+                </p>
+                <a href="https://play.google.com/store/apps/details?id=com.ssolstice.fakegps"
+                   class="button secondary" target="_blank" rel="noopener">
+                    View on Google Play
+                </a>
+            </div>
+
+            <div class="card">
+                <img alt="Happy Blocks Puzzle icon" src="game.webp"/>
+                <h3>Happy Blocks Puzzle</h3>
+                <p>
+                    A relaxing block puzzle game that challenges spatial thinking
+                    while providing a calm and enjoyable casual gaming experience.
+                </p>
+                <a href="https://play.google.com/store/apps/details?id=com.ssolstice.happyblocks"
+                   class="button secondary" target="_blank" rel="noopener">
+                    View on Google Play
+                </a>
+            </div>
+
+        </div>
     </section>
 
 </main>
@@ -164,6 +146,13 @@
     </div>
 </footer>
 
+<script>
+    const toggle = document.querySelector(".menu-toggle");
+    const menu = document.querySelector(".nav-menu");
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("open");
+    });
+</script>
 
 </body>
 </html>
