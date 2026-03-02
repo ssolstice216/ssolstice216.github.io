@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>AuraRAW - Android Guide | S2olstice</title>
+    <meta content="Official guide for AuraRAW on Android. Master your mobile photography with professional controls."
+          name="description"/>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                brand: {
+                  gold: '#f2cc0d',
+                  dark: '#0a0a0a',
+                  card: '#1a1a1a',
+                  accent: '#262626'
+                }
+              },
+              fontFamily: {
+                sans: ['Inter', 'sans-serif'],
+              },
+              borderRadius: {
+                'eight': '8px',
+              }
+            }
+          }
+        }
+    </script>
+    <style data-purpose="custom-typography">
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body {
+          background-color: #0a0a0a;
+          color: #e5e5e5;
+          font-family: 'Inter', sans-serif;
+        }
+        .text-gold { color: #f2cc0d; }
+        .bg-gold { background-color: #f2cc0d; }
+        .border-gold { border-color: #f2cc0d; }
+    </style>
+</head>
+<body class="antialiased">
+<!-- BEGIN: Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10"
+     data-purpose="main-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex items-center">
+                <span class="text-xl font-bold tracking-tight text-white">S2olstice</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a class="text-white/70 hover:text-brand-gold transition-colors"
+                   href="#">AuraRAW</a>
+                <a class="text-white/70 hover:text-brand-gold transition-colors" href="#">All
+                    Throwing Simulator</a>
+                <a class="text-white/70 hover:text-brand-gold transition-colors" href="#">Solar
+                    Snap</a>
+                <div class="flex items-center space-x-4 ml-4 border-l border-white/20 pl-4">
+                    <a class="text-white/70 hover:text-white" href="#">AuraRAW</a>
+                    <a class="text-white/70 hover:text-white" href="#">
+                        <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.584.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- END: Navigation -->
+<!-- BEGIN: Hero Section -->
+<header class="relative pt-32 pb-20 overflow-hidden flex flex-col items-center justify-center text-center px-4"
+        data-purpose="hero-section">
+    <!-- Background image representing an atmospheric sky -->
+    <div class="absolute inset-0 z-0">
+        <img alt="Sky Background" class="w-full h-full object-cover opacity-50"
+             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqYUHe_rh7_qeUjnuO3qOA47MaG4yJOMyKV9mn9Hdrg9jesNoTLg7X3k4b9gdXBIaex6ljQapeOvKpFuAxmrLm0AyVveV-g510L3_anDhJNkoGSAEompy-0sFRZpJq8WUGPck4KuTWAnhGk_bSVbzcU9uJ537D2VvfS96Blfe2keqC_vGNkGJCjggTZes85bwDfzicp2M_1p2NTkro5W1LLggZMaPGsBuyO4vdxqVkcDY2-26idN7xa9NQb-P3ATQ53d404pVEBsoN"/>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-brand-dark"></div>
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto">
+        <div class="mb-6 inline-flex items-center space-x-3">
+            <img alt="AuraRAW Logo" class="w-12 h-12 rounded-eight shadow-lg shadow-black"
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuADo2CO0-IY5Y1q4oVb--yhNWsRgoghDBtJk2jUVduy9LZO_XDfOhqbHblFXTex1pnnwdvr7jAnf55_V4FCZ_yZtV1wJUY6mMhmZVQ-nKv94biTIeVaQ646Ngj2bfUJ_bsSpTjBPQWWNJG1NeLgD_SrqQADaDE38GUVJaoDLPLSAP2b0qu1JKz3jqhDHl_bJNkNDDmeRiLt1ZlhXLqha1Vi8Gna4o4iyJnbPS-Y2puV0fwzIfG8BuJq2p5o_KJ-IjhGcgLH6ofn93Qh"/>
+            <span class="text-2xl font-semibold tracking-widest uppercase">AuraRAW</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-8 tracking-tight text-white">Android Guide</h1>
+        <blockquote
+                class="text-lg md:text-xl font-light italic text-white/60 mb-12 max-w-2xl mx-auto">
+            "There is one thing the photograph must contain, the humanity of the moment."
+            <footer class="mt-4 text-sm font-medium uppercase tracking-widest text-brand-gold">—
+                Robert Frank
+            </footer>
+        </blockquote>
+    </div>
+</header>
+<!-- END: Hero Section -->
+<!-- BEGIN: Table of Contents -->
+<section class="max-w-7xl mx-auto px-4 py-16" data-purpose="table-of-contents">
+    <h2 class="text-2xl font-bold mb-10 border-b border-brand-accent pb-4">Table of Contents</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-4 text-sm font-medium uppercase tracking-widest text-white/50">
+        <a class="hover:text-brand-gold transition-colors" href="#intro">Intro</a>
+        <a class="hover:text-brand-gold transition-colors" href="#video-overview">Video Overview</a>
+        <a class="hover:text-brand-gold transition-colors" href="#viewfinder">Viewfinder</a>
+        <a class="hover:text-brand-gold transition-colors" href="#top-bar">Top Bar</a>
+        <a class="hover:text-brand-gold transition-colors" href="#bottom-bar">Bottom Bar</a>
+        <a class="hover:text-brand-gold transition-colors" href="#camera-dial">Camera Dial</a>
+        <a class="hover:text-brand-gold transition-colors" href="#drive-dial">Drive Dial</a>
+        <a class="hover:text-brand-gold transition-colors" href="#settings">Settings</a>
+        <a class="hover:text-brand-gold transition-colors" href="#technical">Technical Notes</a>
+        <a class="hover:text-brand-gold transition-colors" href="#faq">FAQ</a>
+    </div>
+</section>
+<!-- END: Table of Contents -->
+<main class="max-w-7xl mx-auto px-4 space-y-32 pb-24">
+    <!-- BEGIN: Intro Section -->
+    <section class="scroll-mt-24" data-purpose="intro" id="intro">
+        <h2 class="text-4xl font-bold mb-8">Intro</h2>
+        <p class="text-lg text-white/70 max-w-3xl leading-relaxed">
+            AuraRAW is a rich and powerful camera app filled with features, modes and more. It may
+            seem overwhelming at first, but it is actually easy to master! This guide will teach you
+            how to get the most out of AuraRAW, and share tips along the way. It assumes no prior
+            photography or filmmaking experience, and can be read by users of all skill levels.
+        </p>
+    </section>
+    <!-- END: Intro Section -->
+    <!-- BEGIN: Video Overview Card -->
+    <section class="scroll-mt-24" data-purpose="video-overview" id="video-overview">
+        <div class="bg-brand-accent rounded-eight p-12 border border-white/5 shadow-2xl">
+            <h2 class="text-3xl font-bold mb-4">Video Overview</h2>
+            <p class="text-white/60 text-lg mb-8 max-w-2xl">Much of the information in this guide is
+                available in video form. This video is a great starting point for those just getting
+                into photography.</p>
+            <div class="aspect-video w-full bg-black rounded overflow-hidden flex items-center justify-center">
+                <span class="text-brand-gold uppercase tracking-widest font-bold">Video Embed Placeholder</span>
+            </div>
+        </div>
+    </section>
+    <!-- END: Video Overview Card -->
+    <!-- BEGIN: Feature: Viewfinder -->
+    <section class="scroll-mt-24 grid md:grid-cols-2 gap-16 items-start"
+             data-purpose="feature-viewfinder" id="viewfinder">
+        <div>
+            <h2 class="text-4xl font-bold mb-8">Viewfinder</h2>
+            <p class="text-white/70 mb-8">The viewfinder is where the camera feed is shown. Here you
+                can preview your scene, select focus and exposure points, and more. In addition, any
+                changes to zoom or exposure compensation values will show at the top of the
+                viewfinder.</p>
+            <div class="space-y-6">
+                <div class="border-l-2 border-brand-gold pl-6">
+                    <h3 class="text-xl font-semibold mb-2">Focus and Exposure</h3>
+                    <p class="text-white/60 text-sm">To set the focus and exposure point, tap
+                        anywhere on the viewfinder. To reposition the point, drag the box anywhere
+                        you like. To reset, tap the box.</p>
+                </div>
+                <div class="border-l-2 border-brand-gold pl-6">
+                    <h3 class="text-xl font-semibold mb-2">Zoom</h3>
+                    <p class="text-white/60 text-sm">To zoom, simply drag one finger up or down on
+                        the viewfinder.</p>
+                </div>
+                <div class="border-l-2 border-brand-gold pl-6">
+                    <h3 class="text-xl font-semibold mb-2">Spot Metering</h3>
+                    <p class="text-white/60 text-sm">The default exposure metering is
+                        center-weighted. To set it to spot metering, tap the AE button twice, once
+                        for AE-L, and again for AE spot metering.</p>
+                </div>
+            </div>
+        </div>
+        <div class="space-y-4">
+            <img alt="Viewfinder Interface" class="rounded-eight border border-white/10 shadow-xl"
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzUBQsZDQlUxpTx1FJP8Hqca--M8dZjSKrXPXSqUyIEiZYrF821_-PvwsL9hTorMYeTBw88qOWJPVzuhKH1_94tyXdRDY_NuO8qyzHHXJM3YyDKy0MoFV3Gl_PSjGXQXNkBUDZhFRYLJJwcc_F68QlqMjlBklXsQEIfceUSue9AuMikAyeksUx0KsAClOjRBTYDdyGnAof_SrU9uo7CpkZ7RaeRApgi0qQyfXao3czkIILvjkOBdh1tt9oMzQRl1ZRiLCzVqaWVnFK"/>
+            <div class="bg-brand-gold/10 border border-brand-gold/30 rounded-eight p-4 text-sm italic text-brand-gold">
+                Tip: Tap the zoom or exposure compensation labels to reset their value.
+            </div>
+        </div>
+    </section>
+    <!-- END: Feature: Viewfinder -->
+    <!-- BEGIN: Feature: Bar Controls -->
+    <section class="scroll-mt-24 grid md:grid-cols-2 gap-16 items-start" data-purpose="feature-bars"
+             id="top-bar">
+        <div class="order-2 md:order-1">
+            <img alt="Top Bar Controls" class="rounded-eight border border-white/10 shadow-xl mb-4"
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuD83QIRlL41-GnQjCZSMQSFGCW1lKaFbmtgd3Aa84yXmv-6dK9U_cudbY6iGRURFmgkieVQ0lGRqW3rAwMvYsNBX7R3v8aw741aDVJpTGdBseWYuzk8yJiTIPlwsnyxniXSjvDt_Up4rY6RJTygphO9gR_aNDXQjOQgdFHMW1Xf2F6X1ZTQm2FNJoVGc7-3Rfz7Qot6QweJdJ_8ZkMcAM-jckNwXKVqkgxtMc2unK0tJDBok9j4t5l1jxvF6YpTdVZWLRrfQrKWfBu1"/>
+            <img alt="Bottom Bar Controls" class="rounded-eight border border-white/10 shadow-xl"
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBbzpoP6s1mf9rwLaKjDcOiaI92Lfp_hsOuuqEUb8TM-XInRGCvZuzkn484ZNXWSzuL8w7P2tna4y_9okLmbkjHDfnXr01tXHpTQtcMhulnChAtLpFQOS4Ra5in3kgUjEv-kUpqFKFKvBdFQqqTvXCU42jzTbC6TBEnE3HYwF7VE0kr-mqNfCt3YaOslU3mGBbDPqbyHR6_xYeQfzembp66puUZBrER5E1HNzPhWsUgFKuFHC91Y-Lpze4JqcXhioThMkL7p1BhJWm"/>
+        </div>
+        <div class="order-1 md:order-2">
+            <h2 class="text-4xl font-bold mb-8">Top &amp; Bottom Bars</h2>
+            <div class="mb-12" id="top-bar-details">
+                <h3 class="text-gold text-lg uppercase tracking-widest font-bold mb-4">Top Bar</h3>
+                <ul class="space-y-4 text-sm text-white/70">
+                    <li><strong class="text-white">Preview Image:</strong> Shows a preview of the
+                        most recently captured photo or video.
+                    </li>
+                    <li><strong class="text-white">Grid Overlay:</strong> Toggles between different
+                        grid options (Rule of Thirds, Golden Ratio).
+                    </li>
+                    <li><strong class="text-white">Aspect Ratio:</strong> Select between 4:3, 16:9,
+                        1:1 and custom aspect ratios.
+                    </li>
+                    <li><strong class="text-white">Settings:</strong> Opens the deep settings panel
+                        for histogram, themes and more.
+                    </li>
+                </ul>
+            </div>
+            <div id="bottom-bar-details">
+                <h3 class="text-gold text-lg uppercase tracking-widest font-bold mb-4">Bottom
+                    Bar</h3>
+                <p class="text-white/70 text-sm mb-4">Contains access to many of ProShot's camera
+                    settings including Flash, White Balance, ISO, Shutter Speed, and Focus.</p>
+                <div class="bg-brand-gold/10 border border-brand-gold/30 rounded-eight p-4 text-sm italic text-brand-gold">
+                    Tip: AuraRAW's menu system is designed to keep related items grouped together.
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END: Feature: Bar Controls -->
+    <!-- BEGIN: Camera Dial Section -->
+    <section class="scroll-mt-24" data-purpose="camera-dial" id="camera-dial">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-4">Camera Dial</h2>
+            <p class="text-white/60 max-w-2xl mx-auto">The Camera Dial is modeled after a
+                traditional DSLR mode dial and was the inspiration for AuraRAW's UI.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-brand-card p-8 rounded-eight border border-white/5 hover:border-brand-gold/30 transition-all group">
+                <div class="text-brand-gold mb-4 text-2xl font-bold">Auto</div>
+                <p class="text-sm text-white/60">Use this mode to capture great results in any
+                    situation, without needing to configure anything.</p>
+            </div>
+            <div class="bg-brand-card p-8 rounded-eight border border-white/5 hover:border-brand-gold/30 transition-all group">
+                <div class="text-brand-gold mb-4 text-2xl font-bold">Manual</div>
+                <p class="text-sm text-white/60">Full control over ISO, shutter speed, and focus.
+                    The ultimate way to craft your vision.</p>
+            </div>
+            <div class="bg-brand-card p-8 rounded-eight border border-white/5 hover:border-brand-gold/30 transition-all group">
+                <div class="text-brand-gold mb-4 text-2xl font-bold">Custom</div>
+                <p class="text-sm text-white/60">C1 and C2 allow you to save and recall your
+                    favorite settings instantly.</p>
+            </div>
+        </div>
+    </section>
+    <!-- END: Camera Dial Section -->
+    <!-- BEGIN: Settings Panel Grid -->
+    <section class="scroll-mt-24" data-purpose="settings-panel" id="settings">
+        <h2 class="text-4xl font-bold mb-8 text-center">Settings Panel</h2>
+        <div class="bg-brand-accent rounded-eight p-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+                <!-- Icon Placeholder 1 -->
+                <div class="flex flex-col items-center">
+                    <div class="w-12 h-12 bg-white/5 rounded flex items-center justify-center mb-4 text-brand-gold">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                            <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                                  stroke-linecap="round" stroke-linejoin="round"
+                                  stroke-width="2"></path>
+                            <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round"
+                                  stroke-linejoin="round" stroke-width="2"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xs uppercase tracking-widest text-white/70">GPS Tagging</span>
+                </div>
+                <!-- Icon Placeholder 2 -->
+                <div class="flex flex-col items-center">
+                    <div class="w-12 h-12 bg-white/5 rounded flex items-center justify-center mb-4 text-brand-gold">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                            <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                                  stroke-linecap="round" stroke-linejoin="round"
+                                  stroke-width="2"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xs uppercase tracking-widest text-white/70">Histogram</span>
+                </div>
+                <!-- Icon Placeholder 3 -->
+                <div class="flex flex-col items-center">
+                    <div class="w-12 h-12 bg-white/5 rounded flex items-center justify-center mb-4 text-brand-gold">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                            <path d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                                  stroke-linecap="round" stroke-linejoin="round"
+                                  stroke-width="2"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xs uppercase tracking-widest text-white/70">Brightness</span>
+                </div>
+                <!-- Icon Placeholder 4 -->
+                <div class="flex flex-col items-center">
+                    <div class="w-12 h-12 bg-white/5 rounded flex items-center justify-center mb-4 text-brand-gold">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                            <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                                  stroke-linecap="round" stroke-linejoin="round"
+                                  stroke-width="2"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xs uppercase tracking-widest text-white/70">Rotation Lock</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END: Settings Panel Grid -->
+    <!-- BEGIN: FAQ Accordion -->
+    <section class="scroll-mt-24" data-purpose="faq-section" id="faq">
+        <h2 class="text-4xl font-bold mb-8">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+            <!-- Question 1 -->
+            <details class="group bg-brand-card rounded-eight border border-white/5">
+                <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <span class="font-medium">Where is V9.0?</span>
+                    <span class="text-brand-gold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-white/60 text-sm">
+                    V9.0 is a major update rolling out in stages. Please check the Google Play Store
+                    for the latest availability in your region.
+                </div>
+            </details>
+            <!-- Question 2 -->
+            <details class="group bg-brand-card rounded-eight border border-white/5">
+                <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <span class="font-medium">Can I change the aperture?</span>
+                    <span class="text-brand-gold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-white/60 text-sm">
+                    On mobile devices, aperture is usually fixed by the hardware. AuraRAW allows
+                    software emulation for specific depth-of-field effects on supported devices.
+                </div>
+            </details>
+            <!-- Question 3 -->
+            <details class="group bg-brand-card rounded-eight border border-white/5">
+                <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <span class="font-medium">My device has multiple cameras, why can't AuraRAW use them?</span>
+                    <span class="text-brand-gold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-white/60 text-sm">
+                    We work hard to support all lenses. Some manufacturers restrict third-party
+                    access to auxiliary lenses. Check the "Camera Groups" section in Technical Notes
+                    for more info.
+                </div>
+            </details>
+        </div>
+    </section>
+    <!-- END: FAQ Accordion -->
+    <!-- BEGIN: Related Apps -->
+    <section class="border-t border-brand-accent pt-24" data-purpose="related-apps">
+        <h2 class="text-2xl font-bold mb-10 uppercase tracking-widest">You Might Also Like</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <a class="group text-center" href="#">
+                <img alt="ProShot Evaluator"
+                     class="w-20 h-20 mx-auto mb-4 rounded-eight transition-transform group-hover:scale-105"
+                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaaZ_562knRYsyv_B6xw60OpsfWgJhw0x-btoc1pKExvIFQccuwlWFoZFq0A1n-mvEKwV5-BWfpY73iIHPKDzz5ijG9e8EOsHkzOtUqlCAWsV43PFDMt-rP3TzmsQr0uodTdrLddShCzxT0KbUyPQ3Eed-Na8ZGbjrAyrP06P-5nfLycu735nUl19c-ZGtv2oN42PsYI8y_qpvC0dc7mM2a8tf06T8Ap3g7s6ZviNIOggThaTPQj80plL9OHSMY0-LftcG9VYFmrHh"/>
+                <div class="text-sm font-semibold text-white/80 group-hover:text-brand-gold">AuraRAW
+                    Evaluator
+                </div>
+            </a>
+            <a class="group text-center" href="#">
+                <img alt="Solar Snap"
+                     class="w-20 h-20 mx-auto mb-4 rounded-eight transition-transform group-hover:scale-105"
+                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVCNv_hqhJrPgLJGGKzrDqrWsVFFvPIfvAnKqNiSVNCsJdagcfgAglfF4dAZo6T5y5tKvCOJWJbO6k23j9t79za5yKoys9G8JrQTDi06Axkwfo2hEYarnE5OYav09_nfMFCYm2J4HfK8YSCdBIitmTRZ9TOwpMqyGMuQFDg4vrrPntScR7EAYWStVrMsf7to3TzUkGc8gHE1MtEPCc0Aqp83abWD9p99ehTsimvW_HRkspfvSr2kIDIoRPWhDTtmnD0nLKinmwqoNj"/>
+                <div class="text-sm font-semibold text-white/80 group-hover:text-brand-gold">Solar
+                    Snap
+                </div>
+            </a>
+        </div>
+    </section>
+    <!-- END: Related Apps -->
+</main>
+<!-- BEGIN: Footer -->
+<footer class="bg-black py-20 border-t border-white/5" data-purpose="main-footer">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+            <div class="mb-8 md:mb-0">
+                <h2 class="text-3xl font-bold mb-4">S2olstice</h2>
+                <nav class="flex flex-wrap gap-6 text-sm text-white/50">
+                    <a class="hover:text-white transition-colors" href="#">AuraRAW</a>
+                    <a class="hover:text-white transition-colors" href="#">All Throwing
+                        Simulator</a>
+                    <a class="hover:text-white transition-colors" href="#">Solar Snap</a>
+                    <a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+                </nav>
+            </div>
+            <div class="flex space-x-6 text-white/50">
+                <a class="hover:text-white" href="#">
+                    <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">
+                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.84 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path>
+                    </svg>
+                </a>
+                <a class="hover:text-white" href="#">
+                    <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.584.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+                    </svg>
+                </a>
+                <a class="hover:text-white" href="#">
+                    <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="text-xs text-white/30 border-t border-white/5 pt-8">
+            <p>Made with love in Vietnam.</p>
+            <p class="mt-2">Copyright © 2026 S2olstice. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+<!-- END: Footer -->
+</body>
+</html>
