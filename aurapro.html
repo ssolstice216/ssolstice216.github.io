@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>AuraPro - Android Guide | S2olstice</title>
+    <meta content="Official guide for AuraPro on Android. Master your mobile photography with professional controls."
+          name="description"/>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                brand: {
+                  gold: '#f2cc0d',
+                  dark: '#0a0a0a',
+                  card: '#1a1a1a',
+                  accent: '#262626'
+                }
+              },
+              fontFamily: {
+                sans: ['Inter', 'sans-serif'],
+              },
+              borderRadius: {
+                'eight': '8px',
+              }
+            }
+          }
+        }
+    </script>
+    <style data-purpose="custom-typography">
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body {
+          background-color: #0a0a0a;
+          color: #e5e5e5;
+          font-family: 'Inter', sans-serif;
+        }
+        .text-gold { color: #f2cc0d; }
+        .bg-gold { background-color: #f2cc0d; }
+        .border-gold { border-color: #f2cc0d; }
+    </style>
+</head>
+<body class="antialiased">
+<!-- BEGIN: Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10"
+     data-purpose="main-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex items-center">
+                <a href="#main-nav">
+                    <span class="text-xl font-bold tracking-tight text-white">S2olstice</span>
+                </a>
+            </div>
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a class="text-white/70 hover:text-brand-gold transition-colors"
+                   href="https://play.google.com/store/apps/details?id=com.s2olstice.aurapro">AuraPro</a>
+                <a class="text-white/70 hover:text-brand-gold transition-colors"
+                   href="https://play.google.com/store/apps/details?id=com.ssolstice.camera">FILROLL</a>
+                <a class="text-white/70 hover:text-brand-gold transition-colors"
+                   href="https://play.google.com/store/apps/details?id=com.ssolstice.camera.oldsoul">OldSoul</a>
+                <!--                            <div class="flex items-center space-x-4 ml-4 border-l border-white/20 pl-4">-->
+                <!--                                <a class="text-white/70 hover:text-white" href="#">AuraPro</a>-->
+                <!--                                <a class="text-white/70 hover:text-white" href="#">-->
+                <!--                                    <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">-->
+                <!--                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.584.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>-->
+                <!--                                    </svg>-->
+                <!--                                </a>-->
+                <!--                            </div>-->
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- END: Navigation -->
+<!-- BEGIN: Hero Section -->
+<header id="main-nav"
+        class="relative pt-32 pb-20 overflow-hidden flex flex-col items-center justify-center text-center px-4"
+        data-purpose="hero-section">
+    <!-- Background image representing an atmospheric sky -->
+    <div class="absolute inset-0 z-0">
+        <img alt="Sky Background" class="w-full h-full object-cover opacity-100" src="cover.jpg"/>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-brand-dark"></div>
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto">
+        <div class="mb-6 inline-flex items-center space-x-3">
+            <img alt="AuraPro Logo" class="w-24 h-24 rounded-eight shadow-lg shadow-black"
+                 src="auraraw_logo.png"/>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-8 tracking-tight text-white">AuraPro</h1>
+        <blockquote
+                class="text-lg md:text-xl font-light text-white/60 mb-12 max-w-2xl mx-auto">
+            A premium manual camera app designed for photographers, filmmakers, and creators who
+            need full control beyond standard camera apps
+        </blockquote>
+        <a href="https://play.google.com/store/apps/details?id=com.s2olstice.aurapro"
+           target="_blank" rel="noopener"
+           class="mb-6 inline-flex items-center space-x-3 hover:opacity-90 transition-opacity">
+            <img alt="Get it on Google Play" class="w-56 rounded-eight shadow-lg shadow-black"
+                 src="google-play-store-logo.webp"/>
+        </a>
+    </div>
+</header>
+<!-- END: Hero Section -->
+<!-- BEGIN: Table of Contents -->
+<section class="max-w-7xl mx-auto px-4 py-12" data-purpose="table-of-contents">
+    <h2 class="text-2xl font-bold mb-10 border-b border-brand-accent pb-4">Table of Contents</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-4 text-sm font-medium uppercase tracking-widest text-white/50">
+        <a class="hover:text-brand-gold transition-colors" href="#intro">Intro</a>
+        <a class="hover:text-brand-gold transition-colors" href="#top-bar">Top Bar</a>
+        <a class="hover:text-brand-gold transition-colors" href="#bottom-bar">Bottom Bar</a>
+        <a class="hover:text-brand-gold transition-colors" href="#faq">FAQ</a>
+        <a class="hover:text-brand-gold transition-colors" href="#settings">Settings</a>
+    </div>
+</section>
+<!-- END: Table of Contents -->
+<main class="max-w-7xl mx-auto px-4 space-y-20 pb-16">
+    <!-- BEGIN: Intro Section -->
+    <section class="scroll-mt-24" data-purpose="intro" id="intro">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-8 text-center">Intro</h2>
+            <p class="text-white/60 text-lg max-w-2xl mx-auto">
+                AuraPro is a premium manual camera app designed for photographers, filmmakers, and
+                creators who need full control beyond standard camera apps. Built on the Camera2
+                API, it
+                delivers precise manual controls, RAW capture, and professional monitoring tools in
+                a
+                clean, cinematic interface.
+            </p>
+        </div>
+    </section>
+    <!-- END: Intro Section -->
+    <!-- Preview Gallery -->
+    <section class="py-16 border-t border-white/5">
+        <div class="px-6 lg:px-16">
+
+            <!-- Title -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-center">Interface Preview</h2>
+                <p class="text-white/60 text-lg max-w-2xl mx-auto">
+                    A closer look at AuraPro’s professional interface — designed for precision,
+                    speed, and cinematic control.
+                </p>
+            </div>
+
+            <!-- Image Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <img src="preview_2.jpg"
+                     alt="AuraPro Video Mode"
+                     class="rounded-eight border border-white/10 shadow-xl w-full hover:scale-105 transition duration-300"/>
+
+                <img src="preview_3.jpg"
+                     alt="Manual Controls"
+                     class="rounded-eight border border-white/10 shadow-xl w-full hover:scale-105 transition duration-300"/>
+
+                <img src="preview_4.jpg"
+                     alt="Top Bar Settings"
+                     class="rounded-eight border border-white/10 shadow-xl w-full hover:scale-105 transition duration-300"/>
+
+                <img src="preview_5.jpg"
+                     alt="Focus Tools"
+                     class="rounded-eight border border-white/10 shadow-xl w-full hover:scale-105 transition duration-300"/>
+
+                <img src="preview_6.jpg"
+                     alt="Professional Interface"
+                     class="rounded-eight border border-white/10 shadow-xl w-full hover:scale-105 transition duration-300"/>
+
+                <img src="preview_7.jpg"
+                     alt="Professional Settings"
+                     class="rounded-eight border border-white/10 shadow-xl w-full hover:scale-105 transition duration-300"/>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- BEGIN: Feature: Top Bar -->
+    <section class="scroll-mt-24" id="top-bar">
+        <div>
+            <h2 class="text-4xl font-bold mb-12 text-center">Top Bar (Photo Mode)</h2>
+            <div class="w-full">
+
+                <!-- LEFT: Content -->
+                <div id="top-bar-details">
+                    <p class="text-white/60 text-lg max-w-2xl mx-auto">
+                        The Top Bar dynamically adapts to your current shooting mode, providing
+                        specialized controls for both photography and cinematography.
+                    </p>
+                    <br>
+                    <div class="space-y-12 text-lg text-white/70 max-w">
+                        <!-- 1 -->
+                        <div>
+                            <h3 class="text-gold text-2xl font-bold mb-6 text-center">1. Image
+                                Quality & Format
+                                Settings</h3>
+                            <p class="mb-6 leading-relaxed">
+                                This section allows for granular control over the output of your
+                                files:
+                            </p>
+                            <ul class="space-y-4 list-disc list-inside text-white/60">
+                                <li>
+                                    <strong class="text-white">Resolution (RES):</strong>
+                                    Choose between various aspect ratios and resolutions, including
+                                    4:3 (12.53MP, 12.19MP, 12MP) and 16:9 (9.14MP, 8.29MP), with
+                                    exact pixel dimensions displayed (e.g., 4080x3072).
+                                </li>
+                                <img alt="Bottom Bar Controls"
+                                     class="rounded-eight border border-white/10 shadow-xl w-5/6 max-w-md mx-auto block"
+                                     src="topbar_1.png"/>
+                                <li>
+                                    <strong class="text-white">RAW Capture:</strong>
+                                    Capture uncompressed data for professional post-processing.
+                                    Options include Standard/DNG or pure DNG formats.
+                                </li>
+                                <img alt="Bottom Bar Controls"
+                                     class="rounded-eight border border-white/10 shadow-xl w-5/6 max-w-sm mx-auto block"
+                                     src="topbar_2.png"/>
+                                <li>
+                                    <strong class="text-white">File Format:</strong>
+                                    High flexibility with support for JPEG, HDR JPEG (optimized
+                                    dynamic range), WebP (efficient web compression), and PNG
+                                    (lossless).
+                                </li>
+                                <img alt="Bottom Bar Controls"
+                                     class="rounded-eight border border-white/10 shadow-xl w-5/6 max-w-sm mx-auto block"
+                                     src="topbar_3.png"/>
+                                <li>
+                                    <strong class="text-white">Continuous Shooting (Burst):</strong>
+                                    Adjust the burst rate from Off up to 2x, 3x, 4x, 5x, 10x, or 20x
+                                    shots.
+                                </li>
+                                <img alt="Bottom Bar Controls"
+                                     class="rounded-eight border border-white/10 shadow-xl w-5/6 max-w-sm mx-auto block"
+                                     src="topbar_4.png"/>
+                                <li>
+                                    <strong class="text-white">Timer:</strong>
+                                    Set a countdown for hands-free shooting with intervals of 1s,
+                                    2s, 3s, 5s, 10s, 15s, 20s, 30s, 1m, 2m, 5m.
+                                </li>
+                                <img alt="Bottom Bar Controls"
+                                     class="rounded-eight border border-white/10 shadow-xl w-5/6 max-w-sm mx-auto block"
+                                     src="topbar_timer.png"/>
+                            </ul>
+                        </div>
+
+                        <!-- 2 -->
+                        <div>
+                            <h3 class="text-gold text-2xl font-bold mb-6 text-center">2. Quick
+                                Settings & Assistive Tools (Dialog)</h3>
+                            <p class="mb-6 leading-relaxed text-center">
+                                The hexagonal icon opens a comprehensive panel of technical
+                                assistants and utility features
+                            </p>
+                            <img alt="Bottom Bar Controls"
+                                 class="rounded-eight border border-white/10 shadow-xl w-5/6 max-w-sm mx-auto block"
+                                 src="dialog_settings_photo.png"/>
+
+                            <br>
+
+                            <div class="space-y-8">
+
+                                <div>
+                                    <h4 class="text-white font-semibold mb-3">Technical Assistive
+                                        Tools</h4>
+                                    <ul class="space-y-3 list-disc list-inside text-white/60">
+                                        <li><strong class="text-white">Auto Stabilise:</strong>
+                                            Automatically levels the frame to prevent tilted photos.
+                                        </li>
+                                        <li><strong class="text-white">Focus Peaking:</strong> A
+                                            manual focus aid that highlights sharp edges within the
+                                            frame.
+                                        </li>
+                                        <li><strong class="text-white">Histogram:</strong> Displays
+                                            real-time light distribution to ensure precise exposure
+                                            control.
+                                        </li>
+                                        <li><strong class="text-white">Angle Line:</strong> A
+                                            built-in leveler to help you perfectly align the
+                                            horizon.
+                                        </li>
+                                        <li><strong class="text-white">Face Detection:</strong>
+                                            Automatically detects faces to optimize focus and
+                                            exposure.
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h4 class="text-white font-semibold mb-3">Experience &
+                                        Utilities</h4>
+                                    <ul class="space-y-3 list-disc list-inside text-white/60">
+                                        <li><strong class="text-white">Live Photo:</strong> Records
+                                            a brief moment of movement alongside your still image.
+                                        </li>
+                                        <li><strong class="text-white">Audio & Sound:</strong>
+                                            Customize your experience with toggles for Shutter
+                                            Sound, Focus Sound, Timer Beep, and Voice Timer.
+                                        </li>
+                                        <li><strong class="text-white">Audio Control:</strong>
+                                            Advanced options for managing audio input during video
+                                            recording.
+                                        </li>
+                                        <li><strong class="text-white">Display:</strong> Includes
+                                            Keep Display (prevents the screen from dimming) and
+                                            Maximum Brightness (instantly boosts screen visibility
+                                            for outdoor use).
+                                        </li>
+                                        <li><strong class="text-white">Location:</strong> Enable
+                                            geotagging to save location data into your photo's
+                                            metadata.
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h4 class="text-white font-semibold mb-3">System Management</h4>
+                                    <ul class="space-y-3 list-disc list-inside text-white/60">
+                                        <li><strong class="text-white">Reset:</strong> Instantly
+                                            restore all settings to their default values.
+                                        </li>
+                                        <li><strong class="text-white">Settings:</strong> Access
+                                            deeper system-level configuration menus.
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="bg-brand-gold/10 border border-brand-gold/30 rounded-eight p-6 text-sm italic text-brand-gold">
+                                    Please note that advanced features such as RAW capture, Focus
+                                    Peaking, and Auto Stabilise are subject to your device's
+                                    hardware capabilities and manufacturer support.
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <br>
+            <h2 class="text-4xl font-bold mb-12 text-center">Top Bar (Video Mode)</h2>
+            <div class="w-full">
+
+                <!-- LEFT: Content -->
+                <div id="top-bar-video-details">
+                    <p class="text-white/70 text-lg mb-12 max-w leading-relaxed">
+                        The Top Bar dynamically adapts to your current shooting mode, providing
+                        specialized controls for both photography and cinematography.
+                    </p>
+
+                    <div class="space-y-12 text-lg text-white/70 max-w">
+
+                        <!-- 1 -->
+                        <div>
+                            <h3 class="text-gold text-2xl font-bold mb-6 text-center">Video Quality
+                                & Format
+                                Settings</h3>
+                            <p class="mb-6 leading-relaxed">
+                                This section provides granular control over the technical
+                                specifications of your video files:
+                            </p>
+                            <ul class="space-y-4 list-disc list-inside text-white/60">
+                                <li>
+                                    <strong class="text-white">Resolution (RES):</strong>
+                                    Support for high-end cinematic resolutions including 4K UHD
+                                    (3840x2160), 4K Ultra Wide (4000x2000), 3.2K Pro, 2K Pro 4:3,
+                                    and 2.7K.
+                                </li>
+                                <img alt="Bottom Bar Controls"
+                                     class="rounded-eight border border-white/10 shadow-xl w-5/6 max-w-sm mx-auto block"
+                                     src="topbar_video_1.png"/>
+                                <li>
+                                    <strong class="text-white">Frame Rate (FPS):</strong>
+                                    Offers a wide range of frame rates from standard to high-speed,
+                                    including 60 FPS, 96 FPS, 100 FPS, and specialized 120 FPS (HS)
+                                    or 240 FPS (HS) for ultra-smooth slow motion.
+                                </li>
+                                <img alt="Bottom Bar Controls"
+                                     class="rounded-eight border border-white/10 shadow-xl w-5/6 max-w-sm mx-auto block"
+                                     src="topbar_video_2.png"/>
+                                <li>
+                                    <strong class="text-white">Bitrate (BIT):</strong>
+                                    Manage data rates to balance file size and image quality with
+                                    options like 80Mbps, 90Mbps, 100Mbps, 150Mbps, and up to
+                                    200Mbps.
+                                </li>
+                                <img alt="Bottom Bar Controls"
+                                     class="rounded-eight border border-white/10 shadow-xl w-5/6 max-w-sm mx-auto block"
+                                     src="topbar_video_3.png"/>
+                                <li>
+                                    <strong class="text-white">Log Profile (LOG):</strong>
+                                    Capture footage with a flat profile for professional color
+                                    grading. Profiles include REC709, sRGB, Fine, Low, Medium, High,
+                                    Strong, Extra Strong, Gamma, JTVideo, JTLog, JTLog2.
+                                </li>
+                                <img alt="Bottom Bar Controls"
+                                     class="rounded-eight border border-white/10 shadow-xl w-5/6 max-w-sm mx-auto block"
+                                     src="topbar_video_4.png"/>
+                                <li>
+                                    <strong class="text-white">Timer:</strong>
+                                    Sets a countdown before recording starts to ensure a stable
+                                    frame.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- 2 -->
+                        <div>
+                            <h3 class="text-gold text-2xl font-bold mb-6 text-center">2. Video Quick
+                                Settings
+                                Menu (Dialog)</h3>
+                            <p class="mb-6 leading-relaxed text-center">
+                                The hexagonal icon provides access to essential filming assistants
+                                and audio tools
+                            </p>
+                            <img alt="Bottom Bar Controls"
+                                 class="rounded-eight border border-white/10 shadow-xl w-5/6 max-w-sm mx-auto block"
+                                 src="topbar_video_5.png"/>
+
+                            <br>
+                            <div class="space-y-8">
+                                <div>
+                                    <h4 class="text-white font-semibold mb-3">Technical & Visual
+                                        Tools</h4>
+                                    <ul class="space-y-3 list-disc list-inside text-white/60">
+                                        <li><strong class="text-white">EIS (Electronic Image
+                                            Stabilization)</strong>
+                                            Enhances stability for smoother handheld footage.
+                                        </li>
+                                        <li><strong class="text-white">Flash REC: </strong>
+                                            Toggles the flash for continuous illumination during
+                                            recording.
+                                        </li>
+                                        <li><strong class="text-white">Focus Peaking &
+                                            Histogram: </strong>
+                                            Critical aids for ensuring sharp focus and monitoring
+                                            real-time light distribution.
+                                        </li>
+                                        <li><strong class="text-white">Angle Line & Face
+                                            Detection: </strong>
+                                            Helps maintain a level horizon and ensures subjects
+                                            remain in focus automatically.
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h4 class="text-white font-semibold mb-3">Advanced Audio
+                                        Control</h4>
+                                    <ul class="space-y-3 list-disc list-inside text-white/60">
+                                        <li><strong class="text-white">Record Audio: </strong>
+                                            Quickly toggle sound recording on or off.
+                                        </li>
+                                        <li><strong class="text-white">Audio Level Meter: </strong>
+                                            A visual indicator to monitor input volume in real-time,
+                                            preventing clipping or audio distortion.
+                                        </li>
+                                        <li><strong class="text-white">Audio Control: </strong>
+                                            Access deeper settings for microphone sources and noise
+                                            filters.
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h4 class="text-white font-semibold mb-3">System Utilities</h4>
+                                    <ul class="space-y-3 list-disc list-inside text-white/60">
+                                        <li><strong class="text-white">Keep Display & Maximum
+                                            Brightness: </strong>
+                                            Keeps the screen active and at peak brightness for
+                                            better visibility in outdoor conditions.
+                                        </li>
+                                        <li><strong class="text-white">Location: </strong>
+                                            Embeds GPS metadata into the video file.
+                                        </li>
+                                        <li><strong class="text-white">Reset & Settings: </strong>
+                                            Restore default video settings or enter the main
+                                            configuration menu.
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="bg-brand-gold/10 border border-brand-gold/30 rounded-eight p-6 text-sm italic text-brand-gold">
+                                    Note: High-performance features such as 240 FPS (HS), 4K Ultra
+                                    Wide, and LOG profiles are highly dependent on your device's
+                                    chipset and camera hardware support.
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <!-- END: Feature: Top Bar -->
+
+    <!-- BEGIN: Feature: Bottom Bar -->
+    <section class="scroll-mt-24" id="bottom-bar">
+        <div>
+            <h2 class="text-4xl font-bold mb-12 text-center">Bottom Bar</h2>
+            <div class="gap-16 items-start">
+                <div id="bottom-bar-details">
+                    <p class="text-white/70 text-lg mb-12 max-w leading-relaxed">
+                        The Bottom Bar combines tactile manual controls, real-time parameter
+                        monitoring,
+                        rapid-access shooting tools, and live exposure feedback into a layered
+                        professional interface.
+                    </p>
+                    <div class="space-y-12 text-lg text-white/70 max-w">
+
+                        <!-- 1 -->
+                        <div>
+                            <h3 class="text-gold text-2xl font-bold mb-6 text-center">1. Manual
+                                Control
+                                Dials</h3>
+                            <p class="mb-6 leading-relaxed">
+                                The most prominent feature is the semi-circular dials that allow for
+                                intuitive, tactile parameter adjustments:
+                            </p>
+                            <ul class="space-y-4 list-disc list-inside text-white/60">
+                                <li>
+                                    <strong class="text-white">White Balance (WB):</strong>
+                                    Adjust color temperature from 1000K to 15000K. It includes quick
+                                    presets such as Auto (A), Manual (M), Tungsten, Fluorescent,
+                                    Daylight, Cloudy, Shade, and more.
+                                </li>
+                                <img alt="Bottom Bar Controls"
+                                     class="rounded-eight border border-white/10 shadow-xl w-5/6 max-w-sm mx-auto block"
+                                     src="bottom_bar_wb.png"/>
+                                <li>
+                                    <strong class="text-white">Shutter Speed:</strong>
+                                    Fine-tune the shutter speed across an extensive range, from
+                                    ultra-fast (1/37958s) for freezing motion to long exposures
+                                    (16s). A dedicated AUTO button is available for instant light
+                                    calculation.
+                                </li>
+                                <li>
+                                    <strong class="text-white">Zoom/Focal Length:</strong>
+                                    Seamlessly switch between industry-standard focal lengths like
+                                    12mm, 16mm, 24mm, 35mm, 50mm, 85mm, and 135mm. The top dial
+                                    allows for precise incremental adjustments (e.g., 18mm, 20mm,
+                                    28mm).
+                                </li>
+
+                                <img alt="Bottom Bar Controls 2"
+                                     class="rounded-eight border border-white/10 shadow-xl w-5/6 max-w-sm mx-auto block"
+                                     src="bottom_bar_zoom.png"/>
+                            </ul>
+                        </div>
+
+                        <!-- 2 -->
+                        <div>
+                            <h3 class="text-gold text-2xl font-bold mb-6 text-center">2. Parameter
+                                Status
+                                Bar</h3>
+                            <p class="mb-6 leading-relaxed">
+                                Located directly below the dials, this row displays the real-time
+                                values of six core settings:
+                            </p>
+                            <ul class="space-y-3 list-disc list-inside text-white/60">
+                                <li><strong class="text-white">ISO:</strong> Displays light
+                                    sensitivity (AUTO, 21-32000).
+                                </li>
+                                <li><strong class="text-white">SHUTTER:</strong> Current shutter
+                                    speed (AUTO, value from 1/37958s to 16s).
+                                </li>
+                                <li><strong class="text-white">WB:</strong> Color temperature
+                                    (AUTO, value from 4074K or 5000K).
+                                </li>
+                                <li><strong class="text-white">FOCUS:</strong> Focus mode (AUTO,
+                                    value from Macro to
+                                    Infinite).
+                                </li>
+                                <li><strong class="text-white">SCENE:</strong> Scene mode (Auto,
+                                    Night, Portrait, Action, Barcode, Beach, Candlelight, Fireworks,
+                                    Landscape, Night-Portrait, Party, Snow, Sports, Steady Photo,
+                                    Sunset, Theatre).
+                                </li>
+                                <li><strong class="text-white">ZOOM:</strong> Focal length
+                                    (12-700mm).
+                                </li>
+                            </ul>
+                            <p class="mt-4 text-brand-gold text-sm italic">
+                                Note: Features and manual controls are subject to device hardware
+                                support.
+                            </p>
+                        </div>
+
+                        <!-- 3 -->
+                        <div>
+                            <h3 class="text-gold text-2xl font-bold mb-6 text-center">3.
+                                Quick-Access Function
+                                Toolbar</h3>
+                            <img alt="Bottom Bar Controls 2"
+                                 class="rounded-eight border border-white/10 shadow-xl w-5/6 max-w-sm mx-auto block"
+                                 src="bottombar_main.png"/>
+                            <br>
+                            <p class="mb-6 leading-relaxed">
+                                This layer provides rapid toggles for essential shooting tools:
+                            </p>
+                            <ul class="space-y-3 list-disc list-inside text-white/60">
+                                <li><strong class="text-white">Flash:</strong> Toggle between On,
+                                    Off, Auto flash or Torch.
+                                </li>
+                                <li><strong class="text-white">Grid:</strong> Enable/disable
+                                    composition grids (e.g., Rule of Thirds).
+                                </li>
+
+                                <img alt="Bottom Bar Controls 2"
+                                     class="rounded-eight border border-white/10 shadow-xl w-5/6 max-w-sm mx-auto block"
+                                     src="grids.png"/>
+                                <li><strong class="text-white">Camera Switch:</strong> Quickly flip
+                                    between front and rear cameras.
+                                </li>
+                                <li><strong class="text-white">Shutter Button:</strong> A prominent
+                                    central button for capturing photos or starting a recording.
+                                </li>
+                                <li><strong class="text-white">Mode Switch:</strong> Toggle between
+                                    Photo and Video modes.
+                                </li>
+                                <li><strong class="text-white">Aspect Ratio:</strong> Change the
+                                    frame dimensions (e.g., 16:9, 4:3, etc.).
+                                </li>
+                                <li><strong class="text-white">Gallery:</strong> A preview thumbnail
+                                    on the far right to view recently captured media.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- 4 -->
+                        <div>
+                            <h3 class="text-gold text-2xl font-bold mb-6 text-center">4. Exposure &
+                                System
+                                Information (Bottom Layer)</h3>
+                            <img alt="Bottom Bar Controls 2"
+                                 class="rounded-eight border border-white/10 shadow-xl w-5/6 max-w-sm mx-auto block"
+                                 src="bottombar_video.png"/>
+                            <br>
+                            <p class="mb-6 leading-relaxed">
+                                The base of the interface displays critical system data and exposure
+                                feedback:
+                            </p>
+                            <ul class="space-y-3 list-disc list-inside text-white/60">
+                                <li>
+                                    <strong class="text-white">Exposure Compensation (EV):</strong>
+                                    A horizontal slider ranging from -4 to +4 with a red indicator
+                                    at zero, allowing for manual brightness bias.
+                                </li>
+                                <li><strong class="text-white">Storage Info:</strong> Shows
+                                    remaining disk space (e.g., 5.2GB).
+                                </li>
+                                <li><strong class="text-white">Battery:</strong> Displays the
+                                    current battery percentage (77%).
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- RIGHT: Smaller Preview Images -->
+                <div class="flex flex-col items-center lg:items-end space-y-6">
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- END: Feature: Bottom Bar -->
+    <!-- BEGIN: Feature: settings -->
+    <section class="scroll-mt-24" id="settings">
+        <div>
+            <h2 class="text-4xl font-bold mb-12 text-center">Settings</h2>
+            <div class="gap-16 items-start">
+                <div id="settings-details">
+                    <p class="text-white/70 text-lg mb-12 max-w leading-relaxed">
+                        Granular control at your fingertips. From codec selection to UI
+                        customization, AuraPro's settings menu is built for professionals who demand
+                        full control over their hardware.
+                    </p>
+
+                    <!-- Image Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <img src="setting_camera.png" alt="AuraPro Video Mode"
+                             class="rounded-eight border border-white/10 shadow-xl w-full hover:scale-105 transition duration-300"/>
+                        <img src="setting_image.png" alt="AuraPro Video Mode"
+                             class="rounded-eight border border-white/10 shadow-xl w-full hover:scale-105 transition duration-300"/>
+                        <img src="setting_recording.png" alt="AuraPro Video Mode"
+                             class="rounded-eight border border-white/10 shadow-xl w-full hover:scale-105 transition duration-300"/>
+                        <img src="setting_audio.png" alt="AuraPro Video Mode"
+                             class="rounded-eight border border-white/10 shadow-xl w-full hover:scale-105 transition duration-300"/>
+                        <img src="setting_camera.png" alt="AuraPro Video Mode"
+                             class="rounded-eight border border-white/10 shadow-xl w-full hover:scale-105 transition duration-300"/>
+                        <img src="setting_monitor.png" alt="AuraPro Video Mode"
+                             class="rounded-eight border border-white/10 shadow-xl w-full hover:scale-105 transition duration-300"/>
+                        <img src="setting_storage.png" alt="AuraPro Video Mode"
+                             class="rounded-eight border border-white/10 shadow-xl w-full hover:scale-105 transition duration-300"/>
+                        <img src="setting_controls.png" alt="AuraPro Video Mode"
+                             class="rounded-eight border border-white/10 shadow-xl w-full hover:scale-105 transition duration-300"/>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Smaller Preview Images -->
+                <div class="flex flex-col items-center lg:items-end space-y-6">
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- END: Feature: settings -->
+    <!-- BEGIN: FAQ Accordion -->
+    <section class="scroll-mt-24" data-purpose="faq-section" id="faq">
+        <h2 class="text-4xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+            <details class="group bg-brand-card rounded-eight border border-white/5">
+                <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <span class="font-medium">How do I adjust shooting parameters like ISO or Shutter Speed?</span>
+                    <span class="text-brand-gold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-white/60 text-sm">
+                    Tap on the specific parameter name in the status bar (e.g., ISO, SHUTTER, or
+                    WB). A manual dial will appear, allowing you to rotate and select your desired
+                    value precisely.
+                </div>
+            </details>
+            <details class="group bg-brand-card rounded-eight border border-white/5">
+                <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <span class="font-medium">What does the horizontal bar at the bottom represent?</span>
+                    <span class="text-brand-gold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-white/60 text-sm">
+                    That is the Exposure Compensation (EV) scale. It ranges from -4 to +4, allowing
+                    you to manually brighten or darken your shot beyond the automatic meter
+                    readings.
+                </div>
+            </details>
+            <details class="group bg-brand-card rounded-eight border border-white/5">
+                <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <span class="font-medium">Can I see my remaining battery and storage space?</span>
+                    <span class="text-brand-gold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-white/60 text-sm">
+                    Yes, the bottom bar provides real-time data for both Storage (e.g., 5.2GB left)
+                    and Battery percentage (e.g., 77%).
+                </div>
+            </details>
+            <details class="group bg-brand-card rounded-eight border border-white/5">
+                <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <span class="font-medium">Does the app support RAW photography?</span>
+                    <span class="text-brand-gold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-white/60 text-sm">
+                    Yes. In the top bar settings, you can enable RAW capture. You have options for
+                    Standard/DNG or pure DNG files, which are ideal for professional
+                    post-processing.
+                </div>
+            </details>
+            <details class="group bg-brand-card rounded-eight border border-white/5">
+                <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <span class="font-medium">What image formats can I save in?</span>
+                    <span class="text-brand-gold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-white/60 text-sm">
+                    You can choose between JPEG, HDR JPEG for better dynamic range, WebP for
+                    efficiency, or PNG for lossless quality.
+                </div>
+            </details>
+            <details class="group bg-brand-card rounded-eight border border-white/5">
+                <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <span class="font-medium">How do I use the Burst mode?</span>
+                    <span class="text-brand-gold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-white/60 text-sm">
+                    Tap the Continuous Shooting icon in the top bar. You can set it to capture 2x,
+                    3x, 4x, 5x, 10x, or even 20x photos in a single sequence.
+                </div>
+            </details>
+            <details class="group bg-brand-card rounded-eight border border-white/5">
+                <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <span class="font-medium">What is the maximum video resolution supported?</span>
+                    <span class="text-brand-gold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-white/60 text-sm">
+                    The app supports up to 4K UHD (3840x2160) and 4K Ultra Wide (4000x2000),
+                    depending on your device's hardware.
+                </div>
+            </details>
+            <details class="group bg-brand-card rounded-eight border border-white/5">
+                <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <span class="font-medium">Can I record high-speed slow-motion video?</span>
+                    <span class="text-brand-gold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-white/60 text-sm">
+                    Absolutely. In the FPS settings, you can select high-frame-rate options like 120
+                    FPS (HS) or 240 FPS (HS) for cinematic slow motion.
+                </div>
+            </details>
+            <details class="group bg-brand-card rounded-eight border border-white/5">
+                <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <span class="font-medium">What are "Log" profiles?</span>
+                    <span class="text-brand-gold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-white/60 text-sm">
+                    Log profiles (like REC709, sRGB, Fine, Low, Medium) record video with a flat
+                    color curve. This preserves more detail in shadows and highlights, giving you
+                    more flexibility for color grading in post-production.
+                </div>
+            </details>
+            <details class="group bg-brand-card rounded-eight border border-white/5">
+                <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <span class="font-medium">What is "Focus Peaking"?</span>
+                    <span class="text-brand-gold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-white/60 text-sm">
+                    When enabled in the Quick Settings (hexagonal icon), Focus Peaking highlights
+                    the sharpest areas of your image with a colored outline. This makes manual
+                    focusing much easier and more accurate.
+                </div>
+            </details>
+            <details class="group bg-brand-card rounded-eight border border-white/5">
+                <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <span class="font-medium">How do I ensure my photos aren't tilted?</span>
+                    <span class="text-brand-gold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-white/60 text-sm">
+                    You can use the Auto Stabilise feature to automatically level the frame, or
+                    enable the Angle Line tool to see a visual horizon leveler on your screen.
+                </div>
+            </details>
+            <details class="group bg-brand-card rounded-eight border border-white/5">
+                <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <span class="font-medium">Can I monitor audio levels during video recording?</span>
+                    <span class="text-brand-gold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-white/60 text-sm">
+                    Yes. In video mode, enable the Audio Level Meter from the quick settings. It
+                    provides a real-time visual bar to ensure your audio isn't clipping or too
+                    quiet.
+                </div>
+            </details>
+            <details class="group bg-brand-card rounded-eight border border-white/5">
+                <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <span class="font-medium">How does the Histogram help me?</span>
+                    <span class="text-brand-gold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-white/60 text-sm">
+                    The histogram displays real-time light distribution. It helps you identify if an
+                    image is overexposed (clipping whites) or underexposed (losing shadow detail),
+                    allowing for more precise exposure adjustments.
+                </div>
+            </details>
+            <details class="group bg-brand-card rounded-eight border border-white/5">
+                <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <span class="font-medium">How does the Auto Stabilise feature work?</span>
+                    <span class="text-brand-gold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-white/60 text-sm">
+                    When activated, the app automatically aligns the frame to keep it level, even if
+                    the device is held at a slight tilt.
+                </div>
+            </details>
+            <details class="group bg-brand-card rounded-eight border border-white/5">
+                <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <span class="font-medium">What is the benefit of Face Detection in professional photography?</span>
+                    <span class="text-brand-gold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-white/60 text-sm">
+                    The system prioritizes identifying and locking focus on the subject's face while
+                    optimizing exposure levels to ensure natural-looking skin tones.
+                </div>
+            </details>
+            <details class="group bg-brand-card rounded-eight border border-white/5">
+                <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <span class="font-medium">How can I tell if I have focused correctly when using manual focus?</span>
+                    <span class="text-brand-gold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-white/60 text-sm">
+                    You should enable Focus Peaking. The areas with the highest sharpness will be
+                    overlaid with a contrasting color, helping you identify the focal point quickly
+                    without straining your eyes.
+                </div>
+            </details>
+            <details class="group bg-brand-card rounded-eight border border-white/5">
+                <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <span class="font-medium">Can I turn on the light while recording video?</span>
+                    <span class="text-brand-gold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-white/60 text-sm">
+                    Yes, the Flash REC feature allows you to keep the flash on continuously to
+                    provide illumination throughout the entire recording process.
+                </div>
+            </details>
+            <details class="group bg-brand-card rounded-eight border border-white/5">
+                <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <span class="font-medium">Can operation sounds be turned off?</span>
+                    <span class="text-brand-gold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-white/60 text-sm">
+                    Absolutely. In the Quick Settings menu, you can individually toggle Shutter
+                    Sound, Focus Sound, and Timer Beep on or off.
+                </div>
+            </details>
+            <details class="group bg-brand-card rounded-eight border border-white/5">
+                <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <span class="font-medium">Does the Keep Display feature drain the battery?</span>
+                    <span class="text-brand-gold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-white/60 text-sm">
+                    This feature keeps the screen active so you don't miss a moment. While it may
+                    consume more battery than usual, you can easily monitor your power levels using
+                    the Battery % indicator at the bottom of the screen.
+                </div>
+            </details>
+            <br><br>
+            <p class="mt-4 text-sm">
+                If you have any other questions or require assistance, we’d be glad to help. Please
+                send an email to <b class="text-brand-gold">ssolstice216@gmail.com</b>
+            </p>
+        </div>
+    </section>
+    <!-- END: FAQ Accordion -->
+    <!-- BEGIN: Related Apps -->
+    <!--    <section class="border-t border-brand-accent pt-24" data-purpose="related-apps">-->
+    <!--        <h2 class="text-2xl font-bold mb-10 uppercase tracking-widest">You Might Also Like</h2>-->
+    <!--        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">-->
+    <!--            <a class="group text-center" href="#">-->
+    <!--                <img alt="ProShot Evaluator"-->
+    <!--                     class="w-20 h-20 mx-auto mb-4 rounded-eight transition-transform group-hover:scale-105"-->
+    <!--                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaaZ_562knRYsyv_B6xw60OpsfWgJhw0x-btoc1pKExvIFQccuwlWFoZFq0A1n-mvEKwV5-BWfpY73iIHPKDzz5ijG9e8EOsHkzOtUqlCAWsV43PFDMt-rP3TzmsQr0uodTdrLddShCzxT0KbUyPQ3Eed-Na8ZGbjrAyrP06P-5nfLycu735nUl19c-ZGtv2oN42PsYI8y_qpvC0dc7mM2a8tf06T8Ap3g7s6ZviNIOggThaTPQj80plL9OHSMY0-LftcG9VYFmrHh"/>-->
+    <!--                <div class="text-sm font-semibold text-white/80 group-hover:text-brand-gold">AuraPro-->
+    <!--                    Evaluator-->
+    <!--                </div>-->
+    <!--            </a>-->
+    <!--            <a class="group text-center" href="#">-->
+    <!--                <img alt="Solar Snap"-->
+    <!--                     class="w-20 h-20 mx-auto mb-4 rounded-eight transition-transform group-hover:scale-105"-->
+    <!--                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVCNv_hqhJrPgLJGGKzrDqrWsVFFvPIfvAnKqNiSVNCsJdagcfgAglfF4dAZo6T5y5tKvCOJWJbO6k23j9t79za5yKoys9G8JrQTDi06Axkwfo2hEYarnE5OYav09_nfMFCYm2J4HfK8YSCdBIitmTRZ9TOwpMqyGMuQFDg4vrrPntScR7EAYWStVrMsf7to3TzUkGc8gHE1MtEPCc0Aqp83abWD9p99ehTsimvW_HRkspfvSr2kIDIoRPWhDTtmnD0nLKinmwqoNj"/>-->
+    <!--                <div class="text-sm font-semibold text-white/80 group-hover:text-brand-gold">Solar-->
+    <!--                    Snap-->
+    <!--                </div>-->
+    <!--            </a>-->
+    <!--        </div>-->
+    <!--    </section>-->
+    <!-- END: Related Apps -->
+</main>
+<!-- BEGIN: Footer -->
+<footer class="bg-black py-20 border-t border-white/5" data-purpose="main-footer">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+            <div class="mb-8 md:mb-0">
+                <a href="#main-nav">
+                    <h2 class="text-3xl font-bold mb-4">S2olstice</h2>
+                </a>
+                <nav class="flex flex-wrap gap-6 text-sm text-white/50">
+                    <!--                    <a class="hover:text-white transition-colors" href="#">AuraPro</a>-->
+                    <!--                    <a class="hover:text-white transition-colors" href="#">All Throwing Simulator</a>-->
+                    <!--                    <a class="hover:text-white transition-colors" href="#">Solar Snap</a>-->
+                    <!--                    <a class="hover:text-white transition-colors" href="#">Privacy Policy</a>-->
+                </nav>
+            </div>
+            <!--            <div class="flex space-x-6 text-white/50">-->
+            <!--                <a class="hover:text-white" href="#">-->
+            <!--                    <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">-->
+            <!--                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.84 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path>-->
+            <!--                    </svg>-->
+            <!--                </a>-->
+            <!--                <a class="hover:text-white" href="#">-->
+            <!--                    <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">-->
+            <!--                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.584.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>-->
+            <!--                    </svg>-->
+            <!--                </a>-->
+            <!--                <a class="hover:text-white" href="#">-->
+            <!--                    <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">-->
+            <!--                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>-->
+            <!--                    </svg>-->
+            <!--                </a>-->
+            <!--            </div>-->
+        </div>
+        <div class="text-xs text-white/30 border-t border-white/5 pt-8">
+            <p>Made with love in Vietnam.</p>
+            <p class="mt-2">Copyright © 2026 S2olstice. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+<!-- END: Footer -->
+</body>
+</html>
