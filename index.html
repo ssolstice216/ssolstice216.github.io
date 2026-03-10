@@ -70,10 +70,16 @@
             <a class="text-sm font-medium hover:text-primary transition-colors" href="privacy.html">Privacy</a>
         </nav>
     </header>
-    <main class="flex-1 max-w-7xl mx-auto w-full px-6 py-16 lg:px-20">
+    <main class="flex-1 max-w-7xl mx-auto w-full px-6 pt-0 pb-16 lg:px-20">
 
         <!-- HERO -->
-        <section class="text-center max-w-4xl mx-auto mb-28">
+        <section class="relative w-screen left-1/2 -translate-x-1/2 mb-28 pt-0 pb-28 overflow-hidden">
+            <div class="absolute inset-0 -z-10 overflow-hidden">
+                <img src="cover.jpg" alt="Photography background"
+                     class="w-full h-full object-cover opacity-100" />
+            </div>
+            <div class="absolute inset-0 -z-10 bg-gradient-to-b from-black/70 via-black/60 to-black"></div>
+            <div class="max-w-4xl mx-auto px-6 lg:px-20">
             <span class="text-primary uppercase text-xs tracking-widest font-bold">S²olstice Studio</span>
 
             <h1 class="text-4xl md:text-6xl font-black mt-6 mb-6 leading-tight">
@@ -92,6 +98,7 @@
                    class="bg-primary text-background-dark font-bold px-8 py-3 rounded-lg hover:brightness-110 transition-all">
                     View Our Apps
                 </a>
+            </div>
             </div>
         </section>
 
