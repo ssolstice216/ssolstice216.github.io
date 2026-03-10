@@ -1,168 +1,275 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html class="dark" lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <title>S²olstice — Creative Photography & Utility Apps</title>
-    <meta name="description"
-          content="S²olstice is an independent app studio creating photography and productivity apps with a focus on simplicity, control, and privacy."/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" href="assets/css/style.css"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link
-            href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap"
-            rel="stylesheet"
-    />
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+          rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+          rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+          rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d4af37",
+                        "background-light": "#0b0b0b",
+                        "background-dark": "#000000",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(212, 175, 55, 0.06);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+    </style>
 </head>
-<body>
-
-<header>
-    <div class="container nav">
-        <a href="index.html" class="logo">
-            <img src="logo.png" alt="S²olstice logo"/>
-            <span>S²olstice</span>
-        </a>
-    </div>
-</header>
-
-<main class="container">
-    <div class="container nav">
-        <ul>
-            <li><a href="apps.html">Apps</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="help.html">Help</a></li>
-            <li><a href="terms.html">Terms</a></li>
-            <li><a href="privacy.html">Privacy</a></li>
-        </ul>
-    </div>
-    <!-- HERO -->
-    <section style="margin-bottom: 48px;">
-        <h1 class="section-title">Creative apps, crafted with intention</h1>
-
-        <p style="max-width: 760px; line-height: 1.7; opacity: 0.85;">
-            S²olstice is an independent mobile app studio focused on building
-            photography and utility applications that value simplicity,
-            performance, and thoughtful design.
-        </p>
-
-        <p style="max-width: 760px; line-height: 1.7; opacity: 0.85; margin-top: 16px;">
-            Our apps are inspired by classic tools such as film cameras,
-            mechanical dials, and paper notebooks. We design software that
-            feels calm, deliberate, and respectful of the user’s attention.
-        </p>
-
-        <a href="apps.html" class="button" style="margin-top: 24px;">
-            View All Apps
-        </a>
-    </section>
-
-    <!-- HIGHLIGHTS -->
-    <section style="margin-top: 64px;">
-        <div class="grid-3">
-            <div class="card">
-                <h3>Privacy-first</h3>
-                <p>
-                    We prioritize user privacy and avoid unnecessary data
-                    collection. Our apps are designed to work locally
-                    whenever possible.
-                </p>
+<body class="bg-background-dark text-slate-100 transition-colors duration-300">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+    <!-- Header / Navigation -->
+    <header class="flex items-center justify-between border-b border-primary/20 px-6 py-4 lg:px-20">
+        <div class="flex items-center gap-3">
+            <div class="text-primary">
+                <svg class="w-8 h-8" fill="none" viewbox="0 0 48 48"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd"
+                          d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z"
+                          fill="currentColor" fill-rule="evenodd"></path>
+                    <path clip-rule="evenodd"
+                          d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z"
+                          fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
             </div>
-
-            <div class="card">
-                <h3>Designed for creators</h3>
-                <p>
-                    From photographers to writers, our tools focus on
-                    control, clarity, and creative flow rather than
-                    automation overload.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Minimal & reliable</h3>
-                <p>
-                    We believe fewer features — done well — create better
-                    products. Stability and performance are always our
-                    priorities.
-                </p>
-            </div>
+            <h2 class="text-xl font-bold tracking-tight">ssolstice</h2>
         </div>
-    </section>
-
-    <!-- APPS PREVIEW -->
-    <section style="margin-top: 72px;">
-        <h2 class="section-title">Featured Apps</h2>
-
-        <p style="max-width: 760px; line-height: 1.7; opacity: 0.85; margin-bottom: 32px;">
-            Explore the apps developed by S²olstice, built for photography,
-            productivity, creativity, and utility. Each app is designed
-            with focus and simplicity in mind, helping you get things done.
-        </p>
-
-        <div class="grid-3">
-
-            <div class="card">
-                <img alt="FILROLL icon" src="oldsoul.webp"/>
-                <h3>OldSoul – Film Camera</h3>
-                <p>
-                    OldSoul – Film Camera is named after a feeling
-                    An old soul is someone who finds beauty in patience, depth, and the quiet weight
-                    of time.
-                </p>
-                <a href="https://play.google.com/store/apps/details?id=com.ssolstice.camera.oldsoul"
-                   class="button secondary" target="_blank" rel="noopener">
-                    View on Google Play
-                </a>
-            </div>
-
-            <div class="card">
-                <img alt="FILROLL icon" src="filroll.webp"/>
-                <h3>FILROLL – Vintage Film Camera</h3>
-                <p>
-                    A film camera simulation app that recreates the feeling of shooting
-                    analog rolls, encouraging mindful photography and creative restraint.
-                </p>
-                <a href="https://play.google.com/store/apps/details?id=com.ssolstice.camera"
-                   class="button secondary" target="_blank" rel="noopener">
-                    View on Google Play
-                </a>
-            </div>
-
-            <div class="card">
-                <img alt="Manual Camera icon" src="manual.webp"/>
-                <h3>Manual Camera, Pro DSLR | RAW+</h3>
-                <p>
-                    A professional manual camera app with full control over exposure,
-                    focus, ISO, white balance, and RAW image capture for advanced
-                    photography workflows.
-                </p>
-                <a href="https://play.google.com/store/apps/details?id=com.ssolstice.camera.manual"
-                   class="button secondary" target="_blank" rel="noopener">
-                    View on Google Play
-                </a>
-            </div>
-        </div>
-
-        <a href="apps.html" class="button secondary" style="margin-top: 32px;margin-bottom: 32px;">
-            Explore All Apps
-        </a>
-    </section>
-
-</main>
-
-<footer>
-    <div class="container">
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="apps.html">Apps</a>
-            <a href="about.html">About</a>
-            <a href="help.html">Help</a>
-            <a href="terms.html">Terms</a>
-            <a href="privacy.html">Privacy</a>
+        <nav class="hidden md:flex items-center gap-10">
+            <a class="text-sm font-medium hover:text-primary transition-colors" href="#">Mission</a>
+            <a class="text-sm font-medium hover:text-primary transition-colors" href="#">Craftsmanship</a>
+            <a class="text-sm font-medium hover:text-primary transition-colors" href="#">Principles</a>
         </nav>
-        <p>© 2025 S²olstice. All rights reserved.</p>
-    </div>
-</footer>
+        <div class="flex items-center gap-4">
+            <button class="p-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-all">
+                <span class="material-symbols-outlined">person</span>
+            </button>
+            <button class="p-2 rounded-lg bg-primary text-background-dark hover:opacity-90 transition-all">
+                <span class="material-symbols-outlined">shopping_bag</span>
+            </button>
+        </div>
+    </header>
+    <main class="flex-1 max-w-7xl mx-auto w-full px-6 py-16 lg:px-20">
+
+        <!-- HERO -->
+        <section class="text-center max-w-4xl mx-auto mb-28">
+            <span class="text-primary uppercase text-xs tracking-widest font-bold">S²olstice Studio</span>
+
+            <h1 class="text-4xl md:text-6xl font-black mt-6 mb-6 leading-tight">
+                Mobile Cameras Inspired by
+                <span class="text-primary">Film & Professional Photography</span>
+            </h1>
+
+            <p class="text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
+                We build powerful photography apps for Android — combining manual camera controls,
+                RAW image capture, and vintage film aesthetics into modern mobile tools for creators.
+            </p>
+
+            <div class="mt-10 flex flex-wrap justify-center gap-4">
+                <a href="https://play.google.com/store/apps/dev?id=4762229976399806756"
+                   class="bg-primary text-background-dark font-bold px-8 py-3 rounded-lg hover:brightness-110 transition-all">
+                    View Our Apps
+                </a>
+            </div>
+        </section>
 
 
+        <!-- FEATURED APPS -->
+        <section class="mb-32">
+
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Photography Apps</h2>
+                <p class="text-slate-500 max-w-xl mx-auto">
+                    Professional camera tools and film‑inspired photography apps built for creators.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
+
+                <!-- Manual Camera -->
+                <div class="glass-panel p-8 rounded-xl flex flex-col gap-4">
+                    <h3 class="text-2xl font-bold">Manual Camera RAW+</h3>
+                    <p class="text-slate-400">
+                        A professional manual camera with full control over ISO, shutter speed,
+                        focus, and white balance. Capture high quality RAW photos with DSLR‑style
+                        shooting directly from your phone.
+                    </p>
+                    <a class="text-primary font-bold hover:underline"
+                       href="https://play.google.com/store/apps/details?id=com.ssolstice.camera.manual">
+                        View on Google Play
+                    </a>
+                </div>
+
+                <!-- FILROLL -->
+                <div class="glass-panel p-8 rounded-xl flex flex-col gap-4">
+                    <h3 class="text-2xl font-bold">FILROLL – Vintage Film Camera</h3>
+                    <p class="text-slate-400">
+                        Shoot photos with the look of classic film stocks inspired by Kodak,
+                        Fuji, and Agfa. Experience the charm and colors of analog photography
+                        in a modern mobile camera.
+                    </p>
+                    <a class="text-primary font-bold hover:underline"
+                       href="https://play.google.com/store/apps/details?id=com.ssolstice.camera">
+                        View on Google Play
+                    </a>
+                </div>
+
+                <!-- AuraRAW -->
+                <div class="glass-panel p-8 rounded-xl flex flex-col gap-4">
+                    <h3 class="text-2xl font-bold">AuraRAW Camera</h3>
+                    <p class="text-slate-400">
+                        A powerful RAW photography camera designed for creators who want
+                        maximum image quality and advanced manual shooting controls.
+                    </p>
+                    <a class="text-primary font-bold hover:underline"
+                       href="https://play.google.com/store/apps/details?id=com.s2olstice.auraraw.camera">
+                        View on Google Play
+                    </a>
+                </div>
+
+                <!-- OldSoul -->
+                <div class="glass-panel p-8 rounded-xl flex flex-col gap-4">
+                    <h3 class="text-2xl font-bold">OldSoul – Film Camera</h3>
+                    <p class="text-slate-400">
+                        A nostalgic film camera that recreates the mood and colors
+                        of analog photography, encouraging slower and more intentional
+                        shooting.
+                    </p>
+                    <a class="text-primary font-bold hover:underline"
+                       href="https://play.google.com/store/apps/details?id=com.ssolstice.camera.oldsoul">
+                        View on Google Play
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- PHILOSOPHY -->
+        <section class="mb-32">
+
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Our Philosophy</h2>
+                <p class="text-slate-500 max-w-xl mx-auto">
+                    We believe photography apps should empower creators,
+                    not overwhelm them with complexity.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <div class="glass-panel p-8 rounded-xl">
+                    <h4 class="text-xl font-bold mb-3">Manual Control</h4>
+                    <p class="text-slate-400 text-sm">
+                        Photographers deserve full creative control over
+                        exposure, focus, and color. Our apps bring manual
+                        photography tools to mobile devices.
+                    </p>
+                </div>
+
+                <div class="glass-panel p-8 rounded-xl">
+                    <h4 class="text-xl font-bold mb-3">Film Inspiration</h4>
+                    <p class="text-slate-400 text-sm">
+                        Many of our apps are inspired by classic film
+                        cameras and analog workflows, bringing timeless
+                        aesthetics into modern photography.
+                    </p>
+                </div>
+
+                <div class="glass-panel p-8 rounded-xl">
+                    <h4 class="text-xl font-bold mb-3">Simple Tools</h4>
+                    <p class="text-slate-400 text-sm">
+                        Our goal is simple: build fast, intuitive apps
+                        that help creators capture moments without
+                        unnecessary complexity.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CTA -->
+        <section class="text-center py-16 border-t border-primary/10">
+            <h2 class="text-3xl font-bold mb-6">Discover Our Apps</h2>
+
+            <p class="text-slate-400 max-w-2xl mx-auto mb-10">
+                Explore manual cameras, RAW photography tools,
+                and vintage film simulations built for Android creators.
+            </p>
+
+            <a href="https://play.google.com/store/apps/dev?id=4762229976399806756"
+               class="bg-primary text-background-dark font-bold px-10 py-4 rounded-lg hover:brightness-110 transition-all">
+                View All Apps on Google Play
+            </a>
+        </section>
+
+    </main>
+    <!-- Footer -->
+    <footer class="border-t border-primary/10 px-6 py-12 lg:px-20 mt-12 bg-background-dark">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center gap-3 text-primary mb-6">
+                    <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 48 48">
+                        <path clip-rule="evenodd"
+                              d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z"></path>
+                    </svg>
+                    <span class="text-xl font-bold tracking-tight text-white">ssolstice</span>
+                </div>
+                <p class="text-slate-400 max-w-sm">Independent studio building professional Android camera apps inspired by film photography and manual shooting tools.</p>
+            </div>
+<!--            <div>-->
+<!--                <h5 class="text-white font-bold mb-4">Navigation</h5>-->
+<!--                <ul class="space-y-2 text-slate-500 text-sm">-->
+<!--                    <li><a class="hover:text-primary" href="#">Manifesto</a></li>-->
+<!--                    <li><a class="hover:text-primary" href="#">Products</a></li>-->
+<!--                    <li><a class="hover:text-primary" href="#">Craftsmanship</a></li>-->
+<!--                    <li><a class="hover:text-primary" href="#">Privacy Policy</a></li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <h5 class="text-white font-bold mb-4">Connect</h5>-->
+<!--                <ul class="space-y-2 text-slate-500 text-sm">-->
+<!--                    <li><a class="hover:text-primary" href="#">Mastodon</a></li>-->
+<!--                    <li><a class="hover:text-primary" href="#">Email Support</a></li>-->
+<!--                    <li><a class="hover:text-primary" href="#">Open Source</a></li>-->
+<!--                </ul>-->
+<!--            </div>-->
+        </div>
+        <div class="pt-8 border-t border-primary/20 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+            <p>© 2026 S²olstice. All rights reserved.</p>
+<!--            <p>Designed with Intent.</p>-->
+        </div>
+    </footer>
+</div>
 </body>
 </html>
