@@ -43,6 +43,25 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(212, 175, 55, 0.2);
         }
+        .film-grain {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.15;
+            mix-blend-mode: overlay;
+            background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+            background-size: 300px 300px;
+        }
+
+        .light-leak {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: radial-gradient(circle at 15% 20%, rgba(255,120,0,0.35), transparent 40%),
+                        radial-gradient(circle at 85% 10%, rgba(255,0,120,0.25), transparent 45%);
+            mix-blend-mode: screen;
+            opacity: 0.35;
+        }
     </style>
 </head>
 <body class="bg-background-dark text-slate-100 transition-colors duration-300">
@@ -51,17 +70,9 @@
     <header class="flex items-center justify-between border-b border-primary/20 px-6 py-4 lg:px-20">
         <div class="flex items-center gap-3">
             <div class="text-primary">
-                <svg class="w-8 h-8" fill="none" viewbox="0 0 48 48"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <path clip-rule="evenodd"
-                          d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z"
-                          fill="currentColor" fill-rule="evenodd"></path>
-                    <path clip-rule="evenodd"
-                          d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z"
-                          fill="currentColor" fill-rule="evenodd"></path>
-                </svg>
+                <img src="filroll.webp" alt="FILROLL" class="w-8 h-8 rounded-lg"/>
             </div>
-            <h2 class="text-xl font-bold tracking-tight">ssolstice</h2>
+            <h2 class="text-xl font-bold tracking-tight">S²olstice</h2>
         </div>
         <nav class="hidden md:flex items-center gap-10">
             <a class="text-sm font-medium hover:text-primary transition-colors" href="about.html">About</a>
@@ -73,32 +84,36 @@
     <main class="flex-1 max-w-7xl mx-auto w-full px-6 pt-0 pb-16 lg:px-20">
 
         <!-- HERO -->
-        <section class="relative w-screen left-1/2 -translate-x-1/2 mb-28 pt-0 pb-28 overflow-hidden">
+        <section id="hero"
+                 class="relative w-screen left-1/2 -translate-x-1/2 min-h-screen flex items-center overflow-hidden">
             <div class="absolute inset-0 -z-10 overflow-hidden">
-                <img src="cover.jpg" alt="Photography background"
-                     class="w-full h-full object-cover opacity-100" />
+                <img id="hero-bg" src="cover.jpg" alt="Photography background"
+                     class="w-full h-[120%] object-cover opacity-100 translate-y-0"/>
             </div>
             <div class="absolute inset-0 -z-10 bg-gradient-to-b from-black/70 via-black/60 to-black"></div>
+            <div class="light-leak"></div>
+            <div class="film-grain"></div>
             <div class="max-w-4xl mx-auto px-6 lg:px-20">
-            <span class="text-primary uppercase text-xs tracking-widest font-bold">S²olstice Studio</span>
+                <span class="text-primary uppercase text-xs tracking-widest font-bold">S²olstice Studio</span>
 
-            <h1 class="text-4xl md:text-6xl font-black mt-6 mb-6 leading-tight">
-                Mobile Cameras Inspired by
-                <span class="text-primary">Film & Professional Photography</span>
-            </h1>
+                <h1 class="text-4xl md:text-6xl font-black mt-6 mb-6 leading-tight">
+                    Mobile Cameras Inspired by
+                    <span class="text-primary">Film & Professional Photography</span>
+                </h1>
 
-            <p class="text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
-                We build powerful photography apps for Android — combining manual camera controls,
-                RAW image capture, and vintage film aesthetics into modern mobile tools for
-                creators.
-            </p>
+                <p class="text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
+                    We build powerful photography apps for Android — combining manual camera
+                    controls,
+                    RAW image capture, and vintage film aesthetics into modern mobile tools for
+                    creators.
+                </p>
 
-            <div class="mt-10 flex flex-wrap justify-center gap-4">
-                <a href="https://play.google.com/store/apps/dev?id=4762229976399806756"
-                   class="bg-primary text-background-dark font-bold px-8 py-3 rounded-lg hover:brightness-110 transition-all">
-                    View Our Apps
-                </a>
-            </div>
+                <div class="mt-10 flex flex-wrap justify-center gap-4">
+                    <a href="https://play.google.com/store/apps/dev?id=4762229976399806756"
+                       class="bg-primary text-background-dark font-bold px-8 py-3 rounded-lg hover:brightness-110 transition-all">
+                        View Our Apps
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -114,6 +129,23 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
+
+                <!-- ROLLO – 35mm Film Camera -->
+                <div class="glass-panel p-8 rounded-xl flex flex-col gap-4">
+                    <div class="flex items-center gap-4">
+                        <img src="filroll.webp" alt="FILROLL" class="w-14 h-14 rounded-lg"/>
+                        <h3 class="text-2xl font-bold">ROLLO – 35mm Film Camera</h3>
+                    </div>
+                    <p class="text-slate-400">
+                        Shoot photos with the look of classic film stocks inspired by Kodak,
+                        Fuji, and Agfa. Experience the charm and colors of analog photography
+                        in a modern mobile camera.
+                    </p>
+                    <a class="text-primary font-bold hover:underline"
+                       href="https://play.google.com/store/apps/details?id=com.ssolstice.camera">
+                        View on Google Play
+                    </a>
+                </div>
 
                 <!-- Manual Camera -->
                 <div class="glass-panel p-8 rounded-xl flex flex-col gap-4">
@@ -132,28 +164,11 @@
                     </a>
                 </div>
 
-                <!-- FILROLL -->
-                <div class="glass-panel p-8 rounded-xl flex flex-col gap-4">
-                    <div class="flex items-center gap-4">
-                        <img src="filroll.webp" alt="FILROLL" class="w-14 h-14 rounded-lg"/>
-                        <h3 class="text-2xl font-bold">FILROLL – Vintage Film Camera</h3>
-                    </div>
-                    <p class="text-slate-400">
-                        Shoot photos with the look of classic film stocks inspired by Kodak,
-                        Fuji, and Agfa. Experience the charm and colors of analog photography
-                        in a modern mobile camera.
-                    </p>
-                    <a class="text-primary font-bold hover:underline"
-                       href="https://play.google.com/store/apps/details?id=com.ssolstice.camera">
-                        View on Google Play
-                    </a>
-                </div>
-
                 <!-- AuraRAW -->
                 <div class="glass-panel p-8 rounded-xl flex flex-col gap-4">
                     <div class="flex items-center gap-4">
                         <img src="auraraw.webp" alt="AuraRAW" class="w-14 h-14 rounded-lg"/>
-                        <h3 class="text-2xl font-bold">AuraRAW Camera</h3>
+                        <h3 class="text-2xl font-bold">AuraRAW – Pro Manual Camera</h3>
                     </div>
                     <p class="text-slate-400">
                         A powerful RAW photography camera designed for creators who want
@@ -252,38 +267,49 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             <div class="col-span-1 md:col-span-2">
                 <div class="flex items-center gap-3 text-primary mb-6">
-                    <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 48 48">
-                        <path clip-rule="evenodd"
-                              d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z"></path>
-                    </svg>
-                    <span class="text-xl font-bold tracking-tight text-white">ssolstice</span>
+                    <img src="filroll.webp" alt="FILROLL" class="w-10 h-10 rounded-lg"/>
+                    <span class="text-xl font-bold tracking-tight text-white">S²olstice</span>
                 </div>
                 <p class="text-slate-400 max-w-sm">Independent studio building professional Android
                     camera apps inspired by film photography and manual shooting tools.</p>
+                <div class="mt-6 flex items-center gap-4">
+                    <a href="https://www.linkedin.com/company/ssolstice/" target="_blank"
+                       rel="noopener noreferrer"
+                       class="text-slate-400 hover:text-primary transition-colors flex items-center gap-2">
+                        <svg height="24px" width="24px" version="1.1" id="Layer_1"
+                             xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 382 382"
+                             xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                               stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier"> <path style="fill:#0077B7;"
+                                                               d="M347.445,0H34.555C15.471,0,0,15.471,0,34.555v312.889C0,366.529,15.471,382,34.555,382h312.889 C366.529,382,382,366.529,382,347.444V34.555C382,15.471,366.529,0,347.445,0z M118.207,329.844c0,5.554-4.502,10.056-10.056,10.056 H65.345c-5.554,0-10.056-4.502-10.056-10.056V150.403c0-5.554,4.502-10.056,10.056-10.056h42.806 c5.554,0,10.056,4.502,10.056,10.056V329.844z M86.748,123.432c-22.459,0-40.666-18.207-40.666-40.666S64.289,42.1,86.748,42.1 s40.666,18.207,40.666,40.666S109.208,123.432,86.748,123.432z M341.91,330.654c0,5.106-4.14,9.246-9.246,9.246H286.73 c-5.106,0-9.246-4.14-9.246-9.246v-84.168c0-12.556,3.683-55.021-32.813-55.021c-28.309,0-34.051,29.066-35.204,42.11v97.079 c0,5.106-4.139,9.246-9.246,9.246h-44.426c-5.106,0-9.246-4.14-9.246-9.246V149.593c0-5.106,4.14-9.246,9.246-9.246h44.426 c5.106,0,9.246,4.14,9.246,9.246v15.655c10.497-15.753,26.097-27.912,59.312-27.912c73.552,0,73.131,68.716,73.131,106.472 L341.91,330.654L341.91,330.654z"></path> </g></svg>
+                        <span class="text-l font-bold">LinkedIn</span>
+                    </a>
+                    <a href="mailto:ssolstice216@gmail.com"
+                       class="text-slate-400 hover:text-primary transition-colors flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#29abe2">
+                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/>
+                        </svg>
+                        <span class="text-l font-bold">ssolstice216@gmail.com</span>
+                    </a>
+                </div>
             </div>
-            <!--            <div>-->
-            <!--                <h5 class="text-white font-bold mb-4">Navigation</h5>-->
-            <!--                <ul class="space-y-2 text-slate-500 text-sm">-->
-            <!--                    <li><a class="hover:text-primary" href="#">Manifesto</a></li>-->
-            <!--                    <li><a class="hover:text-primary" href="#">Products</a></li>-->
-            <!--                    <li><a class="hover:text-primary" href="#">Craftsmanship</a></li>-->
-            <!--                    <li><a class="hover:text-primary" href="#">Privacy Policy</a></li>-->
-            <!--                </ul>-->
-            <!--            </div>-->
-            <!--            <div>-->
-            <!--                <h5 class="text-white font-bold mb-4">Connect</h5>-->
-            <!--                <ul class="space-y-2 text-slate-500 text-sm">-->
-            <!--                    <li><a class="hover:text-primary" href="#">Mastodon</a></li>-->
-            <!--                    <li><a class="hover:text-primary" href="#">Email Support</a></li>-->
-            <!--                    <li><a class="hover:text-primary" href="#">Open Source</a></li>-->
-            <!--                </ul>-->
-            <!--            </div>-->
         </div>
         <div class="pt-8 border-t border-primary/20 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
             <p>© 2026 S²olstice. All rights reserved.</p>
-            <!--            <p>Designed with Intent.</p>-->
         </div>
     </footer>
 </div>
+<script>
+    const heroBg = document.getElementById('hero-bg');
+
+    window.addEventListener('scroll', () => {ss
+      const scrollY = window.scrollY;
+      if (heroBg) {
+        heroBg.style.transform = `translateY(${scrollY * 0.25}px)`;
+      }
+    });
+</script>
 </body>
 </html>
