@@ -7,7 +7,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
+          rel="stylesheet"/>
 
     <style>
         body{
@@ -105,14 +106,88 @@
         }
     </style>
 
-    <!-- Google tag (gtag.js) -->
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BVWXG7SHHD"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-BVWXG7SHHD');
+
+
+        // ===== Play Store Click Tracking =====
+        document.querySelectorAll('a[href*="play.google.com"]').forEach(link => {
+          link.addEventListener('click', function () {
+
+            let app = "unknown";
+
+            if (this.href.includes("aurapro")) app = "AuraPro";
+            else if (this.href.includes("auraraw")) app = "AuraRAW";
+            else if (this.href.includes("camera.manual")) app = "Manual2";
+            else if (this.href.includes("oldsoul")) app = "OldSoul";
+            else if (this.href.includes("filroll")) app = "FILROLL";
+
+            gtag('event', 'click_play_store', {
+              app: app,
+              page: window.location.pathname
+            });
+
+          });
+        });
+
+
+        // ===== Section Navigation Tracking =====
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+          link.addEventListener('click', function () {
+
+            const section = this.getAttribute("href").replace("#","");
+
+            gtag('event','toc_nav',{
+              section: section,
+              page: window.location.pathname
+            });
+
+          });
+        });
+
+
+        // ===== Outbound Link Tracking =====
+        document.querySelectorAll('a[href^="http"]').forEach(link => {
+
+          if (!link.href.includes(window.location.hostname)) {
+
+            link.addEventListener('click', function () {
+
+              gtag('event','outbound_click',{
+                url: this.href,
+                page: window.location.pathname
+              });
+
+            });
+
+          }
+
+        });
+
+
+        // ===== Scroll Depth Tracking =====
+        let scrollTracked = false;
+
+        window.addEventListener('scroll', () => {
+
+          if (scrollTracked) return;
+
+          if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight * 0.9) {
+
+            scrollTracked = true;
+
+            gtag('event','scroll_90',{
+              page: window.location.pathname
+            });
+
+          }
+
+        });
     </script>
 </head>
 <body>
@@ -120,7 +195,7 @@
 <header>
     <div class="container nav">
         <a href="index.html" class="logo">
-            <img src="logo.png" alt="S²olstice logo" />
+            <img src="logo.png" alt="S²olstice logo"/>
             <span>S²olstice</span>
         </a>
 

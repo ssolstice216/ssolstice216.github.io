@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
+          rel="stylesheet"/>
     <style>
         body{
             margin:0;
@@ -95,20 +96,97 @@
     </style>
 
     <!-- Google tag (gtag.js) -->
+
+
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BVWXG7SHHD"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-BVWXG7SHHD');
+
+
+        // ===== Play Store Click Tracking =====
+        document.querySelectorAll('a[href*="play.google.com"]').forEach(link => {
+          link.addEventListener('click', function () {
+
+            let app = "unknown";
+
+            if (this.href.includes("aurapro")) app = "AuraPro";
+            else if (this.href.includes("auraraw")) app = "AuraRAW";
+            else if (this.href.includes("camera.manual")) app = "Manual2";
+            else if (this.href.includes("oldsoul")) app = "OldSoul";
+            else if (this.href.includes("filroll")) app = "FILROLL";
+
+            gtag('event', 'click_play_store', {
+              app: app,
+              page: window.location.pathname
+            });
+
+          });
+        });
+
+
+        // ===== Section Navigation Tracking =====
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+          link.addEventListener('click', function () {
+
+            const section = this.getAttribute("href").replace("#","");
+
+            gtag('event','toc_nav',{
+              section: section,
+              page: window.location.pathname
+            });
+
+          });
+        });
+
+
+        // ===== Outbound Link Tracking =====
+        document.querySelectorAll('a[href^="http"]').forEach(link => {
+
+          if (!link.href.includes(window.location.hostname)) {
+
+            link.addEventListener('click', function () {
+
+              gtag('event','outbound_click',{
+                url: this.href,
+                page: window.location.pathname
+              });
+
+            });
+
+          }
+
+        });
+
+
+        // ===== Scroll Depth Tracking =====
+        let scrollTracked = false;
+
+        window.addEventListener('scroll', () => {
+
+          if (scrollTracked) return;
+
+          if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight * 0.9) {
+
+            scrollTracked = true;
+
+            gtag('event','scroll_90',{
+              page: window.location.pathname
+            });
+
+          }
+
+        });
     </script>
 </head>
 <body>
 <header>
     <div class="container nav">
         <a href="index.html" class="logo">
-            <img src="logo.png" alt="S²olstice logo" />
+            <img src="logo.png" alt="S²olstice logo"/>
             <span>S²olstice</span>
         </a>
         <nav>
@@ -200,15 +278,29 @@
         <section>
             <h2>6. Purchases and Subscriptions</h2>
             <div class="highlight-box">
-                <p><strong>Subscription Basis:</strong> Certain features are billed on a subscription basis ("Subscription(s)"). You will be billed in advance on a recurring and periodic basis (monthly or annually), depending on the plan you select.</p>
+                <p><strong>Subscription Basis:</strong> Certain features are billed on a
+                    subscription basis ("Subscription(s)"). You will be billed in advance on a
+                    recurring and periodic basis (monthly or annually), depending on the plan you
+                    select.</p>
 
-                <p><strong>Automatic Renewal:</strong> To ensure uninterrupted service, subscriptions automatically renew at the end of each billing cycle under the same conditions unless cancelled. Your Google Play Account will be charged for renewal within 24 hours prior to the end of the current period.</p>
+                <p><strong>Automatic Renewal:</strong> To ensure uninterrupted service,
+                    subscriptions automatically renew at the end of each billing cycle under the
+                    same conditions unless cancelled. Your Google Play Account will be charged for
+                    renewal within 24 hours prior to the end of the current period.</p>
 
-                <p><strong>Cancellation:</strong> You can manage or cancel your subscription at any time via your <strong>Google Play Account Settings</strong>. To avoid being charged for the next cycle, cancellation must be made at least 24 hours before the current period ends. Please note that uninstalling the app does not automatically cancel your subscription.</p>
+                <p><strong>Cancellation:</strong> You can manage or cancel your subscription at any
+                    time via your <strong>Google Play Account Settings</strong>. To avoid being
+                    charged for the next cycle, cancellation must be made at least 24 hours before
+                    the current period ends. Please note that uninstalling the app does not
+                    automatically cancel your subscription.</p>
 
-                <p><strong>Lifetime/Permanent Access:</strong> If you purchase a "Permanent" or "One-time" license, you will be charged a single fee for ongoing access to Pro features without recurring billing.</p>
+                <p><strong>Lifetime/Permanent Access:</strong> If you purchase a "Permanent" or
+                    "One-time" license, you will be charged a single fee for ongoing access to Pro
+                    features without recurring billing.</p>
 
-                <p><strong>Refunds:</strong> All transactions are processed by Google Play. Refund requests are subject to Google Play's refund policies and are generally non-refundable except where required by law.</p>
+                <p><strong>Refunds:</strong> All transactions are processed by Google Play. Refund
+                    requests are subject to Google Play's refund policies and are generally
+                    non-refundable except where required by law.</p>
             </div>
         </section>
         <section>

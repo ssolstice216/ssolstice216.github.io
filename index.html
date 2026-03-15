@@ -14,15 +14,6 @@
           rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
           rel="stylesheet"/>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BVWXG7SHHD"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-BVWXG7SHHD');
-    </script>
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -75,6 +66,89 @@
             opacity: 0.35;
         }
     </style>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BVWXG7SHHD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-BVWXG7SHHD');
+
+
+        // ===== Play Store Click Tracking =====
+        document.querySelectorAll('a[href*="play.google.com"]').forEach(link => {
+          link.addEventListener('click', function () {
+
+            let app = "unknown";
+
+            if (this.href.includes("aurapro")) app = "AuraPro";
+            else if (this.href.includes("auraraw")) app = "AuraRAW";
+            else if (this.href.includes("camera.manual")) app = "Manual2";
+            else if (this.href.includes("oldsoul")) app = "OldSoul";
+            else if (this.href.includes("filroll")) app = "FILROLL";
+
+            gtag('event', 'click_play_store', {
+              app: app,
+              page: window.location.pathname
+            });
+
+          });
+        });
+
+
+        // ===== Section Navigation Tracking =====
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+          link.addEventListener('click', function () {
+
+            const section = this.getAttribute("href").replace("#","");
+
+            gtag('event','toc_nav',{
+              section: section,
+              page: window.location.pathname
+            });
+
+          });
+        });
+
+
+        // ===== Outbound Link Tracking =====
+        document.querySelectorAll('a[href^="http"]').forEach(link => {
+
+          if (!link.href.includes(window.location.hostname)) {
+
+            link.addEventListener('click', function () {
+
+              gtag('event','outbound_click',{
+                url: this.href,
+                page: window.location.pathname
+              });
+
+            });
+
+          }
+
+        });
+
+
+        // ===== Scroll Depth Tracking =====
+        let scrollTracked = false;
+
+        window.addEventListener('scroll', () => {
+
+          if (scrollTracked) return;
+
+          if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight * 0.9) {
+
+            scrollTracked = true;
+
+            gtag('event','scroll_90',{
+              page: window.location.pathname
+            });
+
+          }
+
+        });
+    </script>
 </head>
 <body class="bg-background-dark text-slate-100 transition-colors duration-300">
 <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
@@ -87,14 +161,10 @@
             <h2 class="text-3xl font-bold tracking-tight">S²olstice</h2>
         </div>
         <nav class="flex flex-wrap justify-start md:justify-end gap-4 md:gap-10 text-sm">
-            <a class="text-sm font-medium hover:text-primary transition-colors" href="about.html"
-               onclick="gtag('event','click_nav',{tab:'About'});">About</a>
-            <a class="text-sm font-medium hover:text-primary transition-colors" href="help.html"
-               onclick="gtag('event','click_nav',{tab:'Help'});">Help</a>
-            <a class="text-sm font-medium hover:text-primary transition-colors" href="terms.html"
-               onclick="gtag('event','click_nav',{tab:'Terms'});">Terms</a>
-            <a class="text-sm font-medium hover:text-primary transition-colors" href="privacy.html"
-               onclick="gtag('event','click_nav',{tab:'Privacy'});">Privacy</a>
+            <a class="text-sm font-medium hover:text-primary transition-colors" href="about.html">About</a>
+            <a class="text-sm font-medium hover:text-primary transition-colors" href="help.html">Help</a>
+            <a class="text-sm font-medium hover:text-primary transition-colors" href="terms.html">Terms</a>
+            <a class="text-sm font-medium hover:text-primary transition-colors" href="privacy.html">Privacy</a>
         </nav>
     </header>
     <main class="flex-1 max-w-7xl mx-auto w-full px-6 pt-0 pb-16 lg:px-20">
@@ -126,7 +196,6 @@
 
                 <div class="mt-10 flex flex-wrap justify-center gap-4">
                     <a href="https://play.google.com/store/apps/dev?id=4762229976399806756"
-                       onclick="gtag('event','click_play_store_dev',{source:'hero'});"
                        class="bg-primary text-background-dark font-bold px-8 py-3 rounded-lg hover:brightness-110 transition-all">
                         View Our Apps
                     </a>
@@ -160,8 +229,7 @@
                         in a modern mobile camera.
                     </p>
                     <a class="text-primary font-bold hover:underline"
-                       href="https://play.google.com/store/apps/details?id=com.ssolstice.camera"
-                       onclick="gtag('event','click_play_store',{app:'ROLLO'});">
+                       href="https://play.google.com/store/apps/details?id=com.ssolstice.camera">
                         View on Google Play
                     </a>
                 </div>
@@ -178,8 +246,7 @@
                         shooting directly from your phone.
                     </p>
                     <a class="text-primary font-bold hover:underline"
-                       href="https://play.google.com/store/apps/details?id=com.ssolstice.camera.manual"
-                       onclick="gtag('event','click_play_store',{app:'Manual2'});">
+                       href="https://play.google.com/store/apps/details?id=com.ssolstice.camera.manual">
                         View on Google Play
                     </a>
                 </div>
@@ -195,8 +262,7 @@
                         maximum image quality and advanced manual shooting controls.
                     </p>
                     <a class="text-primary font-bold hover:underline"
-                       href="https://play.google.com/store/apps/details?id=com.s2olstice.auraraw.camera"
-                       onclick="gtag('event','click_play_store',{app:'AuraRAW'});">
+                       href="https://play.google.com/store/apps/details?id=com.s2olstice.auraraw.camera">
                         View on Google Play
                     </a>
                 </div>
@@ -213,8 +279,7 @@
                         shooting.
                     </p>
                     <a class="text-primary font-bold hover:underline"
-                       href="https://play.google.com/store/apps/details?id=com.ssolstice.camera.oldsoul"
-                       onclick="gtag('event','click_play_store',{app:'OldSoul'});">
+                       href="https://play.google.com/store/apps/details?id=com.ssolstice.camera.oldsoul">
                         View on Google Play
                     </a>
                 </div>
@@ -278,7 +343,6 @@
             </p>
 
             <a href="https://play.google.com/store/apps/dev?id=4762229976399806756"
-               onclick="gtag('event','click_play_store_dev',{app:'Google Play'});"
                class="bg-primary text-background-dark font-bold px-10 py-4 rounded-lg hover:brightness-110 transition-all">
                 View All Apps on Google Play
             </a>
