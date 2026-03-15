@@ -14,6 +14,15 @@
           rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
           rel="stylesheet"/>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BVWXG7SHHD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-BVWXG7SHHD');
+    </script>
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -146,7 +155,8 @@
                         in a modern mobile camera.
                     </p>
                     <a class="text-primary font-bold hover:underline"
-                       href="https://play.google.com/store/apps/details?id=com.ssolstice.camera">
+                       href="https://play.google.com/store/apps/details?id=com.ssolstice.camera"
+                       onclick="gtag('event','click_play_store',{app:'ROLLO'});">
                         View on Google Play
                     </a>
                 </div>
@@ -163,7 +173,8 @@
                         shooting directly from your phone.
                     </p>
                     <a class="text-primary font-bold hover:underline"
-                       href="https://play.google.com/store/apps/details?id=com.ssolstice.camera.manual">
+                       href="https://play.google.com/store/apps/details?id=com.ssolstice.camera.manual"
+                       onclick="gtag('event','click_play_store',{app:'Manual2'});">
                         View on Google Play
                     </a>
                 </div>
@@ -179,7 +190,8 @@
                         maximum image quality and advanced manual shooting controls.
                     </p>
                     <a class="text-primary font-bold hover:underline"
-                       href="https://play.google.com/store/apps/details?id=com.s2olstice.auraraw.camera">
+                       href="https://play.google.com/store/apps/details?id=com.s2olstice.auraraw.camera"
+                       onclick="gtag('event','click_play_store',{app:'AuraRAW'});">
                         View on Google Play
                     </a>
                 </div>
@@ -196,7 +208,8 @@
                         shooting.
                     </p>
                     <a class="text-primary font-bold hover:underline"
-                       href="https://play.google.com/store/apps/details?id=com.ssolstice.camera.oldsoul">
+                       href="https://play.google.com/store/apps/details?id=com.ssolstice.camera.oldsoul"
+                       onclick="gtag('event','click_play_store',{app:'OldSoul'});">
                         View on Google Play
                     </a>
                 </div>
@@ -274,7 +287,8 @@
                     <img src="filroll.webp" alt="FILROLL" class="w-10 h-10 rounded-lg"/>
                     <span class="text-3xl font-bold tracking-tight text-white">S²olstice</span>
                 </div>
-                <p class="text-slate-400 max-w-sm" style="color: #ffffff">Independent studio building professional Android
+                <p class="text-slate-400 max-w-sm" style="color: #ffffff">Independent studio
+                    building professional Android
                     camera apps inspired by film photography and manual shooting tools.</p>
             </div>
             <div class="col-span-1 md:col-span-2 flex flex-col items-start md:items-end justify-start text-left md:text-right">
@@ -298,7 +312,8 @@
             </div>
             <div class="col-span-1 md:col-span-2">
                 <strong style="color: #ffffffff">Made with love in Vietnam</strong>
-                <p class="text-slate-400 text-sm" style="color: #808080">Copyright 2026 S²olstice</p>
+                <p class="text-slate-400 text-sm" style="color: #808080">Copyright 2026
+                    S²olstice</p>
                 <p class="text-slate-400 text-sm" style="color: #808080">All Rights Reserved.</p>
             </div>
         </div>
