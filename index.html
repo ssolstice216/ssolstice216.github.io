@@ -87,10 +87,14 @@
             <h2 class="text-3xl font-bold tracking-tight">S²olstice</h2>
         </div>
         <nav class="flex flex-wrap justify-start md:justify-end gap-4 md:gap-10 text-sm">
-            <a class="text-sm font-medium hover:text-primary transition-colors" href="about.html">About</a>
-            <a class="text-sm font-medium hover:text-primary transition-colors" href="help.html">Help</a>
-            <a class="text-sm font-medium hover:text-primary transition-colors" href="terms.html">Terms</a>
-            <a class="text-sm font-medium hover:text-primary transition-colors" href="privacy.html">Privacy</a>
+            <a class="text-sm font-medium hover:text-primary transition-colors" href="about.html"
+               onclick="gtag('event','click_nav',{tab:'About'});">About</a>
+            <a class="text-sm font-medium hover:text-primary transition-colors" href="help.html"
+               onclick="gtag('event','click_nav',{tab:'Help'});">Help</a>
+            <a class="text-sm font-medium hover:text-primary transition-colors" href="terms.html"
+               onclick="gtag('event','click_nav',{tab:'Terms'});">Terms</a>
+            <a class="text-sm font-medium hover:text-primary transition-colors" href="privacy.html"
+               onclick="gtag('event','click_nav',{tab:'Privacy'});">Privacy</a>
         </nav>
     </header>
     <main class="flex-1 max-w-7xl mx-auto w-full px-6 pt-0 pb-16 lg:px-20">
@@ -122,6 +126,7 @@
 
                 <div class="mt-10 flex flex-wrap justify-center gap-4">
                     <a href="https://play.google.com/store/apps/dev?id=4762229976399806756"
+                       onclick="gtag('event','click_play_store_dev',{source:'hero'});"
                        class="bg-primary text-background-dark font-bold px-8 py-3 rounded-lg hover:brightness-110 transition-all">
                         View Our Apps
                     </a>
@@ -273,6 +278,7 @@
             </p>
 
             <a href="https://play.google.com/store/apps/dev?id=4762229976399806756"
+               onclick="gtag('event','click_play_store_dev',{app:'Google Play'});"
                class="bg-primary text-background-dark font-bold px-10 py-4 rounded-lg hover:brightness-110 transition-all">
                 View All Apps on Google Play
             </a>
