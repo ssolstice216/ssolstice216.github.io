@@ -2,20 +2,101 @@
 <html lang="vi">
 <head>
     <title>A web-based tool to view, edit, format, and validate JSON</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.10.0/jsoneditor.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.10.0/jsoneditor.min.css"
+          rel="stylesheet" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.10.0/jsoneditor.min.js"></script>
     <style>
-        #jsoneditor { width: 100%; height: 500px; }
+        #jsoneditor {
+            width: 100%;
+            height: calc(100vh - 100px);
+        }
+        html, body {
+            height: 100%;
+        }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 8px 12px; background:#0f172a; color:#e5e7eb; }
+        .toolbar {
+            display:flex;
+            gap:10px;
+            margin-bottom:8px;
+            flex-wrap:wrap;
+        }
+        .btn { padding:6px 12px; border-radius:8px; border:1px solid #334155; background:#1e293b; color:#e5e7eb; cursor:pointer; }
+        .btn:hover { background:#334155; }
+        .light body { background:#f9fafb; color:#111827; }
     </style>
 </head>
 <body>
-<h2>A web-based tool to view, edit, format, and validate JSON</h2>
+<h2>JSON Viewer & Editor</h2>
+<div class="toolbar">
+    <button class="btn" onclick="formatJSON()">Format</button>
+    <button class="btn" onclick="copyJSON()">Copy</button>
+    <button class="btn" onclick="pasteJSON()">Paste</button>
+</div>
 <div id="jsoneditor"></div>
 
 <script>
     const container = document.getElementById("jsoneditor");
     const options = { mode: 'code', modes: ['code', 'tree', 'view'] };
     const editor = new JSONEditor(container, options);
+
+// Load from localStorage
+const saved = localStorage.getItem("json_data");
+if (saved) {
+    try { editor.set(JSON.parse(saved)); } catch(e) {}
+}
+
+// Save on change
+editor.on('change', () => {
+    try {
+        const json = editor.get();
+        localStorage.setItem("json_data", JSON.stringify(json));
+    } catch(e) {}
+});
+
+// Format JSON
+function formatJSON() {
+    try {
+        const json = editor.get();
+        editor.set(json);
+    } catch(e) { alert("Invalid JSON"); }
+}
+
+// Copy JSON
+function copyJSON() {
+    try {
+        const text = JSON.stringify(editor.get(), null, 2);
+        navigator.clipboard.writeText(text);
+        alert("Copied!");
+    } catch(e) { alert("Nothing to copy"); }
+}
+
+// Paste JSON
+async function pasteJSON() {
+    try {
+        const text = await navigator.clipboard.readText();
+        editor.set(JSON.parse(text));
+    } catch(e) { alert("Invalid clipboard JSON"); }
+}
+
+// Upload file
+const fileInput = document.getElementById("fileInput");
+fileInput.addEventListener("change", function() {
+    const file = this.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        try {
+            const json = JSON.parse(e.target.result);
+            editor.set(json);
+        } catch(err) { alert("Invalid JSON file"); }
+    };
+    reader.readAsText(file);
+});
+
+// Toggle dark mode
+function toggleTheme() {
+    document.body.classList.toggle("light");
+}
 </script>
 </body>
 </html>
