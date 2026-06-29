@@ -1,0 +1,263 @@
+# ✅ SEO-OPTIMIZED LANDING PAGE PROMPT (FIELDLY)
+
+You are a senior SEO engineer, SaaS growth marketer, and frontend developer.
+
+Generate a **high-performance SEO-optimized landing page** for a SaaS mobile application called **Fieldly**.
+
+The page will be hosted at:
+[https://ssolstice.dev/fieldly](https://ssolstice.dev/fieldly)
+
+---
+
+# 🎯 PRIMARY GOAL
+
+Build a landing page that is optimized for:
+
+* Google SEO ranking (technical + semantic SEO)
+* High organic traffic conversion
+* Search intent matching for field documentation software
+* Fast loading, mobile-first performance
+
+---
+
+# 🔍 TARGET KEYWORDS (must be naturally integrated)
+
+Primary keywords:
+
+* field documentation app
+* geotag photo app
+* GPS photo camera
+* inspection reporting app
+* construction documentation app
+* site inspection app
+* field work reporting tool
+
+Secondary keywords:
+
+* add GPS to photos
+* timestamp photo app
+* location-based photo app
+* KML export photos
+* PDF inspection report generator
+* engineering field documentation
+
+---
+
+# 🧠 PRODUCT CONTEXT
+
+Fieldly is a professional field documentation camera app that captures photos with structured metadata for real-world field operations.
+
+It is designed for:
+
+* Construction documentation
+* Engineering inspections
+* Site audits and compliance checks
+* Delivery proof and logistics documentation
+* Property inspection reports
+* Travel and field reporting
+
+Each photo automatically includes:
+
+* GPS coordinates
+* Address
+* Timestamp
+* Altitude
+* Compass direction
+* Weather data
+* Location accuracy
+
+Users can:
+
+* Create reusable stamp templates
+* Organize photos by project
+* Export reports (PDF, CSV, KML)
+* Generate structured inspection reports
+
+---
+
+# 🧱 SEO LANDING PAGE STRUCTURE (STRICT)
+
+## 1. HERO SECTION (SEO + CTR optimized)
+
+Must include:
+
+* H1 with primary keyword:
+  "Field Documentation App for GPS-Tagged Photos and Inspection Reports"
+
+* Subtitle with semantic keywords:
+  Mention:
+
+  * geotag photo app
+  * inspection reporting tool
+  * construction field documentation
+
+* CTA buttons:
+
+  * Download Fieldly
+  * View Features
+
+* Include short keyword-rich paragraph under hero (important for SEO indexing)
+
+---
+
+## 2. WHAT IS FIELLDY (SEO CONTENT BLOCK)
+
+Explain clearly:
+
+* What is a field documentation app
+* Why GPS photo metadata matters
+* Why professionals need structured inspection reporting
+
+Must include keywords naturally:
+
+* field documentation app
+* GPS photo camera
+* inspection reporting software
+
+---
+
+## 3. FEATURES (SEO-STRUCTURED H2 + H3)
+
+Each feature must be an H3 with keyword context:
+
+### GPS Photo Capture & Geotagging
+
+### Timestamp & Location-Based Metadata
+
+### Inspection Reporting & PDF Export
+
+### KML Export for Mapping & GIS Tools
+
+### Custom Field Documentation Templates
+
+### Project-Based Photo Organization
+
+### Offline Field Data Capture
+
+Each section should include 2–3 sentences optimized for semantic SEO.
+
+---
+
+## 4. USE CASES (HIGH SEO VALUE SECTION)
+
+Use structured list with keyword variations:
+
+* Construction site documentation app
+* Engineering inspection reporting tool
+* Property condition reporting system
+* Delivery proof with GPS photo records
+* Infrastructure audit documentation
+* Travel and field research logging
+
+Each use case must include keyword variations naturally.
+
+---
+
+## 5. HOW IT WORKS (RICH SNIPPET OPTIMIZED)
+
+Create a 3-step process:
+
+1. Capture photo with GPS metadata
+2. Automatically embed location, time, and field data
+3. Export structured reports (PDF, CSV, KML)
+
+Use schema-friendly headings to support Google snippet extraction.
+
+---
+
+## 6. EXPORT FEATURES (SEO LONG-TAIL TARGETING)
+
+Focus on:
+
+* "Export inspection reports as PDF"
+* "Convert field photos into CSV data"
+* "Generate KML files for GIS systems"
+
+Explain integration use cases with:
+
+* GIS tools
+* Engineering workflows
+* Reporting systems
+
+---
+
+## 7. FAQ SECTION (IMPORTANT FOR SEO RANKING)
+
+Add SEO-rich FAQs:
+
+* What is a field documentation app?
+* How do geotagged photos work?
+* Can I export inspection reports from Fieldly?
+* Is Fieldly suitable for construction site documentation?
+* Does Fieldly support offline GPS photo capture?
+
+Each answer must be concise, keyword-rich, and Google-featured-snippet friendly.
+
+---
+
+## 8. TRUST / AUTHORITY SECTION
+
+Include:
+
+* “Built for field professionals, engineers, and inspectors”
+* “Designed for real-world documentation workflows”
+* “Used in construction, logistics, and inspection industries”
+
+Keep tone factual and professional.
+
+---
+
+## 9. FINAL CTA SECTION
+
+SEO + conversion optimized:
+
+* H2: “Start Using Field Documentation Software Today”
+* CTA: Download Fieldly
+* Supporting text with keywords:
+  “GPS photo camera for inspection reporting and field documentation”
+
+---
+
+## 🧩 TECHNICAL SEO REQUIREMENTS
+
+Generate:
+
+### HTML requirements:
+
+* Proper H1 → H2 → H3 hierarchy
+* Semantic HTML (section, article, header)
+* Meta tags:
+
+  * title (SEO optimized, <60 chars)
+  * description (<155 chars)
+  * keywords (optional)
+* OpenGraph tags
+* Twitter card tags
+
+### Performance:
+
+* Lightweight Tailwind CSS or vanilla CSS
+* Mobile-first responsive design
+* Fast loading (<1.5s target)
+
+---
+
+## 📈 SEO STRATEGY NOTES (IMPORTANT)
+
+* Avoid keyword stuffing, but ensure semantic coverage
+* Use long-tail keywords naturally in paragraphs
+* Include internal anchor navigation (#features, #use-cases, etc.)
+* Optimize for “search intent: software/tool discovery”
+* Make content readable by both users and Google crawler
+
+---
+
+# 🧠 OUTPUT FORMAT
+
+Return:
+
+* Fully working single-page landing page
+* SEO-ready HTML (or Next.js page if preferred)
+* Clean, production-grade structure
+* No placeholder lorem ipsum
+* Real marketing copy based on Fieldly

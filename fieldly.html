@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+    <!-- SEO Meta Tags -->
+    <title>Field Documentation App for GPS-Tagged Photos | Fieldly</title>
+    <meta name="description" content="Fieldly is a professional field documentation app for GPS-tagged photos and inspection reports. Capture site data, geotag photos, and generate PDF reports."/>
+    <meta name="keywords" content="field documentation app, geotag photo app, GPS photo camera, inspection reporting app, construction documentation app, site inspection app, field work reporting tool"/>
+
+    <!-- OpenGraph Tags -->
+    <meta property="og:title" content="Field Documentation App for GPS-Tagged Photos | Fieldly"/>
+    <meta property="og:description" content="Professional GPS photo camera and inspection reporting tool for construction, engineering, and site audits."/>
+    <meta property="og:image" content="https://ssolstice.dev/fiedly_app_cover.jpg"/>
+    <meta property="og:url" content="https://ssolstice.dev/fieldly"/>
+    <meta property="og:type" content="website"/>
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Fieldly - Field Documentation & GPS Photo App"/>
+    <meta name="twitter:description" content="Capture professional field documentation with GPS, timestamps, and structured metadata."/>
+    <meta name="twitter:image" content="https://ssolstice.dev/fiedly_app_cover.jpg"/>
+
+    <link rel="icon" type="image/png" href="fiedly_app_logo.png">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d4af37",
+                        "background-light": "#0b0b0b",
+                        "background-dark": "#0f0f0f",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body { font-family: 'Space Grotesk', sans-serif; }
+        .glass-panel {
+            background: rgba(212, 175, 55, 0.06);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+        }
+    </style>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BVWXG7SHHD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-BVWXG7SHHD');
+    </script>
+</head>
+<body class="bg-background-dark text-slate-100 selection:bg-primary selection:text-background-dark">
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-6 py-4 lg:px-20">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="fiedly_app_logo.png" alt="Fieldly Logo" class="w-8 h-8 rounded-lg"/>
+                <span class="text-2xl font-bold tracking-tight">Fieldly</span>
+            </a>
+            <nav class="hidden md:flex gap-8 text-sm font-medium">
+                <a href="#features" class="hover:text-primary transition-colors">Features</a>
+                <a href="#use-cases" class="hover:text-primary transition-colors">Use Cases</a>
+                <a href="#how-it-works" class="hover:text-primary transition-colors">How it Works</a>
+                <a href="#faq" class="hover:text-primary transition-colors">FAQ</a>
+            </nav>
+            <a href="https://play.google.com/store/apps/dev?id=4762229976399806756" class="bg-primary text-background-dark px-5 py-2 rounded-lg font-bold text-sm hover:brightness-110 transition-all">
+                Download Now
+            </a>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <!-- 1. HERO SECTION -->
+        <section id="hero" class="relative py-20 lg:py-32 overflow-hidden hero-gradient">
+            <div class="max-w-7xl mx-auto px-6 lg:px-20 text-center">
+                <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight">
+                    Field Documentation App for <span class="text-primary">GPS-Tagged Photos</span> and Inspection Reports
+                </h1>
+                <p class="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-10">
+                    Fieldly is the ultimate <strong>geotag photo app</strong> and <strong>inspection reporting tool</strong> designed for <strong>construction field documentation</strong>. Capture high-accuracy GPS data and generate professional reports instantly.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 mb-16">
+                    <a href="https://play.google.com/store/apps/dev?id=4762229976399806756" class="bg-primary text-background-dark font-bold px-8 py-4 rounded-xl text-lg hover:scale-105 transition-transform">
+                        Download Fieldly
+                    </a>
+                    <a href="#features" class="glass-panel px-8 py-4 rounded-xl text-lg font-bold hover:bg-primary/10 transition-colors">
+                        View Features
+                    </a>
+                </div>
+                <div class="mt-12 max-w-5xl mx-auto rounded-3xl overflow-hidden border border-primary/20 shadow-2xl relative group">
+                    <img src="fiedly_app_cover.jpg" alt="Fieldly App Showcase" class="w-full h-auto"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. WHAT IS FIELDLY -->
+        <section id="about" class="py-20 bg-background-light/50">
+            <div class="max-w-7xl mx-auto px-6 lg:px-20">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6">Professional Field Documentation Software</h2>
+                        <p class="text-slate-300 mb-4 leading-relaxed">
+                            Fieldly is more than just a camera; it is a dedicated <strong>field documentation app</strong> built for professionals who need reliable, structured data from the field. Whether you are conducting a site audit or documenting construction progress, accuracy is paramount.
+                        </p>
+                        <p class="text-slate-300 mb-6 leading-relaxed">
+                            Our <strong>GPS photo camera</strong> technology embeds critical metadata directly into your images, ensuring every capture is backed by verifiable location and time data. This makes Fieldly the preferred <strong>inspection reporting software</strong> for teams worldwide.
+                        </p>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden border border-primary/20 shadow-2xl">
+                        <img src="fiedly_app_cover.jpg" alt="Fieldly App Interface" class="w-full h-full object-cover"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. FEATURES -->
+        <section id="features" class="py-20">
+            <div class="max-w-7xl mx-auto px-6 lg:px-20">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">Core Features for Field Operations</h2>
+                    <p class="text-slate-400 max-w-2xl mx-auto">Everything you need to capture, organize, and export field data in one professional tool.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="glass-panel p-8 rounded-2xl">
+                        <h3 class="text-xl font-bold mb-4 text-primary">GPS Photo Capture & Geotagging</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Instantly capture high-resolution photos with embedded GPS coordinates, ensuring precise location tracking for every site inspection record.
+                        </p>
+                    </div>
+                    <div class="glass-panel p-8 rounded-2xl">
+                        <h3 class="text-xl font-bold mb-4 text-primary">Timestamp & Location-Based Metadata</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Automatically record exact time, altitude, compass direction, and weather conditions to create a comprehensive audit trail for your field work.
+                        </p>
+                    </div>
+                    <div class="glass-panel p-8 rounded-2xl">
+                        <h3 class="text-xl font-bold mb-4 text-primary">Inspection Reporting & PDF Export</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Generate professional PDF inspection reports directly from the app. Include photos, metadata, and notes in a structured, client-ready format.
+                        </p>
+                    </div>
+                    <div class="glass-panel p-8 rounded-2xl">
+                        <h3 class="text-xl font-bold mb-4 text-primary">KML Export for Mapping & GIS Tools</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Export your site photos as KML files for seamless integration into Google Earth, ArcGIS, and other GIS mapping software.
+                        </p>
+                    </div>
+                    <div class="glass-panel p-8 rounded-2xl">
+                        <h3 class="text-xl font-bold mb-4 text-primary">Custom Field Documentation Templates</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Create reusable stamp templates to standardize data entry across projects, ensuring consistency in your site documentation workflow.
+                        </p>
+                    </div>
+                    <div class="glass-panel p-8 rounded-2xl">
+                        <h3 class="text-xl font-bold mb-4 text-primary">Project-Based Photo Organization</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Keep your field work organized by project or client. Easily search and filter through thousands of photos using structured metadata.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. USE CASES -->
+        <section id="use-cases" class="py-20 bg-background-light/30">
+            <div class="max-w-7xl mx-auto px-6 lg:px-20">
+                <h2 class="text-3xl font-bold mb-12 text-center">Built for Every Field Industry</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4 p-4 glass-panel rounded-xl">
+                            <span class="text-primary font-bold">01</span>
+                            <div>
+                                <h4 class="font-bold">Construction site documentation app</h4>
+                                <p class="text-sm text-slate-400">Track progress and document compliance with daily GPS-tagged site logs.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4 p-4 glass-panel rounded-xl">
+                            <span class="text-primary font-bold">02</span>
+                            <div>
+                                <h4 class="font-bold">Engineering inspection reporting tool</h4>
+                                <p class="text-sm text-slate-400">Capture structural details with precise coordinates and compass headings.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4 p-4 glass-panel rounded-xl">
+                            <span class="text-primary font-bold">03</span>
+                            <div>
+                                <h4 class="font-bold">Property condition reporting system</h4>
+                                <p class="text-sm text-slate-400">Create detailed audit reports for real estate and insurance assessments.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4 p-4 glass-panel rounded-xl">
+                            <span class="text-primary font-bold">04</span>
+                            <div>
+                                <h4 class="font-bold">Delivery proof with GPS photo records</h4>
+                                <p class="text-sm text-slate-400">Verify logistics and deliveries with location-stamped visual evidence.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4 p-4 glass-panel rounded-xl">
+                            <span class="text-primary font-bold">05</span>
+                            <div>
+                                <h4 class="font-bold">Infrastructure audit documentation</h4>
+                                <p class="text-sm text-slate-400">Monitor public works and utilities with structured field data collection.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4 p-4 glass-panel rounded-xl">
+                            <span class="text-primary font-bold">06</span>
+                            <div>
+                                <h4 class="font-bold">Travel and field research logging</h4>
+                                <p class="text-sm text-slate-400">Document environmental studies or field research with offline GPS support.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. HOW IT WORKS -->
+        <section id="how-it-works" class="py-20">
+            <div class="max-w-7xl mx-auto px-6 lg:px-20 text-center">
+                <h2 class="text-3xl font-bold mb-16">Simple 3-Step Field Workflow</h2>
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="relative">
+                        <div class="w-16 h-16 bg-primary text-background-dark rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">1</div>
+                        <h4 class="text-xl font-bold mb-4">Capture photo with GPS metadata</h4>
+                        <p class="text-slate-400">Snap a photo and Fieldly automatically detects your precise location and environmental data.</p>
+                    </div>
+                    <div class="relative">
+                        <div class="w-16 h-16 bg-primary text-background-dark rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">2</div>
+                        <h4 class="text-xl font-bold mb-4">Embed location, time, and field data</h4>
+                        <p class="text-slate-400">Data is instantly burned into the photo or saved in metadata for tamper-proof records.</p>
+                    </div>
+                    <div class="relative">
+                        <div class="w-16 h-16 bg-primary text-background-dark rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">3</div>
+                        <h4 class="text-xl font-bold mb-4">Export structured reports</h4>
+                        <p class="text-slate-400">Generate PDF, CSV, or KML files to share with your team or integrate into GIS systems.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. EXPORT FEATURES -->
+        <section class="py-20 bg-background-light/50">
+            <div class="max-w-7xl mx-auto px-6 lg:px-20">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold mb-4">Advanced Export & GIS Integration</h2>
+                    <p class="text-slate-400">Move your field data to the tools you use every day.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="p-6 border border-primary/20 rounded-xl">
+                        <h4 class="font-bold mb-2">Export inspection reports as PDF</h4>
+                        <p class="text-sm text-slate-400">Beautifully formatted reports with your logo, maps, and high-res photos.</p>
+                    </div>
+                    <div class="p-6 border border-primary/20 rounded-xl">
+                        <h4 class="font-bold mb-2">Convert field photos into CSV data</h4>
+                        <p class="text-sm text-slate-400">Extract all metadata into spreadsheets for advanced data analysis.</p>
+                    </div>
+                    <div class="p-6 border border-primary/20 rounded-xl">
+                        <h4 class="font-bold mb-2">Generate KML files for GIS systems</h4>
+                        <p class="text-sm text-slate-400">Map your entire project in Google Earth or professional GIS platforms.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. FAQ SECTION -->
+        <section id="faq" class="py-20">
+            <div class="max-w-3xl mx-auto px-6">
+                <h2 class="text-3xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-lg font-bold mb-2 text-primary">What is a field documentation app?</h4>
+                        <p class="text-slate-400">A field documentation app is a mobile tool used by professionals to capture photos, notes, and metadata (like GPS) to record site conditions and project progress.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2 text-primary">How do geotagged photos work?</h4>
+                        <p class="text-slate-400">Geotagging embeds geographical identification metadata (latitude, longitude, altitude) into a photo's EXIF data or directly onto the image as a stamp.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2 text-primary">Can I export inspection reports from Fieldly?</h4>
+                        <p class="text-slate-400">Yes, Fieldly allows you to generate and export professional PDF, CSV, and KML reports directly from your mobile device.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2 text-primary">Is Fieldly suitable for construction site documentation?</h4>
+                        <p class="text-slate-400">Absolutely. It is designed specifically for construction, engineering, and infrastructure projects that require verifiable site evidence.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-2 text-primary">Does Fieldly support offline GPS photo capture?</h4>
+                        <p class="text-slate-400">Yes, Fieldly captures GPS coordinates using your device's internal sensors, allowing you to work in remote areas without a cellular connection.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. TRUST / AUTHORITY -->
+        <section class="py-20 border-y border-primary/10">
+            <div class="max-w-7xl mx-auto px-6 text-center">
+                <p class="text-2xl font-medium text-slate-300 italic">
+                    "Built for field professionals, engineers, and inspectors. Designed for real-world documentation workflows in construction, logistics, and inspection industries."
+                </p>
+            </div>
+        </section>
+
+        <!-- 9. FINAL CTA -->
+        <section class="py-32 text-center hero-gradient">
+            <div class="max-w-4xl mx-auto px-6">
+                <h2 class="text-4xl font-bold mb-6">Start Using Field Documentation Software Today</h2>
+                <p class="text-xl text-slate-400 mb-10">
+                    The professional GPS photo camera for inspection reporting and field documentation.
+                </p>
+                <a href="https://play.google.com/store/apps/dev?id=4762229976399806756" class="inline-block bg-primary text-background-dark font-black px-12 py-5 rounded-2xl text-xl hover:scale-110 transition-transform">
+                    Download Fieldly for Android
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-primary/10 px-6 py-12 lg:px-20 bg-background-dark">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center gap-3">
+                <img src="fiedly_app_logo.png" alt="Fieldly" class="w-8 h-8 rounded-lg"/>
+                <span class="text-2xl font-bold text-white">S²olstice</span>
+            </div>
+            <div class="flex gap-8 text-sm text-slate-500">
+                <a href="privacy.html" class="hover:text-primary">Privacy Policy</a>
+                <a href="terms.html" class="hover:text-primary">Terms of Service</a>
+                <a href="about.html" class="hover:text-primary">About Us</a>
+            </div>
+            <p class="text-sm text-slate-500">© 2026 S²olstice. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
