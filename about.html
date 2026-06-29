@@ -1,113 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <title>About — S²olstice</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>About Us | S²olstice Studio</title>
+    <meta name="description" content="Learn about S²olstice Studio, our philosophy, and our mission to create professional creative tools for mobile."/>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
-          rel="stylesheet"/>
+    <link rel="icon" type="image/webp" href="icon_filroll.webp">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d4af37",
+                        "background-light": "#0b0b0b",
+                        "background-dark": "#0f0f0f",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
     <style>
-        body{
-            margin:0;
-            font-family:'Space Grotesk',sans-serif;
-            background:#0f0f0f;
-            color:#e5e7eb;
+        body { font-family: 'Space Grotesk', sans-serif; }
+        .glass-panel {
+            background: rgba(212, 175, 55, 0.04);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.1);
         }
-
-        .container{
-            max-width:1100px;
-            margin:auto;
-            padding:24px;
+        .film-grain {
+            position: absolute; inset: 0; pointer-events: none; opacity: 0.12; mix-blend-mode: overlay;
+            background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+            background-size: 300px 300px;
         }
-
-        header{
-            border-bottom:1px solid rgba(212,175,55,.2);
-        }
-
-        .nav{
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-        }
-
-        .logo{
-            display:flex;
-            align-items:center;
-            gap:10px;
-            font-weight:700;
-            color:#fff;
-            text-decoration:none;
-        }
-
-        .logo img{
-            width:28px;
-        }
-
-        nav ul{
-            display:flex;
-            gap:20px;
-            list-style:none;
-            padding:0;
-            margin:0;
-        }
-
-        nav a{
-            color:#cbd5e1;
-            text-decoration:none;
-            font-size:14px;
-        }
-
-        nav a:hover{
-            color:#d4af37;
-        }
-
-        .page-content{
-            background:rgba(212,175,55,.05);
-            border:1px solid rgba(212,175,55,.2);
-            border-radius:12px;
-            padding:40px;
-            margin-top:40px;
-            line-height:1.7;
-        }
-
-        h1,h2,h3{
-            color:#ffffff;
-        }
-
-        .section-title{
-            font-size:36px;
-            margin-bottom:8px;
-        }
-
-        footer{
-            margin-top:80px;
-            border-top:1px solid rgba(212,175,55,.2);
-            padding:40px 0;
-            text-align:center;
-            font-size:13px;
-            color:#9ca3af;
-        }
-
-        footer nav{
-            margin-bottom:16px;
-        }
-
-        footer nav a{
-            margin:0 10px;
-            color:#9ca3af;
-        }
-
-        footer nav a:hover{
-            color:#d4af37;
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
         }
     </style>
-
-    <!-- Google tag (gtag.js) -->
-
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BVWXG7SHHD"></script>
@@ -116,142 +52,111 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-BVWXG7SHHD');
-
-
-        // ===== Play Store Click Tracking =====
-        document.querySelectorAll('a[href*="play.google.com"]').forEach(link => {
-          link.addEventListener('click', function () {
-
-            let app = "unknown";
-
-            if (this.href.includes("aurapro")) app = "AuraPro";
-            else if (this.href.includes("auraraw")) app = "AuraRAW";
-            else if (this.href.includes("camera.manual")) app = "Manual2";
-            else if (this.href.includes("oldsoul")) app = "OldSoul";
-            else if (this.href.includes("filroll")) app = "FILROLL";
-
-            gtag('event', 'click_play_store', {
-              app: app,
-              page: window.location.pathname
-            });
-
-          });
-        });
-
-
-        // ===== Section Navigation Tracking =====
-        document.querySelectorAll('a[href^="#"]').forEach(link => {
-          link.addEventListener('click', function () {
-
-            const section = this.getAttribute("href").replace("#","");
-
-            gtag('event','toc_nav',{
-              section: section,
-              page: window.location.pathname
-            });
-
-          });
-        });
-
-
-        // ===== Outbound Link Tracking =====
-        document.querySelectorAll('a[href^="http"]').forEach(link => {
-
-          if (!link.href.includes(window.location.hostname)) {
-
-            link.addEventListener('click', function () {
-
-              gtag('event','outbound_click',{
-                url: this.href,
-                page: window.location.pathname
-              });
-
-            });
-
-          }
-
-        });
-
-
-        // ===== Scroll Depth Tracking =====
-        let scrollTracked = false;
-
-        window.addEventListener('scroll', () => {
-
-          if (scrollTracked) return;
-
-          if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight * 0.9) {
-
-            scrollTracked = true;
-
-            gtag('event','scroll_90',{
-              page: window.location.pathname
-            });
-
-          }
-
-        });
     </script>
 </head>
-<body>
+<body class="bg-background-dark text-slate-100 overflow-x-hidden">
+    <div class="relative min-h-screen flex flex-col">
+        <!-- Navigation -->
+        <header class="fixed top-0 w-full z-50 bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-6 py-4 lg:px-20">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="icon_filroll.webp" alt="Logo" class="w-8 h-8 rounded-lg"/>
+                    <span class="text-2xl font-bold tracking-tight">S²olstice</span>
+                </a>
+                <nav class="hidden md:flex gap-8 text-sm font-medium">
+                    <a href="about.html" class="text-primary transition-colors">About</a>
+                    <a href="help.html" class="hover:text-primary transition-colors">Help</a>
+                    <a href="terms.html" class="hover:text-primary transition-colors">Terms</a>
+                    <a href="privacy.html" class="hover:text-primary transition-colors">Privacy</a>
+                </nav>
+                <a href="index.html#photography" class="bg-primary/10 text-primary border border-primary/20 font-bold px-5 py-2 rounded-lg text-sm hover:bg-primary hover:text-background-dark transition-all">
+                    Our Apps
+                </a>
+            </div>
+        </header>
 
-<header>
-    <div class="container nav">
-        <a href="index.html" class="logo">
-            <img src="logo.png" alt="S²olstice logo"/>
-            <span>S²olstice</span>
-        </a>
+        <main class="flex-1 pt-32 pb-20">
+            <!-- About Hero -->
+            <section class="max-w-5xl mx-auto px-6 lg:px-20 mb-24 text-center">
+                <h1 class="text-5xl md:text-7xl font-black mb-8 leading-tight tracking-tighter">
+                    Inspired by <span class="text-primary">Analog</span>,<br/>Built for Digital.
+                </h1>
+                <p class="text-xl text-slate-400 leading-relaxed max-w-3xl mx-auto">
+                    S²olstice is an independent software studio based in Vietnam. We create professional mobile tools that blend the tactile soul of analog photography with modern performance.
+                </p>
+            </section>
 
-        <nav>
-            <ul>
-                <li><a href="about.html">About</a></li>
-                <li><a href="help.html">Help</a></li>
-                <li><a href="terms.html">Terms</a></li>
-                <li><a href="privacy.html">Privacy</a></li>
-            </ul>
-        </nav>
+            <!-- Philosophy Grid -->
+            <section class="max-w-7xl mx-auto px-6 lg:px-20 grid md:grid-cols-3 gap-8 mb-32">
+                <div class="glass-panel p-8 rounded-3xl">
+                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6">
+                        <span class="material-symbols-outlined">auto_awesome</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Deliberate Design</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        We believe in "slow software"—apps designed for intentional use. Our interfaces are crafted to minimize distraction and maximize creative flow.
+                    </p>
+                </div>
+                <div class="glass-panel p-8 rounded-3xl">
+                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6">
+                        <span class="material-symbols-outlined">settings_input_component</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Pro-Grade Tools</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        By leveraging professional APIs like Camera2 and high-accuracy GPS sensors, we bring desktop-level precision to your pocket.
+                    </p>
+                </div>
+                <div class="glass-panel p-8 rounded-3xl">
+                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6">
+                        <span class="material-symbols-outlined">history_edu</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Heritage & Craft</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Many of our tools are inspired by classic film cameras, mechanical dials, and traditional journals, celebrating the legacy of creator tools.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Story Section -->
+            <section class="max-w-4xl mx-auto px-6 lg:px-20 space-y-12">
+                <div class="border-l-4 border-primary pl-8 py-4">
+                    <h2 class="text-3xl font-bold mb-6">Our Mission</h2>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        To empower photographers, engineers, and creators with mobile tools that don't compromise on quality or creative control. We believe that professional software should be both powerful and a joy to use.
+                    </p>
+                </div>
+                <div class="glass-panel p-10 rounded-3xl relative overflow-hidden">
+                    <div class="film-grain"></div>
+                    <h2 class="text-3xl font-bold mb-6">Made in Vietnam</h2>
+                    <p class="text-slate-400 leading-relaxed mb-6">
+                        S²olstice was founded with the dream of building a world-class creative studio from the heart of Southeast Asia. Every line of code and every pixel is crafted with love and a commitment to global excellence.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                            <span class="material-symbols-outlined text-sm">location_on</span>
+                        </div>
+                        <span class="text-sm font-bold tracking-widest uppercase opacity-60">Ho Chi Minh City, Vietnam</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="border-t border-primary/10 px-6 py-12 lg:px-20 bg-background-dark mt-auto">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center gap-3">
+                    <img src="icon_filroll.webp" alt="Logo" class="w-8 h-8 rounded-lg"/>
+                    <span class="text-2xl font-bold text-white">S²olstice</span>
+                </div>
+                <div class="flex gap-8 text-sm text-slate-500 font-medium">
+                    <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                    <a href="help.html" class="hover:text-primary transition-colors">Help</a>
+                    <a href="terms.html" class="hover:text-primary transition-colors">Terms</a>
+                    <a href="privacy.html" class="hover:text-primary transition-colors">Privacy</a>
+                </div>
+                <p class="text-xs text-slate-600">© 2026 S²olstice Studio. All Rights Reserved.</p>
+            </div>
+        </footer>
     </div>
-</header>
-
-
-<main class="container">
-    <article class="page-content">
-        <h1 class="section-title">About S²olstice</h1>
-
-        <p>
-            S²olstice is an independent software studio dedicated to creating
-            high-quality mobile applications with a strong focus on design,
-            usability, and long-term reliability.
-        </p>
-
-        <p>
-            We believe that good software should respect the user’s attention.
-            Instead of adding features for the sake of complexity, we focus on
-            refining essential tools and making them feel natural and dependable.
-        </p>
-
-        <p>
-            Many of our design inspirations come from analog tools — film cameras,
-            mechanical dials, and paper notebooks. These influences guide the way
-            we design interfaces that feel deliberate and human.
-        </p>
-    </article>
-
-</main>
-
-<footer>
-    <div class="container">
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="help.html">Help</a>
-            <a href="terms.html">Terms</a>
-            <a href="privacy.html">Privacy</a>
-        </nav>
-        <p>© 2026 S²olstice. All rights reserved.</p>
-    </div>
-</footer>
-
-
 </body>
 </html>

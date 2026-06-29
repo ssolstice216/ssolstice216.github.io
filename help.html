@@ -1,108 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Help — S²olstice</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Help Center | S²olstice Studio</title>
+    <meta name="description" content="Support and resources for S²olstice apps. Find guides, troubleshoot issues, and contact our team."/>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
-          rel="stylesheet"/>
+    <link rel="icon" type="image/webp" href="icon_filroll.webp">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d4af37",
+                        "background-light": "#0b0b0b",
+                        "background-dark": "#0f0f0f",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
     <style>
-        body{
-            margin:0;
-            font-family:'Space Grotesk',sans-serif;
-            background:#0f0f0f;
-            color:#e5e7eb;
+        body { font-family: 'Space Grotesk', sans-serif; }
+        .glass-panel {
+            background: rgba(212, 175, 55, 0.04);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        .container{
-            max-width:1100px;
-            margin:auto;
-            padding:24px;
-        }
-
-        header{
-            border-bottom:1px solid rgba(212,175,55,.2);
-        }
-
-        .nav{
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-        }
-
-        .logo{
-            display:flex;
-            align-items:center;
-            gap:10px;
-            font-weight:700;
-            color:#fff;
-            text-decoration:none;
-        }
-
-        .logo img{
-            width:28px;
-        }
-
-        nav ul{
-            display:flex;
-            gap:20px;
-            list-style:none;
-            padding:0;
-            margin:0;
-        }
-
-        nav a{
-            color:#cbd5e1;
-            text-decoration:none;
-            font-size:14px;
-        }
-
-        nav a:hover{
-            color:#d4af37;
-        }
-
-        .page-content{
-            background:rgba(212,175,55,.05);
-            border:1px solid rgba(212,175,55,.2);
-            border-radius:12px;
-            padding:40px;
-            margin-top:40px;
-            line-height:1.7;
-        }
-
-        h1,h2,h3{
-            color:#ffffff;
-        }
-
-        .section-title{
-            font-size:36px;
-            margin-bottom:8px;
-        }
-
-        footer{
-            margin-top:80px;
-            border-top:1px solid rgba(212,175,55,.2);
-            padding:40px 0;
-            text-align:center;
-            font-size:13px;
-            color:#9ca3af;
-        }
-
-        footer nav{
-            margin-bottom:16px;
-        }
-
-        footer nav a{
-            margin:0 10px;
-            color:#9ca3af;
-        }
-
-        footer nav a:hover{
-            color:#d4af37;
+        .glass-panel:hover {
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transform: translateY(-4px);
         }
     </style>
 
@@ -113,139 +50,114 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-BVWXG7SHHD');
-
-
-        // ===== Play Store Click Tracking =====
-        document.querySelectorAll('a[href*="play.google.com"]').forEach(link => {
-          link.addEventListener('click', function () {
-
-            let app = "unknown";
-
-            if (this.href.includes("aurapro")) app = "AuraPro";
-            else if (this.href.includes("auraraw")) app = "AuraRAW";
-            else if (this.href.includes("camera.manual")) app = "Manual2";
-            else if (this.href.includes("oldsoul")) app = "OldSoul";
-            else if (this.href.includes("filroll")) app = "FILROLL";
-
-            gtag('event', 'click_play_store', {
-              app: app,
-              page: window.location.pathname
-            });
-
-          });
-        });
-
-
-        // ===== Section Navigation Tracking =====
-        document.querySelectorAll('a[href^="#"]').forEach(link => {
-          link.addEventListener('click', function () {
-
-            const section = this.getAttribute("href").replace("#","");
-
-            gtag('event','toc_nav',{
-              section: section,
-              page: window.location.pathname
-            });
-
-          });
-        });
-
-
-        // ===== Outbound Link Tracking =====
-        document.querySelectorAll('a[href^="http"]').forEach(link => {
-
-          if (!link.href.includes(window.location.hostname)) {
-
-            link.addEventListener('click', function () {
-
-              gtag('event','outbound_click',{
-                url: this.href,
-                page: window.location.pathname
-              });
-
-            });
-
-          }
-
-        });
-
-
-        // ===== Scroll Depth Tracking =====
-        let scrollTracked = false;
-
-        window.addEventListener('scroll', () => {
-
-          if (scrollTracked) return;
-
-          if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight * 0.9) {
-
-            scrollTracked = true;
-
-            gtag('event','scroll_90',{
-              page: window.location.pathname
-            });
-
-          }
-
-        });
     </script>
 </head>
-<body>
+<body class="bg-background-dark text-slate-100 overflow-x-hidden">
+    <div class="relative min-h-screen flex flex-col">
+        <!-- Navigation -->
+        <header class="fixed top-0 w-full z-50 bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-6 py-4 lg:px-20">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="icon_filroll.webp" alt="Logo" class="w-8 h-8 rounded-lg"/>
+                    <span class="text-2xl font-bold tracking-tight">S²olstice</span>
+                </a>
+                <nav class="hidden md:flex gap-8 text-sm font-medium">
+                    <a href="about.html" class="hover:text-primary transition-colors">About</a>
+                    <a href="help.html" class="text-primary transition-colors">Help</a>
+                    <a href="terms.html" class="hover:text-primary transition-colors">Terms</a>
+                    <a href="privacy.html" class="hover:text-primary transition-colors">Privacy</a>
+                </nav>
+                <a href="mailto:ssolstice216@gmail.com" class="bg-primary text-background-dark font-bold px-5 py-2 rounded-lg text-sm hover:brightness-110 transition-all">
+                    Contact Support
+                </a>
+            </div>
+        </header>
 
-<header>
-    <div class="container nav">
-        <a href="index.html" class="logo">
-            <img src="logo.png" alt="S²olstice logo"/>
-            <span>S²olstice</span>
-        </a>
+        <main class="flex-1 pt-32 pb-20 px-6 lg:px-20">
+            <!-- Help Hero -->
+            <section class="max-w-4xl mx-auto text-center mb-20">
+                <h1 class="text-5xl md:text-7xl font-black mb-8 tracking-tighter">How can we <span class="text-primary">help?</span></h1>
+                <p class="text-xl text-slate-400">Find answers, browse documentation, and get the most out of our apps.</p>
+            </section>
 
-        <nav>
-            <ul>
-                <li><a href="about.html">About</a></li>
-                <li><a href="help.html">Help</a></li>
-                <li><a href="terms.html">Terms</a></li>
-                <li><a href="privacy.html">Privacy</a></li>
-            </ul>
-        </nav>
+            <!-- Support Categories -->
+            <section class="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+                <div class="glass-panel p-8 rounded-3xl">
+                    <span class="material-symbols-outlined text-primary text-4xl mb-6">photo_camera</span>
+                    <h3 class="text-xl font-bold mb-4">Camera & Photography</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Guides for AuraRAW, Manual 2, and ROLLO. Learn about RAW capture, manual focus, and film simulations.</p>
+                    <a href="auraraw.html" class="text-primary text-sm font-bold flex items-center gap-2 hover:underline">
+                        View Guides <span class="material-symbols-outlined text-xs">arrow_forward</span>
+                    </a>
+                </div>
+
+                <div class="glass-panel p-8 rounded-3xl">
+                    <span class="material-symbols-outlined text-primary text-4xl mb-6">edit_document</span>
+                    <h3 class="text-xl font-bold mb-4">Productivity & Field</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Troubleshooting and tutorials for Fieldly and noteIt. Setting up GPS metadata and generating reports.</p>
+                    <a href="fieldly.html" class="text-primary text-sm font-bold flex items-center gap-2 hover:underline">
+                        Fieldly Guide <span class="material-symbols-outlined text-xs">arrow_forward</span>
+                    </a>
+                </div>
+
+                <div class="glass-panel p-8 rounded-3xl">
+                    <span class="material-symbols-outlined text-primary text-4xl mb-6">payments</span>
+                    <h3 class="text-xl font-bold mb-4">Billing & Pro Access</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Information regarding Play Store purchases, restoring pro features, and subscription management.</p>
+                    <a href="https://support.google.com/googleplay/answer/2476088" target="_blank" class="text-primary text-sm font-bold flex items-center gap-2 hover:underline">
+                        Play Store Support <span class="material-symbols-outlined text-xs">open_in_new</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- FAQ Shortlist -->
+            <section class="max-w-3xl mx-auto mb-24">
+                <h2 class="text-3xl font-bold mb-10 text-center">Common Questions</h2>
+                <div class="space-y-6">
+                    <div class="glass-panel p-6 rounded-2xl">
+                        <h4 class="font-bold mb-2">How do I restore my Pro purchase?</h4>
+                        <p class="text-slate-400 text-sm">Ensure you are logged into the same Google account used for the purchase, then tap "Restore" in the app settings.</p>
+                    </div>
+                    <div class="glass-panel p-6 rounded-2xl">
+                        <h4 class="font-bold mb-2">Why isn't RAW capture working?</h4>
+                        <p class="text-slate-400 text-sm">RAW (DNG) support depends on your device's hardware and manufacturer support for the Camera2 API.</p>
+                    </div>
+                    <div class="glass-panel p-6 rounded-2xl">
+                        <h4 class="font-bold mb-2">Can I export data from Fieldly?</h4>
+                        <p class="text-slate-400 text-sm">Yes, Fieldly supports exporting site documentation as PDF, CSV, and KML files.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="max-w-4xl mx-auto text-center bg-primary/5 border border-primary/10 p-12 rounded-[2.5rem]">
+                <h2 class="text-3xl font-bold mb-4">Still need assistance?</h2>
+                <p class="text-slate-400 mb-10">Our team is ready to help with technical issues or feedback.</p>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="mailto:ssolstice216@gmail.com" class="bg-primary text-background-dark font-black px-10 py-4 rounded-xl hover:scale-105 transition-transform flex items-center gap-2">
+                        <span class="material-symbols-outlined">mail</span>
+                        Email Support
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="border-t border-primary/10 px-6 py-12 lg:px-20 bg-background-dark">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-sm text-slate-500 font-medium">
+                <div class="flex items-center gap-3">
+                    <img src="icon_filroll.webp" alt="Logo" class="w-8 h-8 rounded-lg"/>
+                    <span class="text-2xl font-bold text-white tracking-tighter">S²olstice</span>
+                </div>
+                <div class="flex gap-8">
+                    <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                    <a href="about.html" class="hover:text-primary transition-colors">About</a>
+                    <a href="terms.html" class="hover:text-primary transition-colors">Terms</a>
+                    <a href="privacy.html" class="hover:text-primary transition-colors">Privacy</a>
+                </div>
+                <p class="text-xs text-slate-600">© 2026 S²olstice Studio.</p>
+            </div>
+        </footer>
     </div>
-</header>
-
-<main class="container">
-    <article class="page-content">
-        <h1 class="section-title">Help & Support</h1>
-
-        <p>
-            If you need help with any S²olstice application, we recommend
-            checking the app description and FAQ section on Google Play first,
-            where we provide the most up-to-date information.
-        </p>
-
-        <p>
-            For bug reports, feature suggestions, or business inquiries,
-            you can contact us through the email address listed on the
-            corresponding Google Play app page.
-        </p>
-
-        <p>
-            We actively review feedback and use it to improve stability,
-            performance, and overall user experience.
-        </p>
-    </article>
-</main>
-
-<footer>
-    <div class="container">
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="help.html">Help</a>
-            <a href="terms.html">Terms</a>
-            <a href="privacy.html">Privacy</a>
-        </nav>
-        <p>© 2026 S²olstice. All rights reserved.</p>
-    </div>
-</footer>
-
-
 </body>
 </html>
