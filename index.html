@@ -1,25 +1,18 @@
 <!DOCTYPE html>
-
 <html class="dark" lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <meta property="og:title" content="Ssolstice – Creative Camera Apps"/>
-    <meta property="og:description"
-          content="Explore film-style camera apps with vintage vibes and manual controls."/>
+    <meta property="og:title" content="Ssolstice – Creative Apps & Tools"/>
+    <meta property="og:description" content="Explore professional camera apps, productivity tools, and creative utilities."/>
     <meta property="og:image" content="https://ssolstice.dev/preview.jpg"/>
     <meta property="og:url" content="https://ssolstice.dev/"/>
     <meta property="og:type" content="website"/>
-    <title>S²olstice</title>
+    <title>S²olstice | Creative App Studio</title>
     <link rel="icon" type="image/webp" href="icon_filroll.webp">
-    <link rel="apple-touch-icon" href="icon_filroll.webp">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
-          rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
-          rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-          rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -33,43 +26,30 @@
                     fontFamily: {
                         "display": ["Space Grotesk", "sans-serif"]
                     },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
                 },
             },
         }
     </script>
     <style>
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-        }
+        body { font-family: 'Space Grotesk', sans-serif; }
         .glass-panel {
-            background: rgba(212, 175, 55, 0.06);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            background: rgba(212, 175, 55, 0.04);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-panel:hover {
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transform: translateY(-4px);
         }
         .film-grain {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            opacity: 0.15;
-            mix-blend-mode: overlay;
+            position: absolute; inset: 0; pointer-events: none; opacity: 0.12; mix-blend-mode: overlay;
             background-image: url('https://grainy-gradients.vercel.app/noise.svg');
             background-size: 300px 300px;
         }
-
-        .light-leak {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            background: radial-gradient(circle at 15% 20%, rgba(255,120,0,0.35), transparent 40%),
-                        radial-gradient(circle at 85% 10%, rgba(255,0,120,0.25), transparent 45%);
-            mix-blend-mode: screen;
-            opacity: 0.35;
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
         }
     </style>
     <!-- Google Analytics -->
@@ -79,366 +59,293 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-BVWXG7SHHD');
-
-
-        // ===== Play Store Click Tracking =====
-        document.querySelectorAll('a[href*="play.google.com"]').forEach(link => {
-          link.addEventListener('click', function () {
-
-            let app = "unknown";
-
-            if (this.href.includes("aurapro")) app = "AuraPro";
-            else if (this.href.includes("auraraw")) app = "AuraRAW";
-            else if (this.href.includes("camera.manual")) app = "Manual2";
-            else if (this.href.includes("oldsoul")) app = "OldSoul";
-            else if (this.href.includes("filroll")) app = "FILROLL";
-
-            gtag('event', 'click_play_store', {
-              app: app,
-              page: window.location.pathname
-            });
-
-          });
-        });
-
-
-        // ===== Section Navigation Tracking =====
-        document.querySelectorAll('a[href^="#"]').forEach(link => {
-          link.addEventListener('click', function () {
-
-            const section = this.getAttribute("href").replace("#","");
-
-            gtag('event','toc_nav',{
-              section: section,
-              page: window.location.pathname
-            });
-
-          });
-        });
-
-
-        // ===== Outbound Link Tracking =====
-        document.querySelectorAll('a[href^="http"]').forEach(link => {
-
-          if (!link.href.includes(window.location.hostname)) {
-
-            link.addEventListener('click', function () {
-
-              gtag('event','outbound_click',{
-                url: this.href,
-                page: window.location.pathname
-              });
-
-            });
-
-          }
-
-        });
-
-
-        // ===== Scroll Depth Tracking =====
-        let scrollTracked = false;
-
-        window.addEventListener('scroll', () => {
-
-          if (scrollTracked) return;
-
-          if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight * 0.9) {
-
-            scrollTracked = true;
-
-            gtag('event','scroll_90',{
-              page: window.location.pathname
-            });
-
-          }
-
-        });
     </script>
 </head>
-<body class="bg-background-dark text-slate-100 transition-colors duration-300">
-<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
-    <!-- Header / Navigation -->
-    <header class="flex flex-col md:flex-row md:items-center md:justify-between border-b border-primary/20 px-6 py-4 lg:px-20 gap-4 md:gap-0">
-        <div class="flex items-center gap-3">
-            <div class="text-primary">
-                <img src="icon_filroll.webp" alt="FILROLL" class="w-8 h-8 rounded-lg"/>
-            </div>
-            <h2 class="text-3xl font-bold tracking-tight">S²olstice</h2>
-        </div>
-        <nav class="flex flex-wrap justify-start md:justify-end gap-4 md:gap-10 text-sm">
-            <a class="text-sm font-medium hover:text-primary transition-colors" href="about.html">About</a>
-            <a class="text-sm font-medium hover:text-primary transition-colors" href="help.html">Help</a>
-            <a class="text-sm font-medium hover:text-primary transition-colors" href="terms.html">Terms</a>
-            <a class="text-sm font-medium hover:text-primary transition-colors" href="privacy.html">Privacy</a>
-            <a class="text-sm font-medium hover:text-primary transition-colors" href="jsonviewer.html">JSONViewer</a>
-        </nav>
-    </header>
-    <main class="flex-1 max-w-7xl mx-auto w-full px-6 pt-0 pb-16 lg:px-20">
-
-        <!-- HERO -->
-        <section id="hero"
-                 class="relative w-screen left-1/2 -translate-x-1/2 min-h-screen flex items-center overflow-hidden">
-            <div class="absolute inset-0 -z-10 overflow-hidden">
-                <img id="hero-bg" src="cover.jpg" alt="Photography background"
-                     class="w-full h-[120%] object-cover opacity-100 translate-y-0"/>
-            </div>
-            <div class="absolute inset-0 -z-10 bg-gradient-to-b from-black/70 via-black/60 to-black"></div>
-            <div class="light-leak"></div>
-            <div class="film-grain"></div>
-            <div class="max-w-4xl mx-auto px-6 lg:px-20">
-                <span class="text-primary uppercase text-xs tracking-widest font-bold">S²olstice Studio</span>
-
-                <h1 class="text-4xl md:text-6xl font-black mt-6 mb-6 leading-tight">
-                    Mobile Cameras Inspired by
-                    <span class="text-primary">Film & Professional Photography</span>
-                </h1>
-
-                <p class="text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
-                    We build powerful photography apps for Android — combining manual camera
-                    controls,
-                    RAW image capture, and vintage film aesthetics into modern mobile tools for
-                    creators.
-                </p>
-
-                <div class="mt-10 flex flex-wrap justify-center gap-4">
-                    <a href="https://play.google.com/store/apps/dev?id=4762229976399806756"
-                       class="bg-primary text-background-dark font-bold px-8 py-3 rounded-lg hover:brightness-110 transition-all">
-                        View Our Apps
-                    </a>
+<body class="bg-background-dark text-slate-100 overflow-x-hidden">
+    <div class="relative min-h-screen flex flex-col">
+        <!-- Navigation -->
+        <header class="fixed top-0 w-full z-50 bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-6 py-4 lg:px-20">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <img src="icon_filroll.webp" alt="Logo" class="w-8 h-8 rounded-lg"/>
+                    <h2 class="text-2xl font-bold tracking-tight">S²olstice</h2>
                 </div>
+                <nav class="hidden md:flex gap-8 text-sm font-medium">
+                    <a href="about.html" class="hover:text-primary transition-colors">About</a>
+                    <a href="help.html" class="hover:text-primary transition-colors">Help</a>
+                    <a href="terms.html" class="hover:text-primary transition-colors">Terms</a>
+                    <a href="privacy.html" class="hover:text-primary transition-colors">Privacy</a>
+                </nav>
+                <a href="https://play.google.com/store/apps/dev?id=4762229976399806756" target="_blank" class="bg-primary text-background-dark font-bold px-5 py-2 rounded-lg text-sm hover:brightness-110 transition-all">
+                    Play Store
+                </a>
             </div>
-        </section>
+        </header>
 
-
-        <!-- FEATURED APPS -->
-        <section class="mb-32">
-
-            <div class="text-center mb-16">
-                <br>
-                <h2 class="text-4xl font-bold mb-4">Photography Apps</h2>
-                <p class="text-slate-500 max-w-xl mx-auto" style="color: #d2d2d2">
-                    Professional camera tools and film‑inspired photography apps built for creators.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
-
-                <!-- ROLLO – 35mm Film Camera -->
-                <div class="glass-panel p-8 rounded-xl flex flex-col gap-4">
-                    <div class="flex items-center gap-4">
-                        <img src="icon_filroll.webp" alt="FILROLL" class="w-14 h-14 rounded-lg"/>
-                        <h3 class="text-2xl font-bold">ROLLO – 35mm Film Camera</h3>
+        <main class="flex-1">
+            <!-- HERO -->
+            <section class="relative pt-40 pb-20 lg:pt-56 lg:pb-32 overflow-hidden hero-gradient">
+                <div class="absolute inset-0 -z-10">
+                    <img src="cover.jpg" alt="Hero" class="w-full h-full object-cover opacity-30 grayscale blur-sm"/>
+                    <div class="absolute inset-0 bg-gradient-to-b from-background-dark/20 via-background-dark/80 to-background-dark"></div>
+                </div>
+                <div class="film-grain"></div>
+                <div class="max-w-7xl mx-auto px-6 lg:px-20 text-center">
+                    <span class="text-primary uppercase text-xs tracking-[0.3em] font-black mb-6 block">Premium App Studio</span>
+                    <h1 class="text-5xl md:text-8xl font-black mb-8 leading-[1.1] tracking-tighter">
+                        Crafting <span class="text-primary">Creative</span><br/>Experiences
+                    </h1>
+                    <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed mb-12">
+                        Independent studio building professional Android camera apps, productivity tools, and intuitive utilities for the modern creator.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="#photography" class="bg-white text-black font-black px-10 py-4 rounded-xl hover:scale-105 transition-transform">
+                            Explore Apps
+                        </a>
+                        <a href="https://play.google.com/store/apps/dev?id=4762229976399806756" class="glass-panel px-10 py-4 rounded-xl font-bold hover:bg-primary/10 transition-colors">
+                            Developer Profile
+                        </a>
                     </div>
-                    <p class="text-slate-400" style="color: #d2d2d2">
-                        Shoot photos with the look of classic film stocks inspired by Kodak,
-                        Fuji, and Agfa. Experience the charm and colors of analog photography
-                        in a modern mobile camera.
-                    </p>
-                    <a class="text-primary font-bold hover:underline"
-                       href="https://play.google.com/store/apps/details?id=com.ssolstice.camera">
-                        View on Google Play
-                    </a>
                 </div>
+            </section>
 
-                <!-- Manual Camera -->
-                <div class="glass-panel p-8 rounded-xl flex flex-col gap-4">
-                    <div class="flex items-center gap-4">
-                        <img src="icon_manual.webp" alt="Manual Camera"
-                             class="w-14 h-14 rounded-lg"/>
-                        <h3 class="text-2xl font-bold">Manual 2 - Pro Manual Camera</h3>
+            <!-- PHOTOGRAPHY & FILM -->
+            <section id="photography" class="py-24 px-6 lg:px-20">
+                <div class="max-w-7xl mx-auto">
+                    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                        <div>
+                            <h2 class="text-4xl font-bold mb-4">Photography & Film</h2>
+                            <p class="text-slate-500 max-w-lg">Professional camera tools and vintage film simulations built with the Camera2 API.</p>
+                        </div>
+                        <span class="text-primary/40 font-mono text-sm">01 / CREATIVE</span>
                     </div>
-                    <p class="text-slate-400" style="color: #d2d2d2">
-                        A professional manual camera with full control over ISO, shutter speed,
-                        focus, and white balance. Capture high quality RAW photos with DSLR‑style
-                        shooting directly from your phone.
-                    </p>
-                    <a class="text-primary font-bold hover:underline"
-                       href="https://play.google.com/store/apps/details?id=com.ssolstice.camera.manual">
-                        View on Google Play
-                    </a>
-                </div>
 
-                <!-- AuraRAW -->
-                <div class="glass-panel p-8 rounded-xl flex flex-col gap-4">
-                    <div class="flex items-center gap-4">
-                        <img src="icon_auraraw.webp" alt="AuraRAW" class="w-14 h-14 rounded-lg"/>
-                        <h3 class="text-2xl font-bold">AuraRAW – Pro Manual Camera</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- ROLLO -->
+                        <div class="glass-panel p-8 rounded-2xl flex flex-col justify-between group">
+                            <div>
+                                <img src="icon_filroll.webp" alt="ROLLO" class="w-16 h-16 rounded-xl mb-6 shadow-2xl group-hover:scale-110 transition-transform"/>
+                                <h3 class="text-2xl font-bold mb-3">ROLLO – 35mm Film</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-6">Vintage aesthetic camera inspired by classic film stocks from Kodak, Fuji, and Agfa.</p>
+                            </div>
+                            <a href="https://play.google.com/store/apps/details?id=com.ssolstice.camera" class="text-primary font-bold inline-flex items-center gap-2 group-hover:gap-4 transition-all">
+                                Google Play
+                            </a>
+                        </div>
+
+                        <!-- Manual 2 -->
+                        <div class="glass-panel p-8 rounded-2xl flex flex-col justify-between group">
+                            <div>
+                                <img src="icon_manual.webp" alt="Manual 2" class="w-16 h-16 rounded-xl mb-6 shadow-2xl group-hover:scale-110 transition-transform"/>
+                                <h3 class="text-2xl font-bold mb-3">Manual 2 - Pro Camera</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-6">Full manual control over ISO, shutter speed, focus, and white balance with RAW support.</p>
+                            </div>
+                            <a href="https://play.google.com/store/apps/details?id=com.ssolstice.camera.manual" class="text-primary font-bold inline-flex items-center gap-2 group-hover:gap-4 transition-all">
+                                Google Play
+                            </a>
+                        </div>
+
+                        <!-- AuraRAW -->
+                        <div class="glass-panel p-8 rounded-2xl flex flex-col justify-between group">
+                            <div>
+                                <img src="icon_auraraw.webp" alt="AuraRAW" class="w-16 h-16 rounded-xl mb-6 shadow-2xl group-hover:scale-110 transition-transform"/>
+                                <h3 class="text-2xl font-bold mb-3">AuraRAW Camera</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-6">Premium manual camera for filmmakers and photographers who need advanced monitoring.</p>
+                            </div>
+                            <div class="flex gap-4">
+                                <a href="auraraw.html" class="text-white font-bold text-sm hover:underline">Guide</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.s2olstice.auraraw.camera" class="text-primary font-bold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                                    Play Store
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- OldSoul -->
+                        <div class="glass-panel p-8 rounded-2xl flex flex-col justify-between group">
+                            <div>
+                                <img src="icon_oldsoul.webp" alt="OldSoul" class="w-16 h-16 rounded-xl mb-6 shadow-2xl group-hover:scale-110 transition-transform"/>
+                                <h3 class="text-2xl font-bold mb-3">OldSoul Film</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-6">A nostalgic camera that recreates the soul and timeless colors of analog photography.</p>
+                            </div>
+                            <a href="https://play.google.com/store/apps/details?id=com.ssolstice.camera.oldsoul" class="text-primary font-bold inline-flex items-center gap-2 group-hover:gap-4 transition-all">
+                                Google Play
+                            </a>
+                        </div>
+
+                        <!-- LAPhoto -->
+                        <div class="glass-panel p-8 rounded-2xl flex flex-col justify-between group">
+                            <div>
+                                <img src="icon_la_photo.webp" alt="LAPhoto" class="w-16 h-16 rounded-xl mb-6 shadow-2xl group-hover:scale-110 transition-transform"/>
+                                <h3 class="text-2xl font-bold mb-3">LAPhoto Editor</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-6">Powerful photo editing with professional tools and cinematic color styles.</p>
+                            </div>
+                            <a href="https://play.google.com/store/apps/details?id=com.ssolstice.photoeditor" class="text-primary font-bold inline-flex items-center gap-2 group-hover:gap-4 transition-all">
+                                Google Play
+                            </a>
+                        </div>
+
+                         <!-- FilShot -->
+                         <div class="glass-panel p-8 rounded-2xl flex flex-col justify-between group opacity-80">
+                            <div>
+                                <img src="logo_filshot.webp" alt="FilShot" class="w-16 h-16 rounded-xl mb-6 shadow-2xl group-hover:scale-110 transition-transform"/>
+                                <h3 class="text-2xl font-bold mb-3">FilShot Editor</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-6">Vintage camera editor for creating stunning film-like transformations instantly.</p>
+                            </div>
+                            <a href="https://play.google.com/store/apps/dev?id=4762229976399806756" class="text-primary font-bold inline-flex items-center gap-2 group-hover:gap-4 transition-all text-sm">
+                                View Profile
+                            </a>
+                        </div>
                     </div>
-                    <p class="text-slate-400" style="color: #d2d2d2">
-                        A powerful RAW photography camera designed for creators who want
-                        maximum image quality and advanced manual shooting controls.
-                    </p>
-                    <a class="text-primary font-bold hover:underline"
-                       href="https://play.google.com/store/apps/details?id=com.s2olstice.auraraw.camera">
-                        View on Google Play
-                    </a>
                 </div>
+            </section>
 
-                <!-- OldSoul -->
-                <div class="glass-panel p-8 rounded-xl flex flex-col gap-4">
-                    <div class="flex items-center gap-4">
-                        <img src="icon_oldsoul.webp" alt="OldSoul" class="w-14 h-14 rounded-lg"/>
-                        <h3 class="text-2xl font-bold">OldSoul – Film Camera</h3>
+            <!-- FIELD & PRODUCTIVITY -->
+            <section class="py-24 px-6 lg:px-20 bg-background-light/30">
+                <div class="max-w-7xl mx-auto">
+                    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                        <div>
+                            <h2 class="text-4xl font-bold mb-4">Field & Productivity</h2>
+                            <p class="text-slate-500 max-w-lg">Advanced tools for site documentation, note-taking, and professional reporting.</p>
+                        </div>
+                        <span class="text-primary/40 font-mono text-sm">02 / UTILITY</span>
                     </div>
-                    <p class="text-slate-400" style="color: #d2d2d2">
-                        A nostalgic film camera that recreates the mood and colors
-                        of analog photography, encouraging slower and more intentional
-                        shooting.
-                    </p>
-                    <a class="text-primary font-bold hover:underline"
-                       href="https://play.google.com/store/apps/details?id=com.ssolstice.camera.oldsoul">
-                        View on Google Play
-                    </a>
-                </div>
 
-                <!-- OldSoul -->
-                <div class="glass-panel p-8 rounded-xl flex flex-col gap-4">
-                    <div class="flex items-center gap-4">
-                        <img src="icon_la_photo.webp" alt="OldSoul" class="w-14 h-14 rounded-lg"/>
-                        <h3 class="text-2xl font-bold">LAPhoto - Photo Editor</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
+                        <!-- Fieldly -->
+                        <div class="glass-panel p-10 rounded-3xl flex flex-col md:flex-row gap-8 group">
+                            <img src="fiedly_app_logo.png" alt="Fieldly" class="w-24 h-24 rounded-2xl shadow-2xl flex-shrink-0 group-hover:rotate-6 transition-transform"/>
+                            <div>
+                                <h3 class="text-3xl font-bold mb-4">Fieldly – Field Documentation</h3>
+                                <p class="text-slate-400 mb-8 leading-relaxed">Professional GPS photo camera for inspection reporting. Capture geotagged photos and generate PDF reports for construction and engineering.</p>
+                                <div class="flex flex-wrap gap-4">
+                                    <a href="fieldly.html" class="bg-primary text-background-dark font-black px-6 py-2 rounded-lg text-sm hover:brightness-110 transition-all">
+                                        Learn More
+                                    </a>
+                                    <a href="https://play.google.com/store/apps/dev?id=4762229976399806756" class="border border-white/10 px-6 py-2 rounded-lg text-sm font-bold hover:bg-white/5 transition-colors">
+                                        Google Play
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- noteIt -->
+                        <div class="glass-panel p-10 rounded-3xl flex flex-col md:flex-row gap-8 group">
+                            <img src="note.webp" alt="noteIt" class="w-24 h-24 rounded-2xl shadow-2xl flex-shrink-0 group-hover:-rotate-6 transition-transform"/>
+                            <div>
+                                <h3 class="text-3xl font-bold mb-4">noteIt – Simple Notes</h3>
+                                <p class="text-slate-400 mb-8 leading-relaxed">A clean and intuitive note-taking app designed for quick ideas, lists, and organized thoughts without the clutter.</p>
+                                <div class="flex flex-wrap gap-4">
+                                    <a href="noteit-privacy-policy.html" class="text-slate-400 hover:text-white font-bold text-sm underline">Privacy Policy</a>
+                                    <a href="https://play.google.com/store/apps/dev?id=4762229976399806756" class="text-primary font-bold inline-flex items-center gap-2 group-hover:gap-4 transition-all">
+                                        Google Play
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <p class="text-slate-400" style="color: #d2d2d2">
-                        LAPhoto is a powerful photo editing app with professional tools and
-                        cinematic color styles. Adjust lighting, colors, and effects instantly with
-                        real-time previews.
+                </div>
+            </section>
+
+            <!-- UTILITIES & ENTERTAINMENT -->
+            <section class="py-24 px-6 lg:px-20 bg-background-light/10">
+                <div class="max-w-7xl mx-auto">
+                    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                        <div>
+                            <h2 class="text-4xl font-bold mb-4">Daily Utilities & More</h2>
+                            <p class="text-slate-500 max-w-lg">Smart tools and light experiences for your daily digital life, from security to entertainment.</p>
+                        </div>
+                        <span class="text-primary/40 font-mono text-sm">03 / ESSENTIALS</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- IPTV+ -->
+                        <div class="glass-panel p-6 rounded-2xl flex flex-col items-center text-center group">
+                            <img src="logo_iptv.webp" alt="IPTV+" class="w-16 h-16 mb-4 rounded-xl shadow-xl group-hover:scale-110 transition-transform"/>
+                            <h4 class="font-bold text-lg mb-1">IPTV+ Player</h4>
+                            <p class="text-xs text-slate-500 uppercase tracking-widest mb-4">Entertainment</p>
+                            <p class="text-sm text-slate-400 mb-6">Stream your favorite content with a clean and powerful IPTV interface.</p>
+                            <a href="https://play.google.com/store/apps/dev?id=4762229976399806756" class="mt-auto text-primary text-xs font-bold hover:underline flex items-center gap-1">
+                                View App <span class="material-symbols-outlined text-[10px]">open_in_new</span>
+                            </a>
+                        </div>
+
+                        <!-- Cleanium -->
+                        <div class="glass-panel p-6 rounded-2xl flex flex-col items-center text-center group">
+                            <img src="logo_cleanium.webp" alt="Cleanium" class="w-16 h-16 mb-4 rounded-xl shadow-xl group-hover:scale-110 transition-transform"/>
+                            <h4 class="font-bold text-lg mb-1">Cleanium</h4>
+                            <p class="text-xs text-slate-500 uppercase tracking-widest mb-4">Cleaner</p>
+                            <p class="text-sm text-slate-400 mb-6">Keep your device running smoothly with our intelligent storage cleaning tool.</p>
+                            <a href="https://play.google.com/store/apps/dev?id=4762229976399806756" class="mt-auto text-primary text-xs font-bold hover:underline flex items-center gap-1">
+                                View App <span class="material-symbols-outlined text-[10px]">open_in_new</span>
+                            </a>
+                        </div>
+
+                        <!-- Private Vault -->
+                        <div class="glass-panel p-6 rounded-2xl flex flex-col items-center text-center group">
+                            <img src="logo_private_vault.webp" alt="Vault" class="w-16 h-16 mb-4 rounded-xl shadow-xl group-hover:scale-110 transition-transform"/>
+                            <h4 class="font-bold text-lg mb-1">Private Vault</h4>
+                            <p class="text-xs text-slate-500 uppercase tracking-widest mb-4">Security</p>
+                            <p class="text-sm text-slate-400 mb-6">Securely hide your private photos and sensitive data with advanced encryption.</p>
+                            <a href="https://play.google.com/store/apps/dev?id=4762229976399806756" class="mt-auto text-primary text-xs font-bold hover:underline flex items-center gap-1">
+                                View App <span class="material-symbols-outlined text-[10px]">lock</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- WEB TOOLS SUGGESTION -->
+                    <div class="mt-12 p-8 rounded-3xl bg-primary/5 border border-primary/10 flex flex-col md:flex-row items-center justify-between gap-8">
+                        <div class="flex items-center gap-6">
+                            <div class="w-16 h-16 bg-background-dark rounded-2xl flex items-center justify-center text-primary shadow-xl">
+                                <span class="material-symbols-outlined text-3xl">language</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-1">Explore Web Tools</h3>
+                                <p class="text-slate-400 text-sm">Discover our experimental web utilities and creative projects at Phung.work</p>
+                            </div>
+                        </div>
+                        <a href="https://phung.work/" target="_blank" class="bg-white text-black font-black px-8 py-3 rounded-xl hover:scale-105 transition-transform flex items-center gap-2">
+                            Visit phung.work
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="border-t border-primary/10 px-6 py-20 lg:px-20 bg-background-dark">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 text-primary mb-8">
+                        <img src="icon_filroll.webp" alt="Logo" class="w-10 h-10 rounded-lg"/>
+                        <span class="text-3xl font-bold tracking-tighter text-white">S²olstice</span>
+                    </div>
+                    <p class="text-slate-400 max-w-sm leading-relaxed">
+                        Independent software studio dedicated to building high-quality Android experiences with a focus on design and professional utility.
                     </p>
-                    <a class="text-primary font-bold hover:underline"
-                       href="https://play.google.com/store/apps/details?id=com.ssolstice.photoeditor">
-                        View on Google Play
-                    </a>
                 </div>
-
-                <!-- Fieldly -->
-                <div class="glass-panel p-8 rounded-xl flex flex-col gap-4">
-                    <a href="fieldly.html" class="flex items-center gap-4 hover:opacity-80 transition-opacity">
-                        <img src="fiedly_app_logo.png" alt="Fieldly" class="w-14 h-14 rounded-lg"/>
-                        <h3 class="text-2xl font-bold">Fieldly – Field Documentation</h3>
-                    </a>
-                    <p class="text-slate-400" style="color: #d2d2d2">
-                        Professional field documentation app for GPS-tagged photos and inspection reports.
-                        Capture site data, geotag photos, and generate PDF reports for construction and engineering.
-                    </p>
-                    <a class="text-primary font-bold hover:underline"
-                       href="fieldly.html">
-                        Learn More
-                    </a>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Explore</h4>
+                    <ul class="space-y-4 text-sm text-slate-500">
+                        <li><a href="about.html" class="hover:text-primary transition-colors">About Studio</a></li>
+                        <li><a href="help.html" class="hover:text-primary transition-colors">Help Center</a></li>
+                    </ul>
                 </div>
-
-            </div>
-        </section>
-
-
-        <!-- PHILOSOPHY -->
-        <section class="mb-32">
-
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4">Our Philosophy</h2>
-                <p class="text-slate-500 max-w-xl mx-auto" style="color: #d2d2d2">
-                    We believe photography apps should empower creators,
-                    not overwhelm them with complexity.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-                <div class="glass-panel p-8 rounded-xl">
-                    <h4 class="text-xl font-bold mb-3">Manual Control</h4>
-                    <p class="text-slate-400 text-sm" style="color: #d2d2d2">
-                        Photographers deserve full creative control over
-                        exposure, focus, and color. Our apps bring manual
-                        photography tools to mobile devices.
-                    </p>
-                </div>
-
-                <div class="glass-panel p-8 rounded-xl">
-                    <h4 class="text-xl font-bold mb-3">Film Inspiration</h4>
-                    <p class="text-slate-400 text-sm" style="color: #d2d2d2">
-                        Many of our apps are inspired by classic film
-                        cameras and analog workflows, bringing timeless
-                        aesthetics into modern photography.
-                    </p>
-                </div>
-
-                <div class="glass-panel p-8 rounded-xl">
-                    <h4 class="text-xl font-bold mb-3">Simple Tools</h4>
-                    <p class="text-slate-400 text-sm" style="color: #d2d2d2">
-                        Our goal is simple: build fast, intuitive apps
-                        that help creators capture moments without
-                        unnecessary complexity.
-                    </p>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- CTA -->
-        <section class="text-center py-16 border-t border-primary/10">
-            <h2 class="text-3xl font-bold mb-6">Discover Our Apps</h2>
-
-            <p class="text-slate-400 max-w-2xl mx-auto mb-10" style="color: #d2d2d2">
-                Explore manual cameras, RAW photography tools,
-                and vintage film simulations built for Android creators.
-            </p>
-
-            <a href="https://play.google.com/store/apps/dev?id=4762229976399806756"
-               class="bg-primary text-background-dark font-bold px-10 py-4 rounded-lg hover:brightness-110 transition-all">
-                View All Apps on Google Play
-            </a>
-        </section>
-
-    </main>
-    <!-- Footer -->
-    <footer class="border-t border-primary/10 px-6 py-12 lg:px-20 mt-12 bg-background-dark">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-            <div class="col-span-1 md:col-span-2">
-                <div class="flex items-center gap-3 text-primary mb-6">
-                    <img src="icon_filroll.webp" alt="FILROLL" class="w-10 h-10 rounded-lg"/>
-                    <span class="text-3xl font-bold tracking-tight text-white">S²olstice</span>
-                </div>
-                <p class="text-slate-400 max-w-sm" style="color: #ffffff">Independent studio
-                    building professional Android
-                    camera apps inspired by film photography and manual shooting tools.</p>
-            </div>
-            <div class="col-span-1 md:col-span-2 flex flex-col items-start md:items-end justify-start text-left md:text-right">
-                <div class="flex items-center gap-6">
-                    <a href="https://www.linkedin.com/company/ssolstice/" target="_blank"
-                       rel="noopener noreferrer"
-                       class="text-slate-400 hover:text-primary transition-colors flex items-center gap-2">
-                        <svg height="24" width="24" viewBox="0 0 382 382" fill="#ffffff">
-                            <path d="M347.445,0H34.555C15.471,0,0,15.471,0,34.555v312.889C0,366.529,15.471,382,34.555,382h312.889C366.529,382,382,366.529,382,347.444V34.555C382,15.471,366.529,0,347.445,0zM118.207,329.844c0,5.554-4.502,10.056-10.056,10.056H65.345c-5.554,0-10.056-4.502-10.056-10.056V150.403c0-5.554,4.502-10.056,10.056-10.056h42.806c5.554,0,10.056,4.502,10.056,10.056V329.844zM86.748,123.432c-22.459,0-40.666-18.207-40.666-40.666S64.289,42.1,86.748,42.1s40.666,18.207,40.666,40.666S109.208,123.432,86.748,123.432zM341.91,330.654c0,5.106-4.14,9.246-9.246,9.246H286.73c-5.106,0-9.246-4.14-9.246-9.246v-84.168c0-12.556,3.683-55.021-32.813-55.021c-28.309,0-34.051,29.066-35.204,42.11v97.079c0,5.106-4.139,9.246-9.246,9.246h-44.426c-5.106,0-9.246-4.14-9.246-9.246V149.593c0-5.106,4.14-9.246,9.246-9.246h44.426c5.106,0,9.246,4.14,9.246,9.246v15.655c10.497-15.753,26.097-27.912,59.312-27.912c73.552,0,73.131,68.716,73.131,106.472V330.654z"/>
-                        </svg>
-                    </a>
-
-                    <a href="mailto:ssolstice216@gmail.com"
-                       class="text-slate-400 hover:text-primary transition-colors flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                             viewBox="0 0 24 24" fill="#ffffff">
-                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/>
-                        </svg>
-                    </a>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Contact</h4>
+                    <ul class="space-y-4 text-sm text-slate-500">
+                        <li><a href="mailto:ssolstice216@gmail.com" class="hover:text-primary transition-colors">Email Support</a></li>
+                        <li><a href="https://www.linkedin.com/company/ssolstice/" class="hover:text-primary transition-colors">LinkedIn</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-span-1 md:col-span-2">
-                <strong style="color: #ffffffff">Made with love in Vietnam</strong>
-                <p class="text-slate-400 text-sm" style="color: #808080">Copyright 2026
-                    S²olstice</p>
-                <p class="text-slate-400 text-sm" style="color: #808080">All Rights Reserved.</p>
+            <div class="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-600">
+                <p>© 2026 S²olstice Studio. All Rights Reserved.</p>
+                <div class="flex gap-6">
+                    <a href="terms.html" class="hover:text-white">Terms</a>
+                    <a href="privacy.html" class="hover:text-white">Privacy</a>
+                </div>
             </div>
-        </div>
-    </footer>
-</div>
-<script>
-    const heroBg = document.getElementById('hero-bg');
-
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      if (heroBg) {
-        heroBg.style.transform = `translateY(${scrollY * 0.25}px)`;
-      }
-    });
-</script>
+        </footer>
+    </div>
 </body>
 </html>
