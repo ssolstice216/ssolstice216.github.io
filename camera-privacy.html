@@ -1,345 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Privacy Policy – OldSoul Vintage Film Camera</title>
-    <meta name="description" content="Privacy Policy for OldSoul – Vintage Film Camera App"/>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Privacy Policy | Camera Apps</title>
 
-    <style>
-        :root {
-            --bg: #0f0f0f;
-            --card: #1a1a1a;
-            --text: #eaeaea;
-            --muted: #a0a0a0;
-            --accent: #d4af37; /* vintage gold */
+    <link rel="icon" type="image/webp" href="icon_filroll.webp">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d4af37",
+                        "background-light": "#0b0b0b",
+                        "background-dark": "#0f0f0f",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                },
+            },
         }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                         Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-        }
-
-        header {
-            padding: 48px 20px 32px;
-            text-align: center;
-            border-bottom: 1px solid #2a2a2a;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.2rem;
-            letter-spacing: 1px;
-        }
-
-        header p {
-            margin-top: 8px;
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
-
-        main {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px 80px;
-        }
-
-        section {
-            background: var(--card);
-            border-radius: 14px;
-            padding: 28px 30px;
-            margin-bottom: 24px;
-        }
-
-        section h2 {
-            margin-top: 0;
-            color: var(--accent);
-            font-size: 1.4rem;
-        }
-
-        section p {
-            margin: 12px 0;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        li {
-            margin: 6px 0;
-        }
-
-        a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            text-align: center;
-            padding: 32px 16px;
-            color: var(--muted);
-            font-size: 0.85rem;
-            border-top: 1px solid #2a2a2a;
-        }
-
-        .highlight {
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 1.7rem;
-            }
-
-            section {
-                padding: 22px 20px;
-            }
-        }
-    </style>
-
-    <!-- Google tag (gtag.js) -->
-
-
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BVWXG7SHHD"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-BVWXG7SHHD');
-
-
-        // ===== Play Store Click Tracking =====
-        document.querySelectorAll('a[href*="play.google.com"]').forEach(link => {
-          link.addEventListener('click', function () {
-
-            let app = "unknown";
-
-            if (this.href.includes("aurapro")) app = "AuraPro";
-            else if (this.href.includes("auraraw")) app = "AuraRAW";
-            else if (this.href.includes("camera.manual")) app = "Manual2";
-            else if (this.href.includes("oldsoul")) app = "OldSoul";
-            else if (this.href.includes("filroll")) app = "FILROLL";
-
-            gtag('event', 'click_play_store', {
-              app: app,
-              page: window.location.pathname
-            });
-
-          });
-        });
-
-
-        // ===== Section Navigation Tracking =====
-        document.querySelectorAll('a[href^="#"]').forEach(link => {
-          link.addEventListener('click', function () {
-
-            const section = this.getAttribute("href").replace("#","");
-
-            gtag('event','toc_nav',{
-              section: section,
-              page: window.location.pathname
-            });
-
-          });
-        });
-
-
-        // ===== Outbound Link Tracking =====
-        document.querySelectorAll('a[href^="http"]').forEach(link => {
-
-          if (!link.href.includes(window.location.hostname)) {
-
-            link.addEventListener('click', function () {
-
-              gtag('event','outbound_click',{
-                url: this.href,
-                page: window.location.pathname
-              });
-
-            });
-
-          }
-
-        });
-
-
-        // ===== Scroll Depth Tracking =====
-        let scrollTracked = false;
-
-        window.addEventListener('scroll', () => {
-
-          if (scrollTracked) return;
-
-          if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight * 0.9) {
-
-            scrollTracked = true;
-
-            gtag('event','scroll_90',{
-              page: window.location.pathname
-            });
-
-          }
-
-        });
     </script>
+    <style>
+        body { font-family: 'Space Grotesk', sans-serif; }
+        .glass-panel {
+            background: rgba(212, 175, 55, 0.04);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        .prose h2 { color: #ffffff; font-weight: 700; font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; }
+        .prose p { color: #94a3b8; line-height: 1.8; margin-bottom: 1.25rem; }
+        .prose ul { list-style-type: disc; padding-left: 1.5rem; color: #94a3b8; margin-bottom: 1.25rem; }
+        .prose li { margin-bottom: 0.5rem; }
+        .prose strong { color: #ffffff; }
+    </style>
 </head>
+<body class="bg-background-dark text-slate-100 overflow-x-hidden">
+    <div class="relative min-h-screen flex flex-col">
+        <header class="fixed top-0 w-full z-50 bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-6 py-4 lg:px-20">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="icon_filroll.webp" alt="Ssolstice" class="w-8 h-8 rounded-lg"/>
+                    <span class="text-2xl font-bold tracking-tight text-white">S²olstice</span>
+                </a>
+            </div>
+        </header>
 
-<body>
+        <main class="flex-1 pt-32 pb-20 px-6 lg:px-20">
+            <div class="max-w-4xl mx-auto">
+                <header class="mb-12 border-b border-white/5 pb-8 text-center md:text-left">
+                    <h1 class="text-4xl md:text-6xl font-black mb-4 tracking-tighter">Camera <span class="text-primary">Privacy</span></h1>
+                    <p class="text-slate-500 font-mono text-sm uppercase tracking-widest">Last updated: December 2025</p>
+                </header>
 
-<header>
-    <h1>Privacy Policy</h1>
-    <p>OldSoul – Vintage Film Camera</p>
-</header>
+                <div class="glass-panel p-8 md:p-12 rounded-[2.5rem] prose prose-invert max-w-none">
+                    <p>
+                        This Privacy Policy applies to our camera applications (OldSoul, ROLLO, AuraRAW, Manual 2).
+                        We are committed to protecting your creative data and privacy.
+                    </p>
 
-<main>
+                    <h2>1. Data Collection</h2>
+                    <p>
+                        Our camera apps are designed to work locally. We do <strong>not</strong> collect or store your photos or videos on our servers.
+                        Any information requested by the app (like location for geotagging) is stored in the file's metadata on your device only.
+                    </p>
 
-    <section>
-        <p>
-            This Privacy Policy describes how <span class="highlight">OldSoul</span>
-            collects, uses, and protects your information.
-            By using our application, you agree to the collection and use of information
-            in accordance with this policy.
-        </p>
-    </section>
+                    <h2>2. Third-Party Services</h2>
+                    <ul>
+                        <li><strong>Google Play Services</strong>: For core platform functionality.</li>
+                        <li><strong>Firebase Crashlytics</strong>: To help us fix bugs and improve stability.</li>
+                        <li><strong>AdMob</strong> (if applicable): For serving non-intrusive ads.</li>
+                    </ul>
 
-    <section>
-        <h2>Information Collection and Use</h2>
-        <p>
-            For a better experience while using our Service, we may require you to provide
-            certain personally identifiable information. The information that we request
-            is retained on your device and is not collected by us directly.
-        </p>
-        <p>
-            The app does use third-party services that may collect information used to
-            identify you.
-        </p>
+                    <h2>3. Log Data</h2>
+                    <p>
+                        In the event of an error, we may collect technical data (device model, OS version) via third-party tools to help us diagnose the issue.
+                    </p>
 
-        <ul>
-            <li>Google Play Services</li>
-            <li>AdMob</li>
-            <li>Google Analytics for Firebase</li>
-            <li>Firebase Crashlytics</li>
-        </ul>
-    </section>
+                    <h2>4. Security</h2>
+                    <p>
+                        We strive to use commercially acceptable means of protecting any technical data collected, but remember that no method of electronic storage is 100% secure.
+                    </p>
 
-    <section>
-        <h2>Log Data</h2>
-        <p>
-            Whenever you use our Service, in the event of an app error,
-            we collect data and information (through third-party products) on your device
-            called Log Data.
-        </p>
-        <p>
-            This Log Data may include information such as your device IP address,
-            device name, operating system version, app configuration,
-            the time and date of your use of the Service, and other statistics.
-        </p>
-    </section>
+                    <h2>5. Contact</h2>
+                    <p>
+                        Email us at: <a href="mailto:ssolstice216@gmail.com" class="text-primary hover:underline">ssolstice216@gmail.com</a>
+                    </p>
+                </div>
+            </div>
+        </main>
 
-    <section>
-        <h2>Cookies</h2>
-        <p>
-            Cookies are files with a small amount of data that are commonly used as anonymous
-            unique identifiers.
-        </p>
-        <p>
-            OldSoul does not use cookies explicitly. However, third-party libraries used by
-            the app may use cookies to collect information and improve their services.
-            You can choose to accept or refuse these cookies.
-        </p>
-    </section>
-
-    <section>
-        <h2>Service Providers</h2>
-        <p>
-            We may employ third-party companies and individuals to:
-        </p>
-        <ul>
-            <li>Facilitate our Service</li>
-            <li>Provide the Service on our behalf</li>
-            <li>Perform Service-related services</li>
-            <li>Analyze how our Service is used</li>
-        </ul>
-        <p>
-            These third parties have access to your Personal Information only to perform
-            the tasks assigned to them and are obligated not to disclose or use it
-            for any other purpose.
-        </p>
-    </section>
-
-    <section>
-        <h2>Security</h2>
-        <p>
-            We value your trust in providing us your Personal Information, and we strive to
-            use commercially acceptable means of protecting it.
-            However, no method of transmission over the internet or electronic storage
-            is 100% secure, and we cannot guarantee absolute security.
-        </p>
-    </section>
-
-    <section>
-        <h2>Links to Other Sites</h2>
-        <p>
-            This Service may contain links to other sites.
-            If you click on a third-party link, you will be directed to that site.
-            We strongly advise you to review the Privacy Policy of those websites.
-        </p>
-    </section>
-
-    <section>
-        <h2>Children’s Privacy</h2>
-        <p>
-            OldSoul does not address anyone under the age of 13.
-            We do not knowingly collect personally identifiable information from children
-            under 13 years of age.
-        </p>
-        <p>
-            If you believe that a child has provided us with personal information,
-            please contact us and we will take appropriate action.
-        </p>
-    </section>
-
-    <section>
-        <h2>Changes to This Privacy Policy</h2>
-        <p>
-            We may update our Privacy Policy from time to time.
-            Any changes will be posted on this page.
-        </p>
-        <p>
-            <strong>Effective date:</strong> December 29, 2025
-        </p>
-    </section>
-
-    <section>
-        <h2>Contact Us</h2>
-        <p>
-            If you have any questions or suggestions about this Privacy Policy,
-            please contact us at:
-        </p>
-        <p>
-            📧 <a href="mailto:ssolstice216@gmail.com">ssolstice216@gmail.com</a>
-        </p>
-    </section>
-
-</main>
-
-<footer>
-    © 2026 OldSoul Vintage Film Camera. All rights reserved.
-</footer>
-
+        <footer class="border-t border-primary/10 px-6 py-12 lg:px-20 bg-background-dark mt-auto">
+            <div class="max-w-7xl mx-auto flex justify-between items-center text-xs text-slate-600">
+                <p>© 2026 S²olstice Studio.</p>
+                <div class="flex gap-6">
+                    <a href="privacy.html" class="hover:text-white">Global Privacy</a>
+                </div>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

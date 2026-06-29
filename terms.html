@@ -1,102 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Terms of Use — S²olstice</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
-          rel="stylesheet"/>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Terms of Use | S²olstice Studio</title>
+    <meta name="description" content="Terms of Use for S²olstice apps and services."/>
+
+    <link rel="icon" type="image/webp" href="icon_filroll.webp">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d4af37",
+                        "background-light": "#0b0b0b",
+                        "background-dark": "#0f0f0f",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
     <style>
-        body{
-            margin:0;
-            font-family:'Space Grotesk',sans-serif;
-            background:#0f0f0f;
-            color:#e5e7eb;
+        body { font-family: 'Space Grotesk', sans-serif; }
+        .glass-panel {
+            background: rgba(212, 175, 55, 0.04);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.1);
         }
-        .container{
-            max-width:1100px;
-            margin:auto;
-            padding:24px;
-        }
-        header{
-            border-bottom:1px solid rgba(212,175,55,.2);
-        }
-        .nav{
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-        }
-        .logo{
-            display:flex;
-            align-items:center;
-            gap:10px;
-            font-weight:700;
-            color:#fff;
-            text-decoration:none;
-        }
-        .logo img{
-            width:28px;
-        }
-        nav ul{
-            display:flex;
-            gap:20px;
-            list-style:none;
-            padding:0;
-            margin:0;
-        }
-        nav a{
-            color:#cbd5e1;
-            text-decoration:none;
-            font-size:14px;
-        }
-        nav a:hover{
-            color:#d4af37;
-        }
-        .page-content{
-            background:rgba(212,175,55,.05);
-            border:1px solid rgba(212,175,55,.2);
-            border-radius:12px;
-            padding:40px;
-            margin-top:40px;
-            line-height:1.7;
-        }
-        h1,h2,h3{
-            color:#ffffff;
-        }
-        .section-title{
-            font-size:36px;
-            margin-bottom:8px;
-        }
-        footer{
-            margin-top:80px;
-            border-top:1px solid rgba(212,175,55,.2);
-            padding:40px 0;
-            text-align:center;
-            font-size:13px;
-            color:#9ca3af;
-        }
-        footer nav{
-            margin-bottom:16px;
-        }
-        footer nav a{
-            margin:0 10px;
-            color:#9ca3af;
-        }
-        footer nav a:hover{
-            color:#d4af37;
-        }
+        .prose h2 { color: #ffffff; font-weight: 700; font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; }
+        .prose h3 { color: #ffffff; font-weight: 600; font-size: 1.25rem; margin-top: 2rem; margin-bottom: 0.75rem; }
+        .prose p { color: #94a3b8; line-height: 1.8; margin-bottom: 1.25rem; }
+        .prose ul { list-style-type: disc; padding-left: 1.5rem; color: #94a3b8; margin-bottom: 1.25rem; }
+        .prose li { margin-bottom: 0.5rem; }
         .highlight-box {
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(212, 175, 55, 0.08);
             border-left: 4px solid #d4af37;
-            padding: 15px;
-            margin: 20px 0;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 1rem 1rem 0;
         }
+        .highlight-box p { color: #cbd5e1; margin-bottom: 0.75rem; }
+        .highlight-box p:last-child { margin-bottom: 0; }
     </style>
-
-    <!-- Google tag (gtag.js) -->
-
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BVWXG7SHHD"></script>
@@ -105,279 +58,164 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-BVWXG7SHHD');
-
-
-        // ===== Play Store Click Tracking =====
-        document.querySelectorAll('a[href*="play.google.com"]').forEach(link => {
-          link.addEventListener('click', function () {
-
-            let app = "unknown";
-
-            if (this.href.includes("aurapro")) app = "AuraPro";
-            else if (this.href.includes("auraraw")) app = "AuraRAW";
-            else if (this.href.includes("camera.manual")) app = "Manual2";
-            else if (this.href.includes("oldsoul")) app = "OldSoul";
-            else if (this.href.includes("filroll")) app = "FILROLL";
-
-            gtag('event', 'click_play_store', {
-              app: app,
-              page: window.location.pathname
-            });
-
-          });
-        });
-
-
-        // ===== Section Navigation Tracking =====
-        document.querySelectorAll('a[href^="#"]').forEach(link => {
-          link.addEventListener('click', function () {
-
-            const section = this.getAttribute("href").replace("#","");
-
-            gtag('event','toc_nav',{
-              section: section,
-              page: window.location.pathname
-            });
-
-          });
-        });
-
-
-        // ===== Outbound Link Tracking =====
-        document.querySelectorAll('a[href^="http"]').forEach(link => {
-
-          if (!link.href.includes(window.location.hostname)) {
-
-            link.addEventListener('click', function () {
-
-              gtag('event','outbound_click',{
-                url: this.href,
-                page: window.location.pathname
-              });
-
-            });
-
-          }
-
-        });
-
-
-        // ===== Scroll Depth Tracking =====
-        let scrollTracked = false;
-
-        window.addEventListener('scroll', () => {
-
-          if (scrollTracked) return;
-
-          if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight * 0.9) {
-
-            scrollTracked = true;
-
-            gtag('event','scroll_90',{
-              page: window.location.pathname
-            });
-
-          }
-
-        });
     </script>
 </head>
-<body>
-<header>
-    <div class="container nav">
-        <a href="index.html" class="logo">
-            <img src="logo.png" alt="S²olstice logo"/>
-            <span>S²olstice</span>
-        </a>
-        <nav>
-            <ul>
-                <li><a href="about.html">About</a></li>
-                <li><a href="help.html">Help</a></li>
-                <li><a href="terms.html">Terms</a></li>
-                <li><a href="privacy.html">Privacy</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-<main class="container">
-    <article class="page-content">
-        <header>
-            <h1 class="section-title">Terms of Use</h1>
-            <p><em>Last updated: March 2026</em></p>
-        </header>
-        <section>
-            <p>
-                These Terms of Use ("Terms") govern your access to and use of mobile
-                applications, websites, and related services provided by S²olstice
-                ("we", "our", or "us").
-            </p>
-            <p>
-                By downloading, installing, or using our applications, you agree to be
-                bound by these Terms. If you do not agree, please discontinue use of
-                the Services.
-            </p>
-        </section>
-        <section>
-            <h2>1. Scope of Services</h2>
-            <p>
-                S²olstice develops independent mobile applications focused on photography,
-                camera tools, photo and video editing, creative utilities, and productivity
-                features such as note-taking.
-            </p>
-            <p>
-                The Services are provided for personal, non-commercial use unless explicitly
-                stated otherwise.
-            </p>
-        </section>
-        <section>
-            <h2>2. Eligibility</h2>
-            <p>
-                You must be at least 13 years old to use the Services. By using the Services,
-                you confirm that you meet this requirement and have the legal capacity to
-                accept these Terms.
-            </p>
-        </section>
-        <section>
-            <h2>3. Acceptable Use</h2>
-            <p>
-                You agree to use the Services only for lawful purposes and in accordance
-                with applicable laws and regulations.
-            </p>
-            <ul>
-                <li>Do not misuse, abuse, or exploit the Services</li>
-                <li>Do not reverse engineer, modify, or redistribute the applications</li>
-                <li>Do not interfere with security or system integrity</li>
-                <li>Do not use the Services to infringe the rights of others</li>
-            </ul>
-        </section>
-        <section>
-            <h2>4. Intellectual Property</h2>
-            <p>
-                All intellectual property rights, including software, designs, logos,
-                trademarks, and content, are owned by S²olstice or its licensors.
-            </p>
-            <p>
-                A limited, non-exclusive, non-transferable license is granted to you solely
-                for personal use of the Services.
-            </p>
-        </section>
-        <section>
-            <h2>5. User Content</h2>
-            <p>
-                Some applications allow you to create or store content such as photos,
-                videos, and notes ("User Content").
-            </p>
-            <p>
-                You retain full ownership of your User Content. S²olstice does not claim
-                ownership and does not access your personal content unless explicitly stated.
-            </p>
-            <p>
-                You are solely responsible for your User Content and how it is used or shared.
-            </p>
-        </section>
-        <section>
-            <h2>6. Purchases and Subscriptions</h2>
-            <div class="highlight-box">
-                <p><strong>Subscription Basis:</strong> Certain features are billed on a
-                    subscription basis ("Subscription(s)"). You will be billed in advance on a
-                    recurring and periodic basis (monthly or annually), depending on the plan you
-                    select.</p>
-
-                <p><strong>Automatic Renewal:</strong> To ensure uninterrupted service,
-                    subscriptions automatically renew at the end of each billing cycle under the
-                    same conditions unless cancelled. Your Google Play Account will be charged for
-                    renewal within 24 hours prior to the end of the current period.</p>
-
-                <p><strong>Cancellation:</strong> You can manage or cancel your subscription at any
-                    time via your <strong>Google Play Account Settings</strong>. To avoid being
-                    charged for the next cycle, cancellation must be made at least 24 hours before
-                    the current period ends. Please note that uninstalling the app does not
-                    automatically cancel your subscription.</p>
-
-                <p><strong>Lifetime/Permanent Access:</strong> If you purchase a "Permanent" or
-                    "One-time" license, you will be charged a single fee for ongoing access to Pro
-                    features without recurring billing.</p>
-
-                <p><strong>Refunds:</strong> All transactions are processed by Google Play. Refund
-                    requests are subject to Google Play's refund policies and are generally
-                    non-refundable except where required by law.</p>
+<body class="bg-background-dark text-slate-100 overflow-x-hidden">
+    <div class="relative min-h-screen flex flex-col">
+        <!-- Navigation -->
+        <header class="fixed top-0 w-full z-50 bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-6 py-4 lg:px-20">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="icon_filroll.webp" alt="Logo" class="w-8 h-8 rounded-lg"/>
+                    <span class="text-2xl font-bold tracking-tight text-white">S²olstice</span>
+                </a>
+                <nav class="hidden md:flex gap-8 text-sm font-medium">
+                    <a href="about.html" class="hover:text-primary transition-colors">About</a>
+                    <a href="help.html" class="hover:text-primary transition-colors">Help</a>
+                    <a href="terms.html" class="text-primary transition-colors">Terms</a>
+                    <a href="privacy.html" class="hover:text-primary transition-colors">Privacy</a>
+                </nav>
             </div>
-        </section>
-        <section>
-            <h2>7. Third-Party Services</h2>
-            <p>
-                The Services may integrate third-party services such as Google Play Services
-                or analytics tools to support functionality and improve performance.
-            </p>
-            <p style="max-width: 720px; line-height: 1.7; opacity: 0.85; margin-bottom: 16px;">
-                We are not responsible for third-party services, which are governed by their
-                own terms and policies.
-            </p>
-        </section>
-        <section>
-            <h2>8. Disclaimer of Warranties</h2>
-            <p>
-                The Services are provided on an "as is" and "as available" basis without
-                warranties of any kind.
-            </p>
-            <p>
-                We do not guarantee uninterrupted operation, accuracy, or suitability for
-                a specific purpose.
-            </p>
-        </section>
-        <section>
-            <h2>9. Limitation of Liability</h2>
-            <p>
-                To the maximum extent permitted by law, S²olstice shall not be liable for
-                indirect, incidental, or consequential damages resulting from the use of
-                the Services.
-            </p>
-        </section>
-        <section>
-            <h2>10. Termination</h2>
-            <p>
-                We reserve the right to suspend or terminate access to the Services if these
-                Terms are violated or if required by law.
-            </p>
-            <p>
-                You may stop using the Services at any time by uninstalling the applications.
-            </p>
-        </section>
-        <section>
-            <h2>11. Changes to These Terms</h2>
-            <p>
-                These Terms may be updated periodically. Continued use of the Services
-                constitutes acceptance of the revised Terms.
-            </p>
-        </section>
-        <section>
-            <h2>12. Governing Law</h2>
-            <p>
-                These Terms are governed by applicable laws, without regard to conflict of
-                law principles.
-            </p>
-        </section>
-        <section>
-            <h2>13. Contact</h2>
-            <p>
-                If you have any questions regarding these Terms, please contact:
-                <br/>
-                <strong>Email:</strong> ssolstice216@gmail.com
-            </p>
-        </section>
-    </article>
-</main>
-<footer>
-    <div class="container">
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="help.html">Help</a>
-            <a href="terms.html">Terms</a>
-            <a href="privacy.html">Privacy</a>
-        </nav>
-        <p>© 2026 S²olstice. All rights reserved.</p>
+        </header>
+
+        <main class="flex-1 pt-32 pb-20 px-6 lg:px-20">
+            <div class="max-w-4xl mx-auto">
+                <header class="mb-12 border-b border-white/5 pb-8 text-center md:text-left">
+                    <h1 class="text-4xl md:text-6xl font-black mb-4 tracking-tighter">Terms of <span class="text-primary">Use</span></h1>
+                    <p class="text-slate-500 font-mono text-sm uppercase tracking-widest">Last updated: March 2026</p>
+                </header>
+
+                <div class="glass-panel p-8 md:p-12 rounded-[2.5rem] prose prose-invert max-w-none">
+                    <p>
+                        These Terms of Use ("Terms") govern your access to and use of mobile
+                        applications, websites, and related services provided by S²olstice
+                        ("we", "our", or "us").
+                    </p>
+                    <p>
+                        By downloading, installing, or using our applications, you agree to be
+                        bound by these Terms. If you do not agree, please discontinue use of
+                        the Services.
+                    </p>
+
+                    <h2>1. Scope of Services</h2>
+                    <p>
+                        S²olstice develops independent mobile applications focused on photography,
+                        camera tools, photo and video editing, creative utilities, and productivity
+                        features such as note-taking.
+                    </p>
+                    <p>
+                        The Services are provided for personal, non-commercial use unless explicitly
+                        stated otherwise.
+                    </p>
+
+                    <h2>2. Eligibility</h2>
+                    <p>
+                        You must be at least 13 years old to use the Services. By using the Services,
+                        you confirm that you meet this requirement and have the legal capacity to
+                        accept these Terms.
+                    </p>
+
+                    <h2>3. Acceptable Use</h2>
+                    <p>
+                        You agree to use the Services only for lawful purposes and in accordance
+                        with applicable laws and regulations.
+                    </p>
+                    <ul>
+                        <li>Do not misuse, abuse, or exploit the Services</li>
+                        <li>Do not reverse engineer, modify, or redistribute the applications</li>
+                        <li>Do not interfere with security or system integrity</li>
+                        <li>Do not use the Services to infringe the rights of others</li>
+                    </ul>
+
+                    <h2>4. Intellectual Property</h2>
+                    <p>
+                        All intellectual property rights, including software, designs, logos,
+                        trademarks, and content, are owned by S²olstice or its licensors.
+                    </p>
+                    <p>
+                        A limited, non-exclusive, non-transferable license is granted to you solely
+                        for personal use of the Services.
+                    </p>
+
+                    <h2>5. User Content</h2>
+                    <p>
+                        Some applications allow you to create or store content such as photos,
+                        videos, and notes ("User Content").
+                    </p>
+                    <p>
+                        You retain full ownership of your User Content. S²olstice does not claim
+                        ownership and does not access your personal content unless explicitly stated.
+                    </p>
+                    <p>
+                        You are solely responsible for your User Content and how it is used or shared.
+                    </p>
+
+                    <h2>6. Purchases and Subscriptions</h2>
+                    <div class="highlight-box">
+                        <p><strong>Subscription Basis:</strong> Certain features are billed on a
+                            subscription basis. You will be billed in advance on a
+                            recurring and periodic basis (monthly or annually), depending on the plan you
+                            select.</p>
+
+                        <p><strong>Automatic Renewal:</strong> Your Google Play Account will be charged for
+                            renewal within 24 hours prior to the end of the current period.</p>
+
+                        <p><strong>Cancellation:</strong> You can manage or cancel your subscription at any
+                            time via your <strong>Google Play Account Settings</strong>. Cancellation must be made at least 24 hours before
+                            the current period ends.</p>
+
+                        <p><strong>Lifetime Access:</strong> If you purchase a "Permanent" license, you will be charged a single fee for ongoing access to Pro
+                            features without recurring billing.</p>
+
+                        <p><strong>Refunds:</strong> All transactions are processed by Google Play. Refund
+                            requests are subject to Google Play's refund policies.</p>
+                    </div>
+
+                    <h2>7. Third-Party Services</h2>
+                    <p>
+                        The Services may integrate third-party services such as Google Play Services
+                        or analytics tools. We are not responsible for third-party services, which are governed by their
+                        own terms and policies.
+                    </p>
+
+                    <h2>8. Disclaimer of Warranties</h2>
+                    <p>
+                        The Services are provided on an "as is" and "as available" basis without
+                        warranties of any kind. We do not guarantee uninterrupted operation or accuracy.
+                    </p>
+
+                    <h2>9. Limitation of Liability</h2>
+                    <p>
+                        S²olstice shall not be liable for indirect, incidental, or consequential damages resulting from the use of
+                        the Services.
+                    </p>
+
+                    <h2>10. Contact</h2>
+                    <p>
+                        If you have any questions regarding these Terms, please contact:
+                        <br/>
+                        <strong class="text-white">Email:</strong> <a href="mailto:ssolstice216@gmail.com" class="text-primary hover:underline">ssolstice216@gmail.com</a>
+                    </p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="border-t border-primary/10 px-6 py-12 lg:px-20 bg-background-dark mt-auto">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center gap-3">
+                    <img src="icon_filroll.webp" alt="Logo" class="w-8 h-8 rounded-lg"/>
+                    <span class="text-2xl font-bold text-white tracking-tighter">S²olstice</span>
+                </div>
+                <div class="flex gap-8 text-sm text-slate-500 font-medium">
+                    <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                    <a href="about.html" class="hover:text-primary transition-colors">About</a>
+                    <a href="help.html" class="hover:text-primary transition-colors">Help</a>
+                    <a href="privacy.html" class="hover:text-primary transition-colors">Privacy</a>
+                </div>
+                <p class="text-xs text-slate-600">© 2026 S²olstice Studio.</p>
+            </div>
+        </footer>
     </div>
-</footer>
 </body>
 </html>
