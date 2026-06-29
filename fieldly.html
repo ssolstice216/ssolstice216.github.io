@@ -67,21 +67,22 @@
 </head>
 <body class="bg-background-dark text-slate-100 selection:bg-primary selection:text-background-dark">
 
-    <!-- Header -->
+    <!-- Navigation -->
     <header class="fixed top-0 w-full z-50 bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-6 py-4 lg:px-20">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-3">
-                <img src="fiedly_app_logo.png" alt="Fieldly Logo" class="w-8 h-8 rounded-lg"/>
-                <span class="text-2xl font-bold tracking-tight">Fieldly</span>
+                <img src="icon_filroll.webp" alt="Logo" class="w-8 h-8 rounded-lg"/>
+                <span class="text-2xl font-bold tracking-tight text-white">S²olstice</span>
             </a>
-            <nav class="hidden md:flex gap-8 text-sm font-medium">
-                <a href="#features" class="hover:text-primary transition-colors">Features</a>
-                <a href="#use-cases" class="hover:text-primary transition-colors">Use Cases</a>
-                <a href="#how-it-works" class="hover:text-primary transition-colors">How it Works</a>
-                <a href="#faq" class="hover:text-primary transition-colors">FAQ</a>
+            <nav class="hidden md:flex gap-8 text-sm font-medium text-slate-400">
+                <a href="about.html" class="hover:text-primary transition-colors">About</a>
+                <a href="help.html" class="hover:text-primary transition-colors">Help</a>
+                <a href="terms.html" class="hover:text-primary transition-colors">Terms</a>
+                <a href="privacy.html" class="hover:text-primary transition-colors">Privacy</a>
             </nav>
-            <a href="https://play.google.com/store/apps/dev?id=4762229976399806756" class="bg-primary text-background-dark px-5 py-2 rounded-lg font-bold text-sm hover:brightness-110 transition-all">
-                Download Now
+            <a href="https://play.google.com/store/apps/dev?id=4762229976399806756" target="_blank"
+               class="bg-primary text-background-dark font-bold px-5 py-2 rounded-lg text-sm hover:brightness-110 transition-all">
+                Play Store
             </a>
         </div>
     </header>
@@ -336,18 +337,43 @@
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-primary/10 px-6 py-12 lg:px-20 bg-background-dark">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="flex items-center gap-3">
-                <img src="icon_filroll.webp" alt="Fieldly" class="w-8 h-8 rounded-lg"/>
-                <span class="text-2xl font-bold text-white">S²olstice</span>
+    <footer class="border-t border-primary/10 px-6 py-20 lg:px-20 bg-background-dark">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-3 text-primary mb-8">
+                    <img src="icon_filroll.webp" alt="Logo" class="w-10 h-10 rounded-lg"/>
+                    <span class="text-3xl font-bold tracking-tighter text-white">S²olstice</span>
+                </div>
+                <p class="text-slate-400 max-w-sm leading-relaxed">
+                    Independent software studio dedicated to building high-quality Android
+                    experiences with a focus on design and professional utility.
+                </p>
             </div>
-            <div class="flex gap-8 text-sm text-slate-500">
-                <a href="privacy.html" class="hover:text-primary">Privacy Policy</a>
-                <a href="terms.html" class="hover:text-primary">Terms of Service</a>
-                <a href="about.html" class="hover:text-primary">About</a>
+            <div>
+                <h4 class="text-white font-bold mb-6">Explore</h4>
+                <ul class="space-y-4 text-sm text-slate-500">
+                    <li><a href="about.html" class="hover:text-primary transition-colors">About
+                        Studio</a></li>
+                    <li><a href="help.html" class="hover:text-primary transition-colors">Help
+                        Center</a></li>
+                </ul>
             </div>
-            <p class="text-sm text-slate-500">© 2026 S²olstice. All rights reserved.</p>
+            <div>
+                <h4 class="text-white font-bold mb-6">Contact</h4>
+                <ul class="space-y-4 text-sm text-slate-500">
+                    <li><a href="mailto:ssolstice216@gmail.com"
+                           class="hover:text-primary transition-colors">Email Support</a></li>
+                    <li><a href="https://www.linkedin.com/company/ssolstice/"
+                           class="hover:text-primary transition-colors">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-600">
+            <p>© 2026 S²olstice Studio. All Rights Reserved.</p>
+            <div class="flex gap-6">
+                <a href="terms.html" class="hover:text-white">Terms</a>
+                <a href="privacy.html" class="hover:text-white">Privacy</a>
+            </div>
         </div>
     </footer>
 
