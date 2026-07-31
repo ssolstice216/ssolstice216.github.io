@@ -1,0 +1,12 @@
+- `[/]` SEO Optimization Execution
+    - `[x]` Technical SEO: Update `sitemap.xml`
+    - `[x]` Global Metadata: Update `index.html`
+    - `[/]` App Landing Page: `fieldly.html` (Tags + Schema + Alt)
+    - `[ ]` App Landing Page: `manual2.html` (Tags + Schema)
+    - `[ ]` App Landing Page: `auraraw.html` (Tags + Schema)
+    - `[ ]` App Landing Page: `aurapro.html` (Tags + Schema)
+    - `[ ]` Utility Page: `jsonviewer.html`
+    - `[ ]` Game Page: `happyblocks.html`
+    - `[ ]` Info Page: `about.html`
+    - `[ ]` Legal/Help Pages: `privacy.html`, `terms.html`, `help.html`
+    - `[ ]` Final Verification
