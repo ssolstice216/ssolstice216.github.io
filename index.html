@@ -41,12 +41,15 @@
             background-color: #f8f9fa;
             color: #18181b;
         }
-        .app-pill {
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        .glass-pill {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05), inset 0 1px 1px 0 rgba(255, 255, 255, 0.8);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .app-pill:hover {
-            transform: translateY(-3px) scale(1.03);
-            box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.08), 0 4px 8px -4px rgba(0, 0, 0, 0.04);
+        .glass-pill:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 14px 36px 0 rgba(31, 38, 135, 0.12), inset 0 1px 2px 0 rgba(255, 255, 255, 0.95);
         }
     </style>
     <!-- Google Analytics -->
@@ -88,10 +91,13 @@
 <body class="bg-[#f8f9fa] text-slate-900 min-h-screen flex flex-col justify-between selection:bg-slate-200">
 
     <!-- Main Content -->
-    <main class="flex-1 flex flex-col items-center justify-center px-6 py-12 md:py-20 text-center max-w-6xl mx-auto w-full">
+    <main class="relative flex-1 flex flex-col items-center justify-center px-6 py-12 md:py-20 text-center max-w-6xl mx-auto w-full overflow-hidden">
+
+        <!-- Glass Ambient Glow Blobs -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-amber-200/35 via-sky-200/35 to-pink-200/35 rounded-full blur-3xl -z-10 pointer-events-none"></div>
 
         <!-- Status Tag -->
-        <div class="inline-flex items-center gap-2 text-slate-500 text-xs md:text-sm font-medium mb-6 bg-slate-100 px-3.5 py-1.5 rounded-full border border-slate-200/60 shadow-2xs">
+        <div class="glass-pill inline-flex items-center gap-2 text-slate-600 text-xs md:text-sm font-medium mb-6 bg-white/60 px-4 py-1.5 rounded-full border border-white/80">
             <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
             Hello, we're S²olstice
         </div>
@@ -106,111 +112,111 @@
             Professional camera tools, productivity utilities, and creative Android apps — all built by the same small crew.
         </p>
 
-        <!-- Colored Pills Cluster (App Cloud) -->
-        <div class="flex flex-wrap justify-center items-center gap-3 sm:gap-4 max-w-5xl mx-auto">
+        <!-- Colored Glass Pills Cluster (App Cloud) -->
+        <div class="flex flex-wrap justify-center items-center gap-3.5 sm:gap-4.5 max-w-5xl mx-auto">
 
             <!-- AuraRAW -->
             <a href="https://play.google.com/store/apps/details?id=com.s2olstice.auraraw.camera" target="_blank"
-               class="app-pill bg-[#ffb088] text-slate-900 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full flex items-center gap-2.5 shadow-xs font-semibold text-sm sm:text-base border border-black/5">
-                <img src="icon_auraraw.webp" alt="AuraRAW" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover"/>
+               class="glass-pill bg-[#fef3c7]/65 hover:bg-[#fef3c7]/90 text-amber-950 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full flex items-center gap-2.5 font-bold text-sm sm:text-base border border-amber-300/60 hover:border-amber-400">
+                <img src="icon_auraraw.webp" alt="AuraRAW" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover shadow-2xs"/>
                 <span>AuraRAW</span>
             </a>
 
             <!-- Manual 2 -->
             <a href="https://play.google.com/store/apps/details?id=com.ssolstice.camera.manual" target="_blank"
-               class="app-pill bg-[#fde047] text-slate-900 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full flex items-center gap-2.5 shadow-xs font-semibold text-sm sm:text-base border border-black/5">
-                <img src="icon_manual.webp" alt="Manual 2" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover"/>
+               class="glass-pill bg-[#fef08a]/65 hover:bg-[#fef08a]/90 text-yellow-950 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full flex items-center gap-2.5 font-bold text-sm sm:text-base border border-yellow-300/60 hover:border-yellow-400">
+                <img src="icon_manual.webp" alt="Manual 2" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover shadow-2xs"/>
                 <span>Manual 2</span>
             </a>
 
             <!-- Fieldly -->
             <a href="https://play.google.com/store/apps/details?id=com.ssolstice.surveycam" target="_blank"
-               class="app-pill bg-[#bef264] text-slate-900 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full flex items-center gap-2.5 shadow-xs font-semibold text-sm sm:text-base border border-black/5">
-                <img src="fiedly_app_logo.png" alt="Fieldly" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover"/>
+               class="glass-pill bg-[#d9f99d]/65 hover:bg-[#d9f99d]/90 text-lime-950 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full flex items-center gap-2.5 font-bold text-sm sm:text-base border border-lime-300/60 hover:border-lime-400">
+                <img src="fiedly_app_logo.png" alt="Fieldly" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover shadow-2xs"/>
                 <span>Fieldly</span>
             </a>
 
             <!-- FILROLL -->
             <a href="https://play.google.com/store/apps/details?id=com.ssolstice.camera" target="_blank"
-               class="app-pill bg-[#93c5fd] text-slate-900 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full flex items-center gap-2.5 shadow-xs font-semibold text-sm sm:text-base border border-black/5">
-                <img src="icon_filroll.webp" alt="FILROLL" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover"/>
+               class="glass-pill bg-[#ffedd5]/65 hover:bg-[#ffedd5]/90 text-orange-950 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full flex items-center gap-2.5 font-bold text-sm sm:text-base border border-orange-300/60 hover:border-orange-400">
+                <img src="icon_filroll.webp" alt="FILROLL" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover shadow-2xs"/>
                 <span>FILROLL</span>
             </a>
 
             <!-- Snapic -->
             <a href="https://play.google.com/store/apps/details?id=com.ssolstice.lingosnap" target="_blank"
-               class="app-pill bg-[#f472b6] text-slate-900 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full flex items-center gap-2.5 shadow-xs font-semibold text-sm sm:text-base border border-black/5">
-                <img src="snapic.webp" alt="Snapic" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover"/>
+               class="glass-pill bg-[#fbcfe8]/65 hover:bg-[#fbcfe8]/90 text-pink-950 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full flex items-center gap-2.5 font-bold text-sm sm:text-base border border-pink-300/60 hover:border-pink-400">
+                <img src="snapic.webp" alt="Snapic" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover shadow-2xs"/>
                 <span>Snapic</span>
             </a>
 
             <!-- Dual Camera -->
             <a href="https://play.google.com/store/apps/details?id=com.ssolstice.dualcamera" target="_blank"
-               class="app-pill bg-white text-slate-900 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full flex items-center gap-2.5 shadow-xs font-semibold text-sm sm:text-base border border-slate-200">
-                <img src="logo_dualview.webp" alt="Dual Camera" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover"/>
+               class="glass-pill bg-[#bae6fd]/65 hover:bg-[#bae6fd]/90 text-sky-950 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full flex items-center gap-2.5 font-bold text-sm sm:text-base border border-sky-300/60 hover:border-sky-400">
+                <img src="logo_dualview.webp" alt="Dual Camera" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover shadow-2xs"/>
                 <span>Dual Camera & PiP</span>
             </a>
 
             <!-- Filmory -->
             <a href="https://play.google.com/store/apps/details?id=com.ssolstice.vintage.camera.editor" target="_blank"
-               class="app-pill bg-[#6ee7b7] text-slate-900 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full flex items-center gap-2.5 shadow-xs font-semibold text-sm sm:text-base border border-black/5">
-                <img src="logo_filmory.webp" alt="Filmory" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover"/>
+               class="glass-pill bg-[#a7f3d0]/65 hover:bg-[#a7f3d0]/90 text-emerald-950 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full flex items-center gap-2.5 font-bold text-sm sm:text-base border border-emerald-300/60 hover:border-emerald-400">
+                <img src="logo_filmory.webp" alt="Filmory" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover shadow-2xs"/>
                 <span>Filmory</span>
             </a>
 
             <!-- OldSoul -->
             <a href="https://play.google.com/store/apps/details?id=com.ssolstice.camera.oldsoul" target="_blank"
-               class="app-pill bg-[#c4b5fd] text-slate-900 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full flex items-center gap-2.5 shadow-xs font-semibold text-sm sm:text-base border border-black/5">
-                <img src="icon_oldsoul.webp" alt="OldSoul" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover"/>
+               class="glass-pill bg-[#e9d5ff]/65 hover:bg-[#e9d5ff]/90 text-purple-950 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full flex items-center gap-2.5 font-bold text-sm sm:text-base border border-purple-300/60 hover:border-purple-400">
+                <img src="icon_oldsoul.webp" alt="OldSoul" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover shadow-2xs"/>
                 <span>OldSoul</span>
             </a>
 
             <!-- Private Vault -->
             <a href="https://play.google.com/store/apps/details?id=com.ssolstice.vault" target="_blank"
-               class="app-pill bg-[#fca5a5] text-slate-900 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full flex items-center gap-2.5 shadow-xs font-semibold text-sm sm:text-base border border-black/5">
-                <img src="logo_private_vault.webp" alt="Private Vault" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover"/>
+               class="glass-pill bg-[#fecdd3]/65 hover:bg-[#fecdd3]/90 text-rose-950 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full flex items-center gap-2.5 font-bold text-sm sm:text-base border border-rose-300/60 hover:border-rose-400">
+                <img src="logo_private_vault.webp" alt="Private Vault" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover shadow-2xs"/>
                 <span>Private Vault</span>
             </a>
 
             <!-- EverLog -->
             <a href="https://play.google.com/store/apps/details?id=com.ssolstice.time" target="_blank"
-               class="app-pill bg-[#99f6e4] text-slate-900 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full flex items-center gap-2.5 shadow-xs font-semibold text-sm sm:text-base border border-black/5">
-                <img src="logo_everlog.webp" alt="EverLog" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover"/>
+               class="glass-pill bg-[#99f6e4]/65 hover:bg-[#99f6e4]/90 text-teal-950 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full flex items-center gap-2.5 font-bold text-sm sm:text-base border border-teal-300/60 hover:border-teal-400">
+                <img src="logo_everlog.webp" alt="EverLog" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover shadow-2xs"/>
                 <span>EverLog</span>
             </a>
 
             <!-- LAPhoto Editor -->
             <a href="https://play.google.com/store/apps/details?id=com.ssolstice.photoeditor" target="_blank"
-               class="app-pill bg-[#fde68a] text-slate-900 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full flex items-center gap-2.5 shadow-xs font-semibold text-sm sm:text-base border border-black/5">
-                <img src="icon_la_photo.webp" alt="LAPhoto Editor" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover"/>
+               class="glass-pill bg-[#fed7aa]/65 hover:bg-[#fed7aa]/90 text-orange-950 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full flex items-center gap-2.5 font-bold text-sm sm:text-base border border-orange-300/60 hover:border-orange-400">
+                <img src="icon_la_photo.webp" alt="LAPhoto Editor" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover shadow-2xs"/>
                 <span>LAPhoto Editor</span>
             </a>
 
             <!-- IPTV+ -->
             <a href="https://play.google.com/store/apps/details?id=com.ssolstice.iptv" target="_blank"
-               class="app-pill bg-[#a7f3d0] text-slate-900 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full flex items-center gap-2.5 shadow-xs font-semibold text-sm sm:text-base border border-black/5">
-                <img src="logo_iptv.webp" alt="IPTV+ Player" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover"/>
+               class="glass-pill bg-[#c7d2fe]/65 hover:bg-[#c7d2fe]/90 text-indigo-950 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full flex items-center gap-2.5 font-bold text-sm sm:text-base border border-indigo-300/60 hover:border-indigo-400">
+                <img src="logo_iptv.webp" alt="IPTV+ Player" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover shadow-2xs"/>
                 <span>IPTV+ Player</span>
             </a>
 
             <!-- Cleanium -->
             <a href="https://play.google.com/store/apps/details?id=com.ssolstice.storage.cleanup" target="_blank"
-               class="app-pill bg-[#e0e7ff] text-slate-900 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full flex items-center gap-2.5 shadow-xs font-semibold text-sm sm:text-base border border-black/5">
-                <img src="logo_cleanium.webp" alt="Cleanium" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover"/>
+               class="glass-pill bg-[#e0f2fe]/65 hover:bg-[#e0f2fe]/90 text-sky-950 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full flex items-center gap-2.5 font-bold text-sm sm:text-base border border-sky-300/60 hover:border-sky-400">
+                <img src="logo_cleanium.webp" alt="Cleanium" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover shadow-2xs"/>
                 <span>Cleanium</span>
             </a>
 
             <!-- 10MB Browser -->
             <a href="https://play.google.com/store/apps/details?id=com.ssolstice.browser" target="_blank"
-               class="app-pill bg-[#ffedd5] text-slate-900 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full flex items-center gap-2.5 shadow-xs font-semibold text-sm sm:text-base border border-black/5">
-                <img src="browser.webp" alt="10MB Browser" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover"/>
+               class="glass-pill bg-[#fef3c7]/65 hover:bg-[#fef3c7]/90 text-amber-950 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full flex items-center gap-2.5 font-bold text-sm sm:text-base border border-amber-300/60 hover:border-amber-400">
+                <img src="browser.webp" alt="10MB Browser" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover shadow-2xs"/>
                 <span>10MB Browser</span>
             </a>
 
             <!-- ToolifyX -->
             <a href="https://phung.work/" target="_blank"
-               class="app-pill bg-[#e2e8f0] text-slate-900 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full flex items-center gap-2.5 shadow-xs font-semibold text-sm sm:text-base border border-black/5">
-                <img src="logo_tools.png" alt="ToolifyX" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover"/>
+               class="glass-pill bg-[#e2e8f0]/65 hover:bg-[#e2e8f0]/90 text-slate-900 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full flex items-center gap-2.5 font-bold text-sm sm:text-base border border-slate-300/60 hover:border-slate-400">
+                <img src="logo_tools.png" alt="ToolifyX" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md object-cover shadow-2xs"/>
                 <span>ToolifyX</span>
             </a>
 
