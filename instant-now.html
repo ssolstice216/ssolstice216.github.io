@@ -1,69 +1,139 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#eee9df">
-<title>Instant.now — Keep the moment.</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap');
-:root{--bg:#eee9df;--ink:#292821;--muted:#817a6e;--red:#b74b37;--line:#d5cdbf}
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink)}
-body{font-family:'DM Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column}
-header{width:min(1120px,calc(100% - 48px));height:76px;margin:auto;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
-.logo{font:500 23px 'Playfair Display',serif;letter-spacing:-1px}.logo i{font-style:normal;color:var(--red)}
-header a:last-child{font:10px 'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--ink);border:1px solid #aaa293;padding:11px 15px}
-main{flex:1;width:min(1120px,calc(100% - 48px));margin:0 auto;display:grid;grid-template-columns:1fr 420px 1fr;align-items:center;gap:42px;padding:42px 0}
-.copy h1{font:500 clamp(46px,5vw,68px)/.98 'Playfair Display',serif;letter-spacing:-.055em;margin:14px 0 18px}.copy h1 em{color:var(--red);font-weight:500}
-.copy p{font-size:14px;line-height:1.75;color:var(--muted);max-width:270px;margin:0}
-.kicker{font:10px 'DM Mono',monospace;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
-.demo-wrap{position:relative;display:flex;justify-content:center;align-items:center}
-.demo-wrap:before{content:"";position:absolute;width:390px;height:390px;border-radius:50%;background:#e3d9c8;z-index:0}
-.video-frame{position:relative;z-index:1;width:min(100%,300px);aspect-ratio:9/20;border-radius:25px;padding:8px;background:#242321;box-shadow:0 24px 60px #534a3b30,0 0 0 1px #bcb3a6;overflow:hidden}
-video{width:100%;height:100%;display:block;object-fit:cover;border-radius:18px;background:#171717}
-.play-hint{position:absolute;z-index:2;bottom:18px;left:50%;transform:translateX(-50%);font:9px 'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:white;background:#171717aa;padding:8px 11px;border-radius:20px;pointer-events:none;transition:opacity .3s}
-.video-frame.playing .play-hint{opacity:0}
-.side-note{align-self:center}.side-note .number{font:italic 42px 'Playfair Display',serif;color:var(--red)}.side-note p{font-size:12px;line-height:1.7;color:var(--muted);max-width:170px;margin:8px 0 0}
-.bottom{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding:18px 0;width:min(1120px,calc(100% - 48px));margin:0 auto;font:9px 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.bottom a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--red);padding-bottom:3px}
-@media(max-width:800px){header{height:66px}main{grid-template-columns:1fr;gap:26px;padding:38px 0 30px;text-align:center}.copy{order:0}.copy h1{font-size:53px;margin:10px 0 12px}.copy p{margin:auto;max-width:340px}.demo-wrap{order:1}.demo-wrap:before{width:310px;height:310px}.video-frame{width:min(66vw,270px)}.side-note{order:2}.side-note .number{font-size:30px}.side-note p{max-width:300px;margin:4px auto 0}.bottom{font-size:8px;gap:10px;flex-wrap:wrap}}
-</style>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta name="theme-color" content="#f8f9fa"/>
+    <title>Instant.now — Keep the moment.</title>
+    <meta name="description" content="Discover the joy of instant photography with Instant.now for Android."/>
+
+    <link rel="icon" type="image/webp" href="icon_filroll.webp">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet"/>
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d4af37",
+                        "bg-main": "#f8f9fa",
+                    },
+                    fontFamily: {
+                        "sans": ["Inter", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"]
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #f8f9fa;
+            color: #18181b;
+        }
+        .glass-pill {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05), inset 0 1px 1px 0 rgba(255, 255, 255, 0.8);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-pill:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 12px 28px 0 rgba(31, 38, 135, 0.12);
+        }
+        .video-frame.playing .play-hint {
+            opacity: 0;
+        }
+    </style>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BVWXG7SHHD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-BVWXG7SHHD');
+    </script>
 </head>
-<body>
-<header>
-  <div class="logo">instant<i>.</i>now</div>
-  <a href="https://play.google.com/store/apps/details?id=com.s2.instant.camera" target="_blank" rel="noreferrer">Get the app ↗</a>
-</header>
-<main>
-  <section class="copy">
-    <div class="kicker">A little nostalgia in your pocket</div>
-    <h1>Keep the<br><em>moment.</em></h1>
-    <p>Discover the joy of instant photography. Classic cameras, tactile details and the magic of watching every memory develop.</p>
-  </section>
-  <section class="demo-wrap">
-    <div class="video-frame" id="videoFrame">
-      <video id="demo" autoplay muted loop playsinline controls preload="metadata" poster="">
-        <source src="instant-now-demo.mp4" type="video/mp4">
-        Your browser does not support HTML video.
-      </video>
-      <div class="play-hint">App demo · 00:26</div>
-    </div>
-  </section>
-  <aside class="side-note">
-    <div class="number">01 — 17</div>
-    <div class="kicker">One tap. One memory.</div>
-    <p>Explore 17 instant camera styles and make ordinary moments feel unforgettable.</p>
-  </aside>
-</main>
-<footer class="bottom">
-  <span>Analog moments, made timeless.</span>
-  <span>Made for Android</span>
-  <a href="https://play.google.com/store/apps/details?id=com.s2.instant.camera" target="_blank" rel="noreferrer">Download on Google Play ↗</a>
-</footer>
+<body class="bg-[#f8f9fa] text-slate-900 min-h-screen flex flex-col justify-between selection:bg-slate-200">
+
+    <!-- Header Navigation -->
+    <header class="w-full px-6 py-6 lg:px-16 flex items-center justify-between max-w-7xl mx-auto border-b border-slate-200/60">
+        <a href="index.html" class="flex items-center gap-2 text-2xl font-bold tracking-tight text-slate-900 font-serif">
+            instant<span class="text-amber-500">.</span>now
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.s2.instant.camera" target="_blank" rel="noreferrer"
+           class="bg-slate-900 text-white font-semibold px-5 py-2.5 rounded-full text-xs sm:text-sm hover:bg-slate-800 transition-all shadow-xs inline-flex items-center gap-1.5 hover:scale-105">
+            Get the app <span>↗</span>
+        </a>
+    </header>
+
+    <!-- Main Content Grid Layout -->
+    <main class="relative flex-1 w-full max-w-6xl mx-auto px-6 py-10 md:py-16 grid grid-cols-1 lg:grid-cols-[1fr_380px_1fr] items-center gap-10 md:gap-12 overflow-hidden">
+
+        <!-- Glass Ambient Glow Blobs -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-amber-200/35 via-orange-200/35 to-rose-200/35 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+
+        <!-- Section 1: Copy -->
+        <section class="copy text-left">
+            <div class="glass-pill inline-flex items-center text-xs font-semibold uppercase tracking-wider text-slate-600 bg-white/70 px-3.5 py-1.5 rounded-full border border-slate-200/80 mb-4">
+                A little nostalgia in your pocket
+            </div>
+            <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl font-medium tracking-tight text-slate-900 leading-[1.02] my-4">
+                Keep the<br/><em class="text-amber-600 not-italic italic">moment.</em>
+            </h1>
+            <p class="text-slate-500 text-sm sm:text-base leading-relaxed max-w-xs font-normal">
+                Discover the joy of instant photography. Classic cameras, tactile details and the magic of watching every memory develop.
+            </p>
+        </section>
+
+        <!-- Section 2: Demo Video Wrap -->
+        <section class="demo-wrap relative flex justify-center items-center my-4 lg:my-0">
+            <div class="absolute w-[320px] h-[320px] sm:w-[380px] sm:h-[380px] rounded-full bg-amber-100/60 blur-xl -z-10"></div>
+
+            <div class="video-frame relative z-10 w-[240px] sm:w-[280px] aspect-[9/20] rounded-[32px] p-2 bg-slate-950 shadow-2xl border border-white/20 overflow-hidden" id="videoFrame">
+                <video id="demo" autoplay muted loop playsinline controls preload="metadata" poster="" class="w-full h-full object-cover rounded-[24px] bg-slate-900">
+                    <source src="instant-now-demo.mp4" type="video/mp4">
+                    Your browser does not support HTML video.
+                </video>
+                <div class="play-hint absolute z-20 bottom-5 left-1/2 -translate-x-1/2 text-[10px] font-mono tracking-widest uppercase text-white bg-slate-950/80 backdrop-blur-md px-3 py-1.5 rounded-full pointer-events-none transition-opacity duration-300">
+                    App demo · 00:26
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Side Note -->
+        <aside class="side-note lg:justify-self-end text-left lg:text-left">
+            <div class="font-serif text-4xl sm:text-5xl italic text-amber-600 font-medium mb-2">
+                01 — 17
+            </div>
+            <div class="glass-pill inline-flex items-center text-xs font-semibold uppercase tracking-wider text-slate-600 bg-white/70 px-3.5 py-1.5 rounded-full border border-slate-200/80 mb-3">
+                One tap. One memory.
+            </div>
+            <p class="text-slate-500 text-xs sm:text-sm leading-relaxed max-w-xs font-normal">
+                Explore 17 instant camera styles and make ordinary moments feel unforgettable.
+            </p>
+        </aside>
+
+    </main>
+
+    <!-- Footer Bottom Bar -->
+    <footer class="bottom w-full max-w-6xl mx-auto px-6 py-6 border-t border-slate-200/60 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4 font-sans">
+        <span>Analog moments, made timeless.</span>
+        <span>Made for Android</span>
+        <a href="https://play.google.com/store/apps/details?id=com.s2.instant.camera" target="_blank" rel="noreferrer" class="text-slate-900 font-semibold border-b border-amber-500 pb-0.5 hover:text-amber-600 transition-colors">
+            Download on Google Play ↗
+        </a>
+    </footer>
+
 <script>
-const video=document.getElementById('demo'), frame=document.getElementById('videoFrame');
-video.addEventListener('play',()=>frame.classList.add('playing'));
-video.addEventListener('pause',()=>frame.classList.remove('playing'));
+    const video = document.getElementById('demo');
+    const frame = document.getElementById('videoFrame');
+    if (video && frame) {
+        video.addEventListener('play', () => frame.classList.add('playing'));
+        video.addEventListener('pause', () => frame.classList.remove('playing'));
+    }
 </script>
 </body>
 </html>
